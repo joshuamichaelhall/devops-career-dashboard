@@ -3,6 +3,9 @@
  * Provides functions for login, logout, and checking authentication status
  */
 
+// DEMO MODE FLAG
+const DEMO_MODE = process.env.REACT_APP_DEMO_MODE === 'true';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 const TOKEN_KEY = 'dashboard_auth_token';
 const USER_KEY = 'dashboard_user';
 
@@ -14,7 +17,27 @@ const USER_KEY = 'dashboard_user';
  */
 export const login = async (username, password) => {
   try {
-    const response = await fetch('/api/auth/login', {
+    if (DEMO_MODE) {
+      console.log('Demo mode: simulating login with', username);
+      
+      // In demo mode, any credentials work
+      const demoUser = {
+        id: 'demo-user',
+        username: 'demo',
+        isAdmin: false
+      };
+      
+      // Still simulate a delay to mimic network request
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Store auth token and user info in localStorage
+      localStorage.setItem(TOKEN_KEY, 'demo-token-xyz123');
+      localStorage.setItem(USER_KEY, JSON.stringify(demoUser));
+      
+      return { success: true, user: demoUser };
+    }
+    
+    const response = await fetch(`${API_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,6 +62,21 @@ export const login = async (username, password) => {
     return { success: true, user: data };
   } catch (error) {
     console.error('Login error:', error);
+    
+    if (DEMO_MODE) {
+      // Always succeed in demo mode
+      const demoUser = {
+        id: 'demo-user',
+        username: 'demo',
+        isAdmin: false
+      };
+      
+      localStorage.setItem(TOKEN_KEY, 'demo-token-xyz123');
+      localStorage.setItem(USER_KEY, JSON.stringify(demoUser));
+      
+      return { success: true, user: demoUser };
+    }
+    
     return { success: false, error: error.message };
   }
 };
@@ -47,11 +85,19 @@ export const login = async (username, password) => {
  * Log out current user
  */
 export const logout = () => {
+  if (DEMO_MODE) {
+    console.log('Demo mode: simulating logout');
+    // Redirect without actually clearing storage in demo mode
+    window.location.href = '/login';
+    return { success: true };
+  }
+  
   localStorage.removeItem(TOKEN_KEY);
   localStorage.removeItem(USER_KEY);
   
   // Redirect to login page
   window.location.href = '/login';
+  return { success: true };
 };
 
 /**
@@ -59,7 +105,11 @@ export const logout = () => {
  * @returns {boolean} Authentication status
  */
 export const isAuthenticated = () => {
-  return !!localStorage.getItem(TOKEN_KEY);
+  if (DEMO_MODE) {
+    return true; // Always authenticated in demo mode
+  }
+  
+  return !!getAuthToken();
 };
 
 /**
@@ -67,6 +117,15 @@ export const isAuthenticated = () => {
  * @returns {Object|null} User object or null if not authenticated
  */
 export const getCurrentUser = () => {
+  if (DEMO_MODE) {
+    // Always return demo user in demo mode
+    return {
+      id: 'demo-user',
+      username: 'demo',
+      isAdmin: false
+    };
+  }
+  
   const userJson = localStorage.getItem(USER_KEY);
   return userJson ? JSON.parse(userJson) : null;
 };
@@ -76,6 +135,10 @@ export const getCurrentUser = () => {
  * @returns {boolean} True if user is admin
  */
 export const isAdmin = () => {
+  if (DEMO_MODE) {
+    return false; // Demo user is not admin
+  }
+  
   const user = getCurrentUser();
   return user && user.isAdmin;
 };
@@ -85,6 +148,10 @@ export const isAdmin = () => {
  * @returns {string|null} Auth token or null if not authenticated
  */
 export const getAuthToken = () => {
+  if (DEMO_MODE) {
+    return 'demo-token-xyz123'; // Demo token
+  }
+  
   return localStorage.getItem(TOKEN_KEY);
 };
 
@@ -115,13 +182,36 @@ export const addAuthHeader = (headers = {}) => {
 export const authFetch = async (url, options = {}) => {
   const headers = addAuthHeader(options.headers || {});
   
+  // Special case for demo mode - prevent actual API calls for modifying data
+  if (DEMO_MODE && 
+      (options.method === 'POST' || options.method === 'PUT' || options.method === 'PATCH' || options.method === 'DELETE')) {
+    console.log('Demo mode: API call would be:', options.method, url);
+    
+    // For dashboard data fetch, return demo data
+    if (url.includes('/dashboard/data')) {
+      return {
+        ok: true,
+        json: async () => require('../data/demo-data.json')
+      };
+    }
+    
+    // For other endpoints, simulate success
+    return {
+      ok: true,
+      json: async () => ({ 
+        success: true, 
+        message: 'This is a read-only demo. Data modifications are not saved.' 
+      })
+    };
+  }
+  
   const response = await fetch(url, {
     ...options,
     headers
   });
   
-  // If unauthorized, log out
-  if (response.status === 401) {
+  // If unauthorized in non-demo mode, log out
+  if (response.status === 401 && !DEMO_MODE) {
     logout();
     throw new Error('Your session has expired. Please log in again.');
   }

@@ -7,13 +7,16 @@ import { authFetch } from './authService';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
+// DEMO MODE FLAG
+const DEMO_MODE = process.env.REACT_APP_DEMO_MODE === 'true';
+
 /**
  * Fetch dashboard data
  * @returns {Promise<Object>} Dashboard data
  */
 export const fetchDashboardData = async () => {
   try {
-    const response = await authFetch(`${API_URL}/data`);
+    const response = await authFetch(`${API_URL}/dashboard/data`);
     
     if (!response.ok) {
       throw new Error(`Failed to fetch dashboard data: ${response.statusText}`);
@@ -22,6 +25,10 @@ export const fetchDashboardData = async () => {
     return await response.json();
   } catch (error) {
     console.error('Error fetching dashboard data:', error);
+    // In demo mode, don't crash on API errors
+    if (DEMO_MODE) {
+      return require('../data/demo-data.json');
+    }
     throw error;
   }
 };
@@ -33,6 +40,11 @@ export const fetchDashboardData = async () => {
  */
 export const updateDashboardData = async (data) => {
   try {
+    if (DEMO_MODE) {
+      console.log('DEMO MODE: Simulating dashboard update');
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
+    
     const response = await authFetch(`${API_URL}/data`, {
       method: 'PUT',
       headers: {
@@ -48,6 +60,9 @@ export const updateDashboardData = async (data) => {
     return await response.json();
   } catch (error) {
     console.error('Error updating dashboard data:', error);
+    if (DEMO_MODE) {
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
     throw error;
   }
 };
@@ -60,6 +75,11 @@ export const updateDashboardData = async (data) => {
  */
 export const updateSection = async (section, data) => {
   try {
+    if (DEMO_MODE) {
+      console.log(`DEMO MODE: Simulating update to ${section} section`);
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
+    
     const response = await authFetch(`${API_URL}/data/${section}`, {
       method: 'PATCH',
       headers: {
@@ -75,8 +95,19 @@ export const updateSection = async (section, data) => {
     return await response.json();
   } catch (error) {
     console.error(`Error updating ${section}:`, error);
+    if (DEMO_MODE) {
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
     throw error;
   }
+};
+
+/**
+ * Update a specific dashboard section
+ * Added for compatibility with DashboardContext
+ */
+export const updateDashboardSection = async (section, data) => {
+  return updateSection(section, data);
 };
 
 /**
@@ -87,6 +118,11 @@ export const updateSection = async (section, data) => {
  */
 export const updateTaskStatus = async (taskId, completed) => {
   try {
+    if (DEMO_MODE) {
+      console.log(`DEMO MODE: Simulating task update for ${taskId}`);
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
+    
     const response = await authFetch(`${API_URL}/tasks/${taskId}`, {
       method: 'PATCH',
       headers: {
@@ -102,6 +138,9 @@ export const updateTaskStatus = async (taskId, completed) => {
     return await response.json();
   } catch (error) {
     console.error('Error updating task:', error);
+    if (DEMO_MODE) {
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
     throw error;
   }
 };
@@ -115,6 +154,11 @@ export const updateTaskStatus = async (taskId, completed) => {
  */
 export const logTime = async (category, hours, date) => {
   try {
+    if (DEMO_MODE) {
+      console.log(`DEMO MODE: Simulating time log for ${category}`);
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
+    
     const response = await authFetch(`${API_URL}/time-log`, {
       method: 'POST',
       headers: {
@@ -130,6 +174,9 @@ export const logTime = async (category, hours, date) => {
     return await response.json();
   } catch (error) {
     console.error('Error logging time:', error);
+    if (DEMO_MODE) {
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
     throw error;
   }
 };
@@ -141,6 +188,19 @@ export const logTime = async (category, hours, date) => {
  */
 export const addLearningResource = async (resourceData) => {
   try {
+    if (DEMO_MODE) {
+      console.log(`DEMO MODE: Simulating adding resource ${resourceData.title}`);
+      return { 
+        success: true, 
+        message: 'This is a read-only demo. Data modifications are not saved.',
+        resource: {
+          id: `demo-${Date.now()}`,
+          ...resourceData,
+          dateAdded: new Date().toISOString().split('T')[0]
+        }
+      };
+    }
+    
     const response = await authFetch(`${API_URL}/learning-resources`, {
       method: 'POST',
       headers: {
@@ -156,6 +216,17 @@ export const addLearningResource = async (resourceData) => {
     return await response.json();
   } catch (error) {
     console.error('Error adding learning resource:', error);
+    if (DEMO_MODE) {
+      return { 
+        success: true, 
+        message: 'This is a read-only demo. Data modifications are not saved.',
+        resource: {
+          id: `demo-${Date.now()}`,
+          ...resourceData,
+          dateAdded: new Date().toISOString().split('T')[0]
+        }
+      };
+    }
     throw error;
   }
 };
@@ -168,6 +239,11 @@ export const addLearningResource = async (resourceData) => {
  */
 export const updateLearningResource = async (id, updates) => {
   try {
+    if (DEMO_MODE) {
+      console.log(`DEMO MODE: Simulating resource update for ${id}`);
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
+    
     const response = await authFetch(`${API_URL}/learning-resources/${id}`, {
       method: 'PATCH',
       headers: {
@@ -183,6 +259,9 @@ export const updateLearningResource = async (id, updates) => {
     return await response.json();
   } catch (error) {
     console.error('Error updating learning resource:', error);
+    if (DEMO_MODE) {
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
     throw error;
   }
 };
@@ -193,6 +272,11 @@ export const updateLearningResource = async (id, updates) => {
  */
 export const runDashboardUpdate = async () => {
   try {
+    if (DEMO_MODE) {
+      console.log('DEMO MODE: Simulating dashboard update script');
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
+    
     const response = await authFetch(`${API_URL}/update-dashboard`, {
       method: 'POST',
       headers: {
@@ -207,6 +291,9 @@ export const runDashboardUpdate = async () => {
     return await response.json();
   } catch (error) {
     console.error('Error running dashboard update:', error);
+    if (DEMO_MODE) {
+      return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
+    }
     throw error;
   }
 };
