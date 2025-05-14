@@ -3,7 +3,7 @@ services:
     name: devops-dashboard
     env: node
     buildCommand: npm install && npm run build
-    startCommand: node demo-server.js
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -13,6 +13,8 @@ services:
         value: "true"
       - key: PORT
         value: "10000"
+      - key: REACT_APP_API_URL
+        value: "https://devops-dashboard.onrender.com/api"
     headers:
       - path: /*
         name: X-Frame-Options

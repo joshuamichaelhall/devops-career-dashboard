@@ -8,35 +8,16 @@ This guide walks you through deploying your DevOps Career Dashboard to Render's 
 - Render.com account (sign up at https://render.com)
 - Your repository pushed to GitHub
 
-## Step 1: Prepare Your Repository
+## Fixed Repository Structure
 
-1. First, modify your `package.json` to include a proper start script:
+I've restructured the repository to work with Render's deployment system:
 
-```json
-"scripts": {
-  "start": "node demo-server.js",
-  "build": "react-scripts build",
-  // other scripts...
-}
-```
+1. Added a root-level `package.json` with proper scripts
+2. Created a standalone `demo-server.js` at the root
+3. Updated the `render.yaml` configuration
+4. Added appropriate environment variables in `.env`
 
-2. Create a `render.yaml` file in your project root:
-
-```yaml
-services:
-  - type: web
-    name: devops-dashboard
-    env: node
-    buildCommand: npm install && npm run build
-    startCommand: npm start
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: DEMO_MODE
-        value: true
-      - key: REACT_APP_DEMO_MODE
-        value: true
-```
+All these changes allow Render to properly build and serve the demo version of your dashboard.
 
 ## Step 2: Deploy to Render
 
