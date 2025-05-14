@@ -2,11 +2,19 @@
 
 A comprehensive dashboard for tracking your DevOps career progress, learning resources, and professional networking activities.
 
-![Dashboard Screenshot](screenshots/dashboard.png)
+![Dashboard Overview](screenshots/dashboard-overview.png)
 
 ## Demo Available
 
 A live demo of this dashboard is available at [devops-dashboard.joshuamichaelhall.com](https://devops-dashboard.joshuamichaelhall.com?demo=true). The demo version includes sample data showing approximately 90% career progress and is clearly marked as a demonstration.
+
+## Additional Screenshots
+
+### Networking Section
+![Networking Tracker](screenshots/dashboard-network.png)
+
+### Learning Resources
+![Learning Tracker](screenshots/dashboard-learning.png)
 
 - **Live Demo**: [devops-dashboard.joshuamichaelhall.com](https://devops-dashboard.joshuamichaelhall.com?demo=true)
 - **Project Page**: [joshuamichaelhall.com/dashboard](https://joshuamichaelhall.com/dashboard)
