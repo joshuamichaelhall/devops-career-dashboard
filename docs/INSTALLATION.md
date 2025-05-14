@@ -2,6 +2,17 @@
 
 This document provides comprehensive installation instructions for the DevOps Career Dashboard, including various deployment options and troubleshooting steps.
 
+## Privacy and Data Ownership
+
+When installing this dashboard, you should understand these key privacy features:
+
+- **Private data**: All your personal career data stays on your system only
+- **Authentication**: You'll create your own admin credentials during setup
+- **Clean repository**: Cloning this repository does not give others access to your data
+- **Environment separation**: Sensitive configuration stays in your local `.env` file
+
+These features ensure that **only you can update your dashboard data** while allowing others to use the codebase for their own career tracking.
+
 ## Local Installation
 
 ### Prerequisites

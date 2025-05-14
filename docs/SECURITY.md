@@ -2,6 +2,17 @@
 
 This document provides details about the security features implemented in the DevOps Career Dashboard and best practices for secure deployment.
 
+## Privacy and Data Ownership
+
+The DevOps Career Dashboard is designed to ensure that **only you can update your own dashboard** while allowing others to use the codebase without compromising your personal data:
+
+1. **Data Isolation**: Your personal dashboard data is never included in the repository
+2. **Configuration Privacy**: Sensitive configuration is stored in `.env` files excluded via `.gitignore`
+3. **Authentication-Protected Updates**: Only users with admin credentials can modify dashboard data
+4. **Clean Repository**: When someone clones this repo, they get only code, not your personal data
+
+This design ensures you maintain full control over your career data while still allowing the community to benefit from the dashboard's functionality.
+
 ## Authentication System
 
 The dashboard uses a JWT (JSON Web Token) based authentication system with the following features:
@@ -76,7 +87,7 @@ The dashboard securely handles Clay API keys and other sensitive credentials:
 
 ## Secure Deployment Recommendations
 
-For the most secure production deployment:
+For the most secure production deployment that ensures only you can update your dashboard:
 
 1. **Environment Setup**:
    ```

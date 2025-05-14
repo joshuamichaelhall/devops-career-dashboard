@@ -127,6 +127,23 @@ devops-career-dashboard/
 - **Helmet.js**: HTTP header security
 - **Access Controls**: Role-based permissions (admin/read-only)
 
+### Privacy and Data Separation
+
+This repository is designed with privacy in mind:
+
+- **Your data stays private**: Personal dashboard data is not included in the repository
+- **Environment variables**: All sensitive configuration is in `.env` files (excluded via `.gitignore`)
+- **Owner-only updates**: Authentication ensures only you can update your own dashboard instance
+- **Clean separation**: Others can fork/clone this repo without getting your personal information
+
+When someone else uses this repository:
+1. They'll get code without your personal data or API keys
+2. They'll need to run `npm run setup-admin` to create their own admin account
+3. They'll configure their own environment in `.env` file
+4. They'll start with empty dashboard data that they populate themselves
+
+See [PRIVACY.md](docs/PRIVACY.md) for detailed information about data ownership and privacy boundaries.
+
 ## Contributing
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to participate in this project.
