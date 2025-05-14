@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: devops-dashboard
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: node demo-server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "true"
+      - key: REACT_APP_DEMO_MODE
+        value: "true"
+      - key: PORT
+        value: "10000"
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-XSS-Protection
+        value: 1; mode=block
+    healthCheckPath: /
+    autoDeploy: true

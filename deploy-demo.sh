@@ -238,15 +238,24 @@ docker run -p 3001:3001 devops-dashboard-demo
 \`\`\`
 EOF
 
+echo "Creating configuration for cloud platforms..."
+# Create package.json start script if needed
+if ! grep -q '"start"' package.json; then
+  # Use temporary file to modify package.json
+  jq '.scripts.start = "node demo-server.js"' package.json > package.json.tmp
+  mv package.json.tmp package.json
+fi
+
 echo "Installing additional required packages..."
 npm install --save compression express-rate-limit helmet
 
 echo "Demo deployment files created successfully!"
 echo
 echo "To deploy the demo, follow these steps:"
-echo "1. Set up your domain (devops-dashboard.joshuamichaelhall.com) to point to your server"
-echo "2. Follow the instructions in DEMO-DEPLOYMENT.md"
-echo "3. Users will be able to access the demo with username 'demo' and password 'demopassword'"
+echo "1. Check the FREE-HOSTING-GUIDE.md in the docs directory for deploying to Render (recommended)"
+echo "2. Or follow the self-hosting instructions in DEMO-DEPLOYMENT.md"
+echo "3. Set up your domain (devops-dashboard.joshuamichaelhall.com) to point to your hosting provider"
+echo "4. Users will be able to access the demo with username 'demo' and password 'demopassword'"
 echo
 echo "Note: The demo environment includes:"
 echo "- Clearly marked DEMO indicators"
@@ -254,4 +263,4 @@ echo "- Pre-filled sample data showing ~90% completion"
 echo "- Auto-login for easy access"
 echo "- Read-only mode (changes won't be persisted)"
 echo
-echo "For more information, see the DEMO-DEPLOYMENT.md file."
+echo "For more information, see the docs/FREE-HOSTING-GUIDE.md file."
