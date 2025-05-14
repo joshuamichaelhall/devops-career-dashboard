@@ -177,18 +177,3 @@ This project was built with assistance from [Claude.ai](https://claude.ai/), Ant
 - Documentation
 
 Networking functionality optionally integrates with [Clay](https://clay.com/) for CRM capabilities.
-
----
-
-## Screenshots
-
-<div align="center">
-  <img src="screenshots/dashboard.png" alt="Main Dashboard View" width="80%" />
-  <p><i>Main Dashboard View</i></p>
-  
-  <img src="screenshots/learning-resources.png" alt="Learning Resources" width="80%" />
-  <p><i>Learning Resources Tracker</i></p>
-  
-  <img src="screenshots/networking.png" alt="Networking Integration" width="80%" />
-  <p><i>Networking Integration with Clay CRM</i></p>
-</div>
