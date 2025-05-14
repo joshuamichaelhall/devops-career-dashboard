@@ -1,0 +1,284 @@
+{
+  "overview": {
+    "currentWeek": 1,
+    "currentYear": 2025,
+    "totalReviews": 0,
+    "completedGoals": 0,
+    "totalGoals": 17,
+    "goalCompletionRate": 0,
+    "currentPhase": "Foundation Building (Phase 1)",
+    "phaseNumber": 1,
+    "phaseProgress": 0,
+    "overallProgress": 0
+  },
+  "weeklyMetrics": {
+    "learningHours": 0,
+    "projectHours": 0,
+    "networkingHours": 0,
+    "jobSearchHours": 0,
+    "contentCreationHours": 0,
+    "newConnections": 0,
+    "contentCreated": 0,
+    "skillsAdvanced": 0,
+    "totalHours": 0
+  },
+  "careerPhases": [
+    { 
+      "id": 1, 
+      "name": "Foundation Building", 
+      "duration": "Months 1-6", 
+      "progress": 0,
+      "description": "AWS, Terraform, Docker fundamentals" 
+    },
+    { 
+      "id": 2, 
+      "name": "Advanced Skills Development", 
+      "duration": "Months 7-12", 
+      "progress": 0,
+      "description": "Kubernetes, CI/CD, advanced AWS" 
+    },
+    { 
+      "id": 3, 
+      "name": "Mid-Level Position Attainment", 
+      "duration": "Months 13-18", 
+      "progress": 0,
+      "description": "Security, compliance, financial services expertise" 
+    },
+    { 
+      "id": 4, 
+      "name": "Senior Role Preparation", 
+      "duration": "Months 19-24", 
+      "progress": 0,
+      "description": "Platform engineering, technical leadership" 
+    }
+  ],
+  "skills": [{ "category": "Cloud", "skills": [], "proficiency": "Beginner" }],
+  "certifications": [
+    {
+      "name": "AWS Solutions Architect Associate",
+      "targetDate": "Month 3",
+      "status": "Not Started",
+      "progress": 0
+    },
+    {
+      "name": "HashiCorp Terraform Associate",
+      "targetDate": "Month 5",
+      "status": "Not Started",
+      "progress": 0
+    },
+    {
+      "name": "AWS DevOps Professional",
+      "targetDate": "Month 14-15",
+      "status": "Planned",
+      "progress": 0
+    },
+    {
+      "name": "AWS Security Specialty",
+      "targetDate": "Month 18-19",
+      "status": "Planned",
+      "progress": 0
+    },
+    {
+      "name": "Certified Kubernetes Administrator",
+      "targetDate": "Month 21-22",
+      "status": "Planned",
+      "progress": 0
+    }
+  ],
+  "projects": [
+    {
+      "name": "AWS Infrastructure Automation",
+      "status": "Not Started",
+      "progress": 0,
+      "description": "Creating a fully automated AWS infrastructure using Terraform"
+    },
+    {
+      "name": "Multi-Environment Infrastructure",
+      "status": "Not Started",
+      "progress": 0,
+      "description": "Building dev, staging, and production environments with proper separation"
+    },
+    {
+      "name": "Container Platform",
+      "status": "Not Started",
+      "progress": 0,
+      "description": "Setting up a Kubernetes cluster with monitoring and deployment pipelines"
+    }
+  ],
+  "goals": [
+    {
+      "content": "Complete AWS VPC section in Cantrill course",
+      "category": "Learning",
+      "dueDate": "This week",
+      "completed": false
+    },
+    {
+      "content": "Create first VPC architecture in AWS",
+      "category": "Project",
+      "dueDate": "This week",
+      "completed": false
+    },
+    {
+      "content": "Connect with 25-30 AWS specialists this week",
+      "category": "Networking",
+      "dueDate": "This week",
+      "completed": false
+    },
+    {
+      "content": "Publish first technical article on AWS VPC",
+      "category": "Content Creation",
+      "dueDate": "Next week",
+      "completed": false
+    },
+    {
+      "content": "Complete chapters 4-5 of \"How Linux Works\"",
+      "category": "Learning",
+      "dueDate": "This week",
+      "completed": false
+    }
+  ],
+  "schedule": {
+    "timeAllocation": {
+      "learning": 25,
+      "projects": 12.5,
+      "networking": 7.5,
+      "contentCreation": 5
+    },
+    "dailySchedule": {
+      "Monday": [
+        {
+          "time": "6:00-7:30 AM",
+          "activity": "AWS SAA Course",
+          "category": "Learning"
+        },
+        {
+          "time": "12:00-12:30 PM",
+          "activity": "Review Notes",
+          "category": "Learning"
+        },
+        {
+          "time": "7:00-9:00 PM",
+          "activity": "AWS VPC Project",
+          "category": "Project"
+        },
+        {
+          "time": "9:00-10:30 PM",
+          "activity": "LinkedIn Networking",
+          "category": "Networking"
+        }
+      ],
+      "Tuesday": [
+        {
+          "time": "6:00-7:30 AM",
+          "activity": "AWS SAA Course",
+          "category": "Learning"
+        },
+        {
+          "time": "12:00-12:30 PM",
+          "activity": "Review Notes",
+          "category": "Learning"
+        },
+        {
+          "time": "7:00-9:00 PM",
+          "activity": "AWS VPC Project",
+          "category": "Project"
+        },
+        {
+          "time": "9:00-10:30 PM",
+          "activity": "LinkedIn Networking",
+          "category": "Networking"
+        }
+      ],
+      "Wednesday": [
+        {
+          "time": "6:00-7:30 AM",
+          "activity": "AWS SAA Course",
+          "category": "Learning"
+        },
+        {
+          "time": "12:00-12:30 PM",
+          "activity": "Review Notes",
+          "category": "Learning"
+        },
+        {
+          "time": "7:00-9:00 PM",
+          "activity": "AWS VPC Project",
+          "category": "Project"
+        },
+        {
+          "time": "9:00-10:30 PM",
+          "activity": "Content Creation",
+          "category": "Content"
+        }
+      ],
+      "Thursday": [
+        {
+          "time": "6:00-7:30 AM",
+          "activity": "Linux Book",
+          "category": "Learning"
+        },
+        {
+          "time": "12:00-12:30 PM",
+          "activity": "Review Notes",
+          "category": "Learning"
+        },
+        {
+          "time": "7:00-9:00 PM",
+          "activity": "AWS VPC Project",
+          "category": "Project"
+        },
+        {
+          "time": "9:00-10:30 PM",
+          "activity": "LinkedIn Networking",
+          "category": "Networking"
+        }
+      ],
+      "Friday": [
+        {
+          "time": "6:00-7:30 AM",
+          "activity": "AWS SAA Course",
+          "category": "Learning"
+        },
+        {
+          "time": "12:00-12:30 PM",
+          "activity": "Review Notes",
+          "category": "Learning"
+        },
+        {
+          "time": "7:00-9:00 PM",
+          "activity": "AWS VPC Project",
+          "category": "Project"
+        },
+        {
+          "time": "9:00-10:30 PM",
+          "activity": "Content Creation",
+          "category": "Content"
+        }
+      ],
+      "Saturday": [
+        {
+          "time": "8:00-12:00 AM",
+          "activity": "AWS SAA Course",
+          "category": "Learning"
+        },
+        {
+          "time": "2:00-4:00 PM",
+          "activity": "AWS VPC Project",
+          "category": "Project"
+        }
+      ],
+      "Sunday": [
+        {
+          "time": "8:00-12:00 AM",
+          "activity": "Linux Book",
+          "category": "Learning"
+        },
+        {
+          "time": "2:00-4:00 PM",
+          "activity": "Weekly Review",
+          "category": "Planning"
+        }
+      ]
+    }
+  }
+}

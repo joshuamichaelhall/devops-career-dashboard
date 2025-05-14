@@ -1,0 +1,58 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "DevOps Career Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "node server.js",
+    "dev": "concurrently \"npm run start\" \"npm run server\"",
+    "dev:windows": "concurrently \"cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts start\" \"node server.js\"",
+    "setup-admin": "node scripts/setup-admin.js",
+    "generate-key": "node scripts/generate-encryption-key.js",
+    "secure-setup": "npm run generate-key && npm run setup-admin",
+    "start-prod": "./start-dashboard.sh production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "autoprefixer": "^10.4.21",
+    "axios": "^1.9.0",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^2.2.0",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.1.5",
+    "fs-extra": "^11.3.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.294.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.2",
+    "react-scripts": "^5.0.1",
+    "tailwindcss": "^3.4.17"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
