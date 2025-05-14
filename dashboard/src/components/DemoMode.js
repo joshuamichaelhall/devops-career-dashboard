@@ -31,7 +31,7 @@ export const DemoModeProvider = ({ children }) => {
       const urlDemoMode = urlParams.get('demo') === 'true';
       
       // Check if domain is the demo domain
-      const isDemoDomain = window.location.hostname === 'devops-dashboard.joshuamichaelhall.com';
+      const isDemoDomain = window.location.hostname === 'devops-dashboard.joshuamichaelhall.com' || window.location.hostname === 'devops-dashboard.onrender.com';
       
       // Set demo mode if any condition is true
       setIsDemoMode(envDemoMode || urlDemoMode || isDemoDomain);

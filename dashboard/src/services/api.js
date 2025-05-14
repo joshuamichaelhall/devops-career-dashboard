@@ -5,7 +5,12 @@
 
 import { authFetch } from './authService';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
+// Determine API URL based on hostname
+let apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+if (window.location.hostname === 'devops-dashboard.joshuamichaelhall.com') {
+  apiBaseUrl = 'https://devops-dashboard.joshuamichaelhall.com';
+}
+const API_URL = `${apiBaseUrl}/api`;
 
 // DEMO MODE FLAG
 const DEMO_MODE = process.env.REACT_APP_DEMO_MODE === 'true';
