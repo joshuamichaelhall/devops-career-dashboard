@@ -4,6 +4,14 @@ A comprehensive dashboard for tracking your DevOps career progress, learning res
 
 ![Dashboard Screenshot](screenshots/dashboard.png)
 
+## Demo Available
+
+A live demo of this dashboard is available at [devops-dashboard.joshuamichaelhall.com](https://devops-dashboard.joshuamichaelhall.com?demo=true). The demo version includes sample data showing approximately 90% career progress and is clearly marked as a demonstration.
+
+- **Live Demo**: [devops-dashboard.joshuamichaelhall.com](https://devops-dashboard.joshuamichaelhall.com?demo=true)
+- **Project Page**: [joshuamichaelhall.com/dashboard](https://joshuamichaelhall.com/dashboard)
+- **Development Article**: [Strategic Approach to DevOps Skills](https://joshuamichaelhall.com/blog/2025/05/20/strategic-approach-to-devops-skills)
+
 ## About this Project
 
 This dashboard was created to help DevOps professionals and career transitioners monitor their progress, focus their learning efforts, and track career advancement metrics. It serves as both a productivity tool and a personal career development center.
