@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDashboard } from '../context/DashboardContext';
+import { getBeginnerSkills, getTrackSpecificSkills, getAllSkills } from '../data/templates/skills-template';
 
 /**
  * Setup Wizard Component
@@ -61,19 +62,64 @@ const SetupWizard = ({ onComplete }) => {
   // Submit the form and create initial dashboard data
   const handleSubmit = async () => {
     try {
-      // Process selected focus areas - add skills
+      // 1. Set up skills based on career stage and focus areas
+      const skillsToAdd = [];
+      
+      // Generate appropriate skill set based on career stage
+      const baseSkills = getBeginnerSkills(careerStage);
+      
+      // Add skills and filter based on focus areas
+      const selectedSkillCategories = baseSkills.filter(category => {
+        // Keep only the categories that are in the selected focus areas
+        // or essential categories like Scripting that should always be included
+        const matchingArea = skillAreas.find(area => 
+          category.category.toLowerCase().includes(area.name.toLowerCase()) && 
+          focusAreas.includes(area.id)
+        );
+        
+        // Always include Scripting and essential categories
+        return matchingArea || category.category === "Scripting";
+      });
+      
+      // Update skills in the backend
+      try {
+        // Update the skills section via the dashboard API
+        const response = await fetch('http://localhost:3001/api/data/skills', {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(selectedSkillCategories),
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to update skills');
+        }
+      } catch (err) {
+        console.error('Error bulk updating skills:', err);
+        
+        // Fallback to individual skill updates
+        for (const category of selectedSkillCategories) {
+          for (const skill of category.skills) {
+            try {
+              await updateSkills(category.category, skill, 'Beginner');
+            } catch (skillError) {
+              console.error(`Error adding skill ${skill}:`, skillError);
+            }
+          }
+        }
+      }
+      
+      // 2. Process selected focus areas - add tasks
       for (const areaId of focusAreas) {
         const area = skillAreas.find(a => a.id === areaId);
         if (area) {
-          // Add as a skill
-          await updateSkills(area.name, area.name, 'Beginner');
-          
           // Add as a task
           await addTask(`Improve ${area.name} skills`, 'skill', 'high');
         }
       }
       
-      // Process selected certifications
+      // 3. Process selected certifications
       for (const certId of certifications) {
         const cert = certificationOptions.find(c => c.id === certId);
         if (cert) {

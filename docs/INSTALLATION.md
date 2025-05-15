@@ -57,8 +57,8 @@ These features ensure that **only you can update your dashboard data** while all
    
    This will start both the React development server and the API server.
    
-   - React frontend: http://localhost:3002
-   - API server: http://localhost:3001
+   - React frontend: http://localhost:3000
+   - API server: http://localhost:3005
 
 ## Production Deployment
 
@@ -73,7 +73,7 @@ These features ensure that **only you can update your dashboard data** while all
    ```bash
    # In your .env file
    NODE_ENV=production
-   PORT=3001
+   PORT=3005
    REQUIRE_HTTPS=true  # If you're behind a properly configured reverse proxy
    ENABLE_RATE_LIMITING=true
    ```
@@ -88,7 +88,7 @@ These features ensure that **only you can update your dashboard data** while all
    ./start-dashboard.sh production
    ```
 
-4. **Access the dashboard** at http://localhost:3001
+4. **Access the dashboard** at http://localhost:3005
 
 ### Option 2: Docker Deployment
 
@@ -105,10 +105,10 @@ These features ensure that **only you can update your dashboard data** while all
 
    RUN npm run build
 
-   EXPOSE 3001
+   EXPOSE 3005
 
    ENV NODE_ENV=production
-   ENV PORT=3001
+   ENV PORT=3005
 
    CMD ["node", "server.js"]
    ```
@@ -120,10 +120,10 @@ These features ensure that **only you can update your dashboard data** while all
 
 3. **Run the Docker container**:
    ```bash
-   docker run -p 3001:3001 --env-file .env -d devops-career-dashboard
+   docker run -p 3005:3005 --env-file .env -d devops-career-dashboard
    ```
 
-4. **Access the dashboard** at http://localhost:3001
+4. **Access the dashboard** at http://localhost:3005
 
 ### Option 3: Deploying to Cloud Platforms
 
@@ -193,18 +193,24 @@ These features ensure that **only you can update your dashboard data** while all
 
 2. **Port conflicts**:
    
-   If ports 3001 or 3002 are already in use:
+   If ports 3000 or 3005 are already in use:
    ```bash
    # Find processes using the ports
-   lsof -i :3001
-   lsof -i :3002
+   lsof -i :3000
+   lsof -i :3005
    
    # Kill the processes
    kill -9 <PID>
    
-   # Or change the ports in .env file
-   PORT=3005  # For the API server
+   # Or use the emergency restart script
+   ./emergency-restart.sh
    ```
+   
+   The emergency restart script will:
+   - Kill all Node.js processes
+   - Reset environment configurations
+   - Create separate port configurations for React (3000) and API (3005)
+   - Start both servers with the correct port settings
 
 3. **Authentication setup issues**:
    
@@ -221,7 +227,7 @@ These features ensure that **only you can update your dashboard data** while all
    If the frontend can't connect to the API:
    ```bash
    # Ensure REACT_APP_API_URL is correctly set in .env
-   REACT_APP_API_URL=http://localhost:3001/api
+   REACT_APP_API_URL=http://localhost:3005/api
    
    # Check that the API server is running
    ```

@@ -31,10 +31,21 @@ echo "   - Using incognito/private mode"
 echo "   - Running ./force-reset.sh"
 echo ""
 
-# Start the dashboard in personal mode
+# Create .env.development file to ensure React uses port 3000
 cd dashboard
+echo "Creating .env.development file for React..."
+cat > .env.development << EOF
+PORT=3000
+EOF
+
+# Start the dashboard in personal mode
 echo "🚀 Starting your dashboard in personal mode..."
+echo "   - Frontend will be available at: http://localhost:3000"
+echo "   - API server will be available at: http://localhost:3005"
 echo ""
+
+# Set PORT=3005 for the API server but let React use its own PORT=3000
+export PORT=3005
 ./start-dashboard.sh
 
 echo ""

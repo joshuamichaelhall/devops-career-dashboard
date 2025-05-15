@@ -6,22 +6,34 @@
 import { authFetch } from './authService';
 
 // Determine API URL based on hostname
-let apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+let apiBaseUrl = process.env.REACT_APP_API_URL || 'http://localhost:3005/api';
 if (window.location.hostname === 'devops-dashboard.joshuamichaelhall.com') {
   apiBaseUrl = 'https://devops-dashboard.joshuamichaelhall.com';
 }
-const API_URL = `${apiBaseUrl}/api`;
+// Avoid double /api in the URL
+const API_URL = apiBaseUrl.includes('/api') ? apiBaseUrl : `${apiBaseUrl}/api`;
 
 // DEMO MODE FLAG
 const DEMO_MODE = process.env.REACT_APP_DEMO_MODE === 'true';
 
 /**
  * Fetch dashboard data
+ * @param {Object} options - Additional fetch options
  * @returns {Promise<Object>} Dashboard data
  */
-export const fetchDashboardData = async () => {
+export const fetchDashboardData = async (options = {}) => {
   try {
-    const response = await authFetch(`${API_URL}/dashboard/data`);
+    // Add cache-busting parameter if nocache is provided
+    const nocacheParam = options.nocache ? `?nocache=${options.nocache}` : '';
+    const url = `${API_URL}/dashboard/data${nocacheParam}`;
+    
+    const response = await authFetch(url, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
     
     if (!response.ok) {
       throw new Error(`Failed to fetch dashboard data: ${response.statusText}`);

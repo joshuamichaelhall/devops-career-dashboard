@@ -19,7 +19,7 @@ const { createBackup, importData, exportData, getTemplates, getTemplate, getBack
 const { syncData } = require('./server/cloudSync');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3005;
 
 // Clay API URL from environment variables
 const CLAY_API_URL = process.env.CLAY_API_URL || 'https://api.clay.com/v1';

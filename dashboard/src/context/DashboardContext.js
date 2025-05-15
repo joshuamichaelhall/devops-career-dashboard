@@ -369,6 +369,44 @@ export const DashboardProvider = ({ children }) => {
     }
   };
 
+  // Update career roadmap configuration
+  const updateRoadmapConfig = async (roadmapType, phases, title, description) => {
+    try {
+      setLoading(true);
+      
+      // Update careerPhases in backend
+      const phasesResult = await updateDashboardSection('careerPhases', phases);
+      
+      // Update overview to include roadmap title and description
+      const updatedOverview = {
+        ...dashboardData.overview,
+        roadmapTitle: title,
+        roadmapDescription: description
+      };
+      
+      const overviewResult = await updateDashboardSection('overview', updatedOverview);
+      
+      // Update local state
+      setDashboardData(prevData => ({
+        ...prevData,
+        careerPhases: phases,
+        overview: {
+          ...prevData.overview,
+          roadmapTitle: title,
+          roadmapDescription: description
+        }
+      }));
+      
+      return { success: true, phasesResult, overviewResult };
+    } catch (err) {
+      setError('Failed to update roadmap configuration');
+      console.error(err);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Context value
   const value = {
     dashboardData,
@@ -382,18 +420,32 @@ export const DashboardProvider = ({ children }) => {
     updateSkills,
     addLearningResource,
     updateLearningResource,
+    updateRoadmapConfig,
     refreshData: async () => {
       try {
         setLoading(true);
         setError(null);
         
         try {
-          // Clear any cached data in memory
+          // Clear both localStorage and sessionStorage caches
           localStorage.removeItem('dashboard_data_cache');
+          sessionStorage.removeItem('dashboard_data_cache');
+          
+          // Clear any application cache
+          if ('caches' in window) {
+            try {
+              const cacheKeys = await caches.keys();
+              await Promise.all(
+                cacheKeys.filter(key => key.includes('dashboard')).map(key => caches.delete(key))
+              );
+            } catch (cacheErr) {
+              console.warn('Failed to clear application cache:', cacheErr);
+            }
+          }
           
           // Try to fetch fresh data from API
           console.log('Attempting to fetch fresh dashboard data...');
-          const data = await fetchDashboardData();
+          const data = await fetchDashboardData({ nocache: Date.now() });
           
           if (!data) {
             throw new Error('Received empty data from API');
@@ -401,20 +453,20 @@ export const DashboardProvider = ({ children }) => {
           
           console.log('Successfully loaded dashboard data');
           setDashboardData(data);
+          
+          // Force reload the page to clear any component-level cached state
+          window.location.reload();
         } catch (apiErr) {
           console.warn('API refresh failed:', apiErr);
           
-          // Force browser reload as a last resort
-          if (window.confirm('Error refreshing dashboard data. Would you like to reload the page?')) {
-            window.location.reload();
-            return;
-          }
-          
-          setError('Failed to refresh data. Try restarting the server or clearing browser cache.');
+          // Force browser reload 
+          window.location.reload();
         }
       } catch (err) {
         console.error('Critical error during refresh:', err);
         setError('Failed to refresh dashboard data: ' + (err.message || 'Unknown error'));
+        // Still attempt to reload the page
+        window.location.reload();
       } finally {
         setLoading(false);
       }

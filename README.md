@@ -139,6 +139,12 @@ devops-career-dashboard/
    cd dashboard
    npm run dev
    ```
+   
+   **If you encounter port conflicts**:
+   ```
+   ./emergency-restart.sh
+   ```
+   This will kill all Node.js processes and start the dashboard with the correct port configuration (frontend on port 3000, API on port 3005). Use this script when other methods fail to resolve port conflicts.
 
 6. To reset all dashboard data (start from scratch):
    ```

@@ -17,7 +17,7 @@ require('dotenv').config();
 const DEMO_DATA = require('./dashboard/src/data/demo-data.json');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3005;
 
 // Security middleware
 app.use(helmet({

@@ -96,7 +96,7 @@ Yes, you can extend the dashboard to connect to other services:
 ### The dashboard won't start. What should I check?
 
 1. Verify that Node.js is installed correctly (`node -v`)
-2. Check if the required ports (3001, 3002) are available
+2. Check if the required ports (3000, 3005) are available
 3. Ensure all dependencies are installed (`npm install`)
 4. Check your .env file for correct configuration
 5. Look for error messages in the console output

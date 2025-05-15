@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Plus, RefreshCw } from 'lucide-react';
+import { Plus, RefreshCw, Download } from 'lucide-react';
 import { useDashboard } from '../context/DashboardContext';
 import TaskItem from './TaskItem';
 import AddTaskForm from './AddTaskForm';
+import ImportTasksForm from './ImportTasksForm';
 
 const TasksTracker = () => {
   const { dashboardData, loading, refreshData } = useDashboard();
   const [showAddForm, setShowAddForm] = useState(false);
+  const [showImportForm, setShowImportForm] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
 
   if (loading || !dashboardData) {
@@ -29,7 +31,7 @@ const TasksTracker = () => {
     return tasks.filter(task => task.category.toLowerCase() === activeFilter.toLowerCase());
   };
   
-  const categories = ['all', 'learning', 'project', 'networking', 'content creation', 'job search'];
+  const categories = ['all', 'learning', 'project', 'networking', 'content', 'certification', 'skill', 'career'];
   
   return (
     <div>
@@ -44,7 +46,19 @@ const TasksTracker = () => {
             <RefreshCw size={18} />
           </button>
           <button
-            onClick={() => setShowAddForm(true)}
+            onClick={() => {
+              setShowImportForm(true);
+              setShowAddForm(false);
+            }}
+            className="bg-green-600 text-white px-3 py-2 rounded-md flex items-center"
+          >
+            <Download size={18} className="mr-1" /> Import Tasks
+          </button>
+          <button
+            onClick={() => {
+              setShowAddForm(true);
+              setShowImportForm(false);
+            }}
             className="bg-blue-600 text-white px-3 py-2 rounded-md flex items-center"
           >
             <Plus size={18} className="mr-1" /> Add Task
@@ -72,6 +86,12 @@ const TasksTracker = () => {
       {showAddForm && (
         <div className="mb-6">
           <AddTaskForm onClose={() => setShowAddForm(false)} />
+        </div>
+      )}
+      
+      {showImportForm && (
+        <div className="mb-6">
+          <ImportTasksForm onClose={() => setShowImportForm(false)} />
         </div>
       )}
       

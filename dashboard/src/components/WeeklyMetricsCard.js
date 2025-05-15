@@ -96,12 +96,12 @@ const WeeklyMetricsCard = () => {
           <div>
             <div className="flex justify-between text-sm mb-1">
               <span className="text-gray-600">Content Creation</span>
-              <span className="font-medium">{weeklyMetrics.contentCreationHours}/5 hours</span>
+              <span className="font-medium">{weeklyMetrics.contentCreationHours || 0}/5 hours</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
               <div
                 className="bg-yellow-500 h-2.5 rounded-full"
-                style={{ width: `${getProgressPercentage(weeklyMetrics.contentCreationHours, 5)}%` }}
+                style={{ width: `${getProgressPercentage(weeklyMetrics.contentCreationHours || 0, 5)}%` }}
               ></div>
             </div>
           </div>

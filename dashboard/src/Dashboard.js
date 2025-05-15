@@ -9,6 +9,11 @@ import ProgressUpdater from './components/ProgressUpdater';
 import WeeklyScheduleStats from './components/WeeklyScheduleStats';
 import SkillsForm from './components/SkillsForm';
 import AddSkillForm from './components/AddSkillForm';
+import ImportSkillsForm from './components/ImportSkillsForm';
+import ImportProjectsForm from './components/ImportProjectsForm';
+import ImportResourcesForm from './components/ImportResourcesForm';
+import ImportScheduleForm from './components/ImportScheduleForm';
+import RoadmapConfigForm from './components/RoadmapConfigForm';
 import CourseProgressForm from './components/CourseProgressForm';
 import AddResourceForm from './components/AddResourceForm';
 import ResourceProgressForm from './components/ResourceProgressForm';
@@ -51,6 +56,7 @@ const Dashboard = () => {
   const upcomingCertifications = dashboardData?.certifications || [];
   const weeklyMetrics = dashboardData?.weeklyMetrics || {};
   const currentProjects = dashboardData?.projects || [];
+  const roadmapTitle = dashboardData?.overview?.roadmapTitle;
   const skills = dashboardData?.skills || [];
   
   // Render the active tab content
@@ -94,8 +100,12 @@ const Dashboard = () => {
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">DevOps Career Dashboard</h1>
           <div className="text-sm">
-            Current Phase: {dashboardData.overview.phase || 'Loading'}
-            {dashboardData.overview.currentWeek && ` (Week ${dashboardData.overview.currentWeek})`}
+            {roadmapTitle ? (
+              <>Roadmap: {roadmapTitle}</>
+            ) : (
+              <>Current Phase: {dashboardData.overview.phase || 'Loading'}
+              {dashboardData.overview.currentWeek && ` (Week ${dashboardData.overview.currentWeek})`}</>
+            )}
           </div>
         </div>
       </header>
@@ -142,25 +152,68 @@ const NavItem = ({ icon, label, id, activeTab, setActiveTab }) => (
 
 // Dashboard Card Components
 const OverviewCard = ({ careerPhases }) => {
-  if (!careerPhases) return null;
+  const [showConfigForm, setShowConfigForm] = useState(false);
+  
+  if (!careerPhases) {
+    return (
+      <div className="bg-white rounded-lg shadow-md p-4">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold">Career Roadmap Progress</h2>
+          <button
+            onClick={() => setShowConfigForm(true)}
+            className="text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 py-1 px-2 rounded"
+          >
+            Configure Roadmap
+          </button>
+        </div>
+        
+        {showConfigForm ? (
+          <RoadmapConfigForm onClose={() => setShowConfigForm(false)} />
+        ) : (
+          <div className="text-center py-8">
+            <p className="text-gray-500 mb-4">No career roadmap has been configured yet.</p>
+            <button
+              onClick={() => setShowConfigForm(true)}
+              className="bg-blue-600 text-white px-4 py-2 rounded-md"
+            >
+              Set Up Career Roadmap
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  }
   
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
-      <h2 className="text-xl font-bold mb-4">Career Roadmap Progress</h2>
-      <div className="space-y-4">
-        {careerPhases.map(phase => (
-          <div key={phase.id}>
-            <div className="flex justify-between text-sm mb-1">
-              <span className="font-medium">{phase.name}</span>
-              <span>{phase.duration}</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${phase.progress}%` }}></div>
-            </div>
-            <p className="text-xs text-gray-500 mt-1">{phase.description}</p>
-          </div>
-        ))}
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-bold">Career Roadmap Progress</h2>
+        <button
+          onClick={() => setShowConfigForm(true)}
+          className="text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 py-1 px-2 rounded"
+        >
+          Configure Roadmap
+        </button>
       </div>
+      
+      {showConfigForm ? (
+        <RoadmapConfigForm onClose={() => setShowConfigForm(false)} />
+      ) : (
+        <div className="space-y-4">
+          {careerPhases.map(phase => (
+            <div key={phase.id}>
+              <div className="flex justify-between text-sm mb-1">
+                <span className="font-medium">{phase.name}</span>
+                <span>{phase.duration}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2.5">
+                <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${phase.progress}%` }}></div>
+              </div>
+              <p className="text-xs text-gray-500 mt-1">{phase.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
@@ -244,12 +297,14 @@ const CertificationProgressCard = ({ certifications }) => {
 const SkillsTracker = ({ skills }) => {
   const [editingCategory, setEditingCategory] = useState(null);
   const [showAddSkillForm, setShowAddSkillForm] = useState(false);
+  const [showImportForm, setShowImportForm] = useState(false);
   
   if (!skills) return null;
   
   const handleEditCategory = (categoryName) => {
     setEditingCategory(categoryName);
     setShowAddSkillForm(false);
+    setShowImportForm(false);
   };
   
   const closeForm = () => {
@@ -258,6 +313,13 @@ const SkillsTracker = ({ skills }) => {
   
   const toggleAddSkillForm = () => {
     setShowAddSkillForm(!showAddSkillForm);
+    setEditingCategory(null);
+    setShowImportForm(false);
+  };
+  
+  const toggleImportForm = () => {
+    setShowImportForm(!showImportForm);
+    setShowAddSkillForm(false);
     setEditingCategory(null);
   };
   
@@ -282,16 +344,28 @@ const SkillsTracker = ({ skills }) => {
     <div>
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Skills Tracker</h2>
-        <button
-          onClick={toggleAddSkillForm}
-          className="bg-blue-600 text-white px-3 py-2 rounded-md flex items-center"
-        >
-          <Plus size={18} className="mr-1" /> Add Skill
-        </button>
+        <div className="flex space-x-2">
+          <button
+            onClick={toggleImportForm}
+            className="bg-green-600 text-white px-3 py-2 rounded-md flex items-center"
+          >
+            <Plus size={18} className="mr-1" /> Import Skills
+          </button>
+          <button
+            onClick={toggleAddSkillForm}
+            className="bg-blue-600 text-white px-3 py-2 rounded-md flex items-center"
+          >
+            <Plus size={18} className="mr-1" /> Add Skill
+          </button>
+        </div>
       </div>
       
       {showAddSkillForm && (
         <AddSkillForm onClose={toggleAddSkillForm} />
+      )}
+      
+      {showImportForm && (
+        <ImportSkillsForm onClose={toggleImportForm} />
       )}
       
       {editingCategory && (
@@ -335,11 +409,106 @@ const SkillsTracker = ({ skills }) => {
 };
 
 const ProjectsTracker = ({ projects }) => {
+  const [showImportForm, setShowImportForm] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  
   if (!projects) return null;
+  
+  const toggleImportForm = () => {
+    setShowImportForm(!showImportForm);
+  };
+  
+  const handleViewDetails = (project) => {
+    setSelectedProject(project);
+  };
+  
+  const closeProjectDetails = () => {
+    setSelectedProject(null);
+  };
   
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6">Projects Tracker</h2>
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold">Projects Tracker</h2>
+        <button
+          onClick={toggleImportForm}
+          className="bg-blue-600 text-white px-3 py-2 rounded-md flex items-center"
+        >
+          <Plus size={18} className="mr-1" /> Import Projects
+        </button>
+      </div>
+      
+      {showImportForm && (
+        <ImportProjectsForm onClose={toggleImportForm} />
+      )}
+      
+      {selectedProject && (
+        <div className="bg-white rounded-lg shadow-md p-4 mb-6">
+          <div className="flex justify-between items-center mb-3">
+            <h3 className="text-xl font-bold">{selectedProject.name}</h3>
+            <button
+              onClick={closeProjectDetails}
+              className="text-gray-500 hover:text-gray-700"
+            >
+              &times;
+            </button>
+          </div>
+          
+          <p className="text-gray-600 mb-4">{selectedProject.description}</p>
+          
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <p className="text-sm font-medium text-gray-500">Status</p>
+              <p className="font-medium">{selectedProject.status}</p>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-500">Progress</p>
+              <p className="font-medium">{selectedProject.progress}%</p>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-500">Target Date</p>
+              <p className="font-medium">{selectedProject.targetDate || 'Not set'}</p>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-500">Repository</p>
+              <p className="font-medium">
+                {selectedProject.repository ? (
+                  <a 
+                    href={selectedProject.repository}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    View Repository
+                  </a>
+                ) : (
+                  'Not set'
+                )}
+              </p>
+            </div>
+          </div>
+          
+          <div className="mb-4">
+            <p className="text-sm font-medium text-gray-500 mb-2">Technologies</p>
+            <div className="flex flex-wrap gap-2">
+              {selectedProject.technologies && selectedProject.technologies.map((tech, index) => (
+                <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
+                  {tech}
+                </span>
+              ))}
+              {(!selectedProject.technologies || selectedProject.technologies.length === 0) && (
+                <span className="text-gray-500 italic">No technologies listed</span>
+              )}
+            </div>
+          </div>
+          
+          <div className="mb-4">
+            <p className="text-sm font-medium text-gray-500 mb-2">Update Progress</p>
+            <ProgressUpdater type="project" item={selectedProject} />
+          </div>
+        </div>
+      )}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map(project => (
           <div key={project.name} className="bg-white rounded-lg shadow-md p-4">
@@ -350,11 +519,19 @@ const ProjectsTracker = ({ projects }) => {
             </div>
             <ProgressUpdater type="project" item={project} />
             <div className="grid grid-cols-2 gap-2 mt-4">
-              <button className="bg-gray-100 text-gray-600 py-1 px-3 rounded text-sm">View Details</button>
+              <button 
+                onClick={() => handleViewDetails(project)}
+                className="bg-gray-100 text-gray-600 py-1 px-3 rounded text-sm hover:bg-gray-200"
+              >
+                View Details
+              </button>
             </div>
           </div>
         ))}
-        <div className="bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 p-4 flex flex-col items-center justify-center text-gray-500 cursor-pointer hover:bg-gray-100">
+        <div 
+          onClick={toggleImportForm}
+          className="bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 p-4 flex flex-col items-center justify-center text-gray-500 cursor-pointer hover:bg-gray-100"
+        >
           <p className="text-xl font-bold">+ Add New Project</p>
           <p className="text-sm">Track a new portfolio project</p>
         </div>
@@ -596,6 +773,7 @@ const LearningTracker = () => {
   const [showCourseProgressForm, setShowCourseProgressForm] = useState(false);
   const [showAddResourceForm, setShowAddResourceForm] = useState(false);
   const [showResourceProgressForm, setShowResourceProgressForm] = useState(false);
+  const [showImportResourcesForm, setShowImportResourcesForm] = useState(false);
   
   if (!dashboardData) return null;
   
@@ -603,16 +781,26 @@ const LearningTracker = () => {
     setShowCourseProgressForm(!showCourseProgressForm);
     setShowResourceProgressForm(false);
     setShowAddResourceForm(false);
+    setShowImportResourcesForm(false);
   };
   
   const toggleResourceProgressForm = () => {
     setShowResourceProgressForm(!showResourceProgressForm);
     setShowCourseProgressForm(false);
     setShowAddResourceForm(false);
+    setShowImportResourcesForm(false);
   };
   
   const toggleAddResourceForm = () => {
     setShowAddResourceForm(!showAddResourceForm);
+    setShowCourseProgressForm(false);
+    setShowResourceProgressForm(false);
+    setShowImportResourcesForm(false);
+  };
+  
+  const toggleImportResourcesForm = () => {
+    setShowImportResourcesForm(!showImportResourcesForm);
+    setShowAddResourceForm(false);
     setShowCourseProgressForm(false);
     setShowResourceProgressForm(false);
   };
@@ -644,6 +832,12 @@ const LearningTracker = () => {
         <h2 className="text-2xl font-bold">Learning Tracker</h2>
         <div className="flex space-x-2">
           <button
+            onClick={toggleImportResourcesForm}
+            className="bg-green-600 text-white px-3 py-2 rounded-md flex items-center"
+          >
+            <Plus size={18} className="mr-1" /> Import Resources
+          </button>
+          <button
             onClick={toggleResourceProgressForm}
             className="bg-blue-600 text-white px-3 py-2 rounded-md flex items-center"
           >
@@ -651,12 +845,16 @@ const LearningTracker = () => {
           </button>
           <button
             onClick={toggleCourseProgressForm}
-            className="bg-green-600 text-white px-3 py-2 rounded-md flex items-center"
+            className="bg-blue-600 text-white px-3 py-2 rounded-md flex items-center"
           >
             <Plus size={18} className="mr-1" /> Update Course
           </button>
         </div>
       </div>
+      
+      {showImportResourcesForm && (
+        <ImportResourcesForm onClose={toggleImportResourcesForm} />
+      )}
       
       {showResourceProgressForm && (
         <ResourceProgressForm onClose={toggleResourceProgressForm} />
@@ -692,7 +890,7 @@ const LearningTracker = () => {
           <div className="space-y-2">
             <div className="flex justify-between">
               <span className="text-gray-600">This Week:</span>
-              <span className="font-medium">{dashboardData.weeklyMetrics.learningHours}/25 hours</span>
+              <span className="font-medium">{dashboardData.weeklyMetrics.learningHours || 0}/25 hours</span>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Last Week:</span>
@@ -700,7 +898,7 @@ const LearningTracker = () => {
             </div>
             <div className="flex justify-between">
               <span className="text-gray-600">Total:</span>
-              <span className="font-medium">{dashboardData.weeklyMetrics.learningHours} hours</span>
+              <span className="font-medium">{dashboardData.weeklyMetrics.learningHours || 0} hours</span>
             </div>
           </div>
           <div className="mt-4">
@@ -724,7 +922,20 @@ const LearningTracker = () => {
               <tbody className="divide-y divide-gray-200">
                 {completedResources.map(resource => (
                   <tr key={resource.id}>
-                    <td className="py-2 px-3 text-sm">{resource.name}</td>
+                    <td className="py-2 px-3 text-sm">
+                      {resource.url ? (
+                        <a 
+                          href={resource.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          {resource.name}
+                        </a>
+                      ) : (
+                        resource.name
+                      )}
+                    </td>
                     <td className="py-2 px-3 text-sm">{resource.type}</td>
                     <td className="py-2 px-3 text-sm">{resource.dateAdded}</td>
                   </tr>
@@ -739,12 +950,20 @@ const LearningTracker = () => {
         <div className="bg-white rounded-lg shadow-md p-4">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-bold">Resource Queue</h3>
-            <button
-              onClick={toggleAddResourceForm}
-              className="bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs py-1 px-2 rounded flex items-center"
-            >
-              <Plus size={16} className="mr-1" /> Add Resource
-            </button>
+            <div className="flex space-x-2">
+              <button
+                onClick={toggleImportResourcesForm}
+                className="bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs py-1 px-2 rounded flex items-center"
+              >
+                <Plus size={16} className="mr-1" /> Import Resources
+              </button>
+              <button
+                onClick={toggleAddResourceForm}
+                className="bg-blue-100 hover:bg-blue-200 text-blue-800 text-xs py-1 px-2 rounded flex items-center"
+              >
+                <Plus size={16} className="mr-1" /> Add Resource
+              </button>
+            </div>
           </div>
           
           {showAddResourceForm && (
@@ -764,12 +983,33 @@ const LearningTracker = () => {
               {pendingResources.length > 0 ? (
                 pendingResources.map(resource => (
                   <tr key={resource.id}>
-                    <td className="py-2 px-3 text-sm">{resource.name}</td>
-                    <td className="py-2 px-3 text-sm">{resource.type}</td>
-                    <td className="py-2 px-3 text-sm">{resource.priority}</td>
                     <td className="py-2 px-3 text-sm">
-                      {resource.status === 'Scheduled' 
-                        ? `Scheduled Month ${resource.targetMonth}` 
+                      {resource.url ? (
+                        <a 
+                          href={resource.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          {resource.name}
+                        </a>
+                      ) : (
+                        resource.name
+                      )}
+                    </td>
+                    <td className="py-2 px-3 text-sm">{resource.type}</td>
+                    <td className="py-2 px-3 text-sm">
+                      <span className={`px-2 py-1 rounded-full text-xs ${
+                        resource.priority === 'high' ? 'bg-red-100 text-red-800' :
+                        resource.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-green-100 text-green-800'
+                      }`}>
+                        {resource.priority}
+                      </span>
+                    </td>
+                    <td className="py-2 px-3 text-sm">
+                      {resource.status === 'Scheduled' && resource.targetMonth
+                        ? `Scheduled for ${resource.targetMonth}` 
                         : resource.status}
                     </td>
                   </tr>
@@ -791,54 +1031,127 @@ const LearningTracker = () => {
 
 const WeeklySchedule = () => {
   const { dashboardData } = useDashboard();
+  const [showImportForm, setShowImportForm] = useState(false);
   
-  if (!dashboardData || !dashboardData.schedule) return null;
+  if (!dashboardData) return null;
+  
+  const toggleImportForm = () => {
+    setShowImportForm(!showImportForm);
+  };
+  
+  // Define default values if schedule is not set yet
+  const schedule = dashboardData.schedule || {
+    timeAllocation: {
+      learning: 25,
+      projects: 12.5,
+      networking: 7.5,
+      content: 5,
+      total: 50
+    },
+    dailySchedule: {}
+  };
+  
+  // Calculate percentages for time allocation visualization
+  const learningPercent = Math.round((schedule.timeAllocation?.learning || 25) / (schedule.timeAllocation?.total || 50) * 100);
+  const projectsPercent = Math.round((schedule.timeAllocation?.projects || 12.5) / (schedule.timeAllocation?.total || 50) * 100);
+  const networkingPercent = Math.round((schedule.timeAllocation?.networking || 7.5) / (schedule.timeAllocation?.total || 50) * 100);
+  const contentPercent = Math.round((schedule.timeAllocation?.content || 5) / (schedule.timeAllocation?.total || 50) * 100);
   
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6">Weekly Schedule</h2>
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold">Weekly Schedule</h2>
+        <button
+          onClick={toggleImportForm}
+          className="bg-blue-600 text-white px-3 py-2 rounded-md flex items-center"
+        >
+          <Plus size={18} className="mr-1" /> Import Schedule
+        </button>
+      </div>
+      
+      {showImportForm && (
+        <ImportScheduleForm onClose={toggleImportForm} />
+      )}
+      
       <div className="grid grid-cols-1 gap-6">
         <div className="bg-white rounded-lg shadow-md p-4">
-          <h3 className="text-lg font-bold mb-4">Time Allocation (50 hrs/week)</h3>
+          <h3 className="text-lg font-bold mb-4">
+            Time Allocation ({schedule.timeAllocation?.total || 50} hrs/week)
+          </h3>
           <div className="w-full bg-gray-200 rounded-full h-6">
             <div className="flex">
-              <div className="bg-blue-600 h-6 rounded-l-full text-xs text-white flex items-center justify-center" style={{ width: '50%' }}>
-                Learning (25h)
+              <div 
+                className="bg-blue-600 h-6 rounded-l-full text-xs text-white flex items-center justify-center" 
+                style={{ width: `${learningPercent}%` }}
+              >
+                Learning ({schedule.timeAllocation?.learning || 25}h)
               </div>
-              <div className="bg-green-500 h-6 text-xs text-white flex items-center justify-center" style={{ width: '25%' }}>
-                Projects (12.5h)
+              <div 
+                className="bg-green-500 h-6 text-xs text-white flex items-center justify-center" 
+                style={{ width: `${projectsPercent}%` }}
+              >
+                Projects ({schedule.timeAllocation?.projects || 12.5}h)
               </div>
-              <div className="bg-purple-500 h-6 text-xs text-white flex items-center justify-center" style={{ width: '15%' }}>
-                Networking (7.5h)
+              <div 
+                className="bg-purple-500 h-6 text-xs text-white flex items-center justify-center" 
+                style={{ width: `${networkingPercent}%` }}
+              >
+                Networking ({schedule.timeAllocation?.networking || 7.5}h)
               </div>
-              <div className="bg-yellow-500 h-6 rounded-r-full text-xs text-white flex items-center justify-center" style={{ width: '10%' }}>
-                Content (5h)
+              <div 
+                className="bg-yellow-500 h-6 rounded-r-full text-xs text-white flex items-center justify-center" 
+                style={{ width: `${contentPercent}%` }}
+              >
+                Content ({schedule.timeAllocation?.content || 5}h)
               </div>
             </div>
           </div>
         </div>
         
-        <div className="grid grid-cols-7 gap-2">
-          {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(day => (
-            <div key={day} className="bg-white rounded-lg shadow-md p-3">
-              <h4 className="font-bold text-center border-b pb-2 mb-2">{day}</h4>
-              <div className="space-y-2">
-                {dashboardData.schedule.dailySchedule[day]?.map((activity, index) => (
-                  <div key={index} className={`p-2 rounded text-xs ${activity.category === 'Learning' ? 'bg-blue-50 text-blue-800' :
-                    activity.category === 'Projects' ? 'bg-green-50 text-green-800' :
-                    activity.category === 'Networking' ? 'bg-purple-50 text-purple-800' :
-                    activity.category === 'Content' ? 'bg-yellow-50 text-yellow-800' :
-                    'bg-gray-50 text-gray-800'}`}>
-                    <p className="font-medium">{activity.time}</p>
-                    <p>{activity.activity}</p>
-                  </div>
-                ))}
+        {dashboardData.schedule ? (
+          <div className="grid grid-cols-7 gap-2">
+            {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(day => (
+              <div key={day} className="bg-white rounded-lg shadow-md p-3">
+                <h4 className="font-bold text-center border-b pb-2 mb-2">{day}</h4>
+                <div className="space-y-2">
+                  {dashboardData.schedule.dailySchedule[day]?.map((activity, index) => (
+                    <div 
+                      key={index} 
+                      className={`p-2 rounded text-xs ${
+                        activity.category === 'Learning' ? 'bg-blue-50 text-blue-800' :
+                        activity.category === 'Projects' ? 'bg-green-50 text-green-800' :
+                        activity.category === 'Networking' ? 'bg-purple-50 text-purple-800' :
+                        activity.category === 'Content' ? 'bg-yellow-50 text-yellow-800' :
+                        'bg-gray-50 text-gray-800'
+                      }`}
+                    >
+                      <p className="font-medium">{activity.time}</p>
+                      <p>{activity.activity}</p>
+                    </div>
+                  ))}
+                  {(!dashboardData.schedule.dailySchedule[day] || 
+                    dashboardData.schedule.dailySchedule[day].length === 0) && (
+                    <div className="p-2 text-xs text-gray-500 italic text-center">
+                      No activities scheduled
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <p className="text-gray-500 mb-4">No schedule has been set up yet.</p>
+            <button
+              onClick={toggleImportForm}
+              className="bg-blue-600 text-white px-4 py-2 rounded-md"
+            >
+              Import a Schedule Template
+            </button>
+          </div>
+        )}
         
-        <WeeklyScheduleStats />
+        {dashboardData.schedule && <WeeklyScheduleStats />}
       </div>
     </div>
   );

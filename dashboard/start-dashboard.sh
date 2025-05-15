@@ -6,7 +6,7 @@ ENVIRONMENT=${1:-"development"}
 
 # Kill any existing processes
 echo "Stopping any existing processes..."
-kill -9 $(lsof -ti:3001,3002) 2>/dev/null || true
+kill -9 $(lsof -ti:3001,3002,3005) 2>/dev/null || true
 
 # Check if .env file exists, if not create it from template
 if [ ! -f ".env" ]; then
@@ -47,10 +47,10 @@ EOF
 else
   echo "Configuring for development environment..."
   # Update .env file with development settings
-  cat >> .env << EOF
+  cat > .env << EOF
 NODE_ENV=development
-REACT_APP_API_URL=http://localhost:3001/api
-PORT=3002
+REACT_APP_API_URL=http://localhost:3005/api
+PORT=3005
 REQUIRE_HTTPS=false
 ENABLE_RATE_LIMITING=false
 EOF
