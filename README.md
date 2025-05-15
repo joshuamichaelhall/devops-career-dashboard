@@ -122,16 +122,29 @@ devops-career-dashboard/
    - Generate a secure encryption key for API credentials
    - Create an admin user for dashboard access
 
-5. Start the dashboard in development mode:
+5. Start the dashboard using one of these options:
+
+   **For personal mode** (your own progress data):
    ```
+   ./start-personal.sh
+   ```
+
+   **For demo mode** (sample data, changes won't be saved):
+   ```
+   ./start-demo.sh
+   ```
+
+   **For development mode** (with hot reloading):
+   ```
+   cd dashboard
    npm run dev
    ```
 
-6. For production:
+6. To reset all dashboard data (start from scratch):
    ```
-   npm run build
-   npm run start-prod
+   ./reset-dashboard.sh
    ```
+   This will create a backup of your current data and reset all progress metrics.
 
 ## Security Features
 
@@ -167,6 +180,103 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for det
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Customizing Your Dashboard
+
+### Personalizing Goals and Tasks
+
+The dashboard is designed to be fully customizable to match your specific DevOps career path. Here are several ways to customize your tasks and goals:
+
+#### Through the Dashboard UI
+
+1. **Adding New Tasks**: Navigate to the Tasks tab and use the "+" button to add new tasks with categories, priorities, and due dates.
+
+2. **Updating Skills**: In the Skills tab, use the "Update" button on each skill category to add new skills or update proficiency levels.
+
+3. **Adding Learning Resources**: In the Learning tab, use the "Add Resource" button to track new courses, books, or tutorials.
+
+4. **Logging Time**: Use the Weekly Metrics card to log time spent on different activities.
+
+#### Directly Editing Data Files
+
+For more advanced customization, you can directly edit the data files:
+
+1. **Main Data File**: Located at `dashboard/src/data/data.json`. This contains all your personal dashboard data.
+
+2. **Initial Template**: Located at `dashboard/src/data/initial-data.json`. This is the template used when resetting or initializing a new dashboard.
+
+#### Creating Career-Specific Goals
+
+When setting up your dashboard, consider organizing your goals around these DevOps focus areas:
+
+- **Technical Skills**: AWS/Cloud, Kubernetes, Terraform, Docker, CI/CD pipelines
+- **Learning Goals**: Certifications, courses, books, tutorials
+- **Project Goals**: Personal projects that demonstrate specific DevOps skills
+- **Networking**: Professional connections, community involvement, conferences
+- **Content Creation**: Blog posts, presentations, open source contributions
+
+#### Example Custom Task Structure
+
+```json
+{
+  "content": "Complete AWS DevOps Professional certification",
+  "category": "certification",
+  "priority": "high",
+  "completed": false,
+  "due": "2025-08-30"
+}
+```
+
+### Using Templates for Different Career Stages
+
+The dashboard comes with templates for different career stages that you can select through the Data Manager interface:
+
+- **Early Career (0-2 years)**: Focus on foundational certifications and skills like AWS Cloud Practitioner and basic Linux/Docker
+- **Mid-Career (2-5 years)**: Focus on specialization and advanced tools like AWS DevOps Professional, Kubernetes, and CI/CD pipelines
+- **Senior Level (5+ years)**: Focus on architecture, leadership, and mentoring with platform engineering and technical leadership skills
+
+### Data Management Features
+
+The dashboard includes several data management features to help you maintain your career data:
+
+#### Importing and Exporting Data
+
+You can export your dashboard data as a JSON file for backup or transfer to another device:
+
+1. Navigate to the Settings tab
+2. Select "Data Manager"
+3. Use the Export function to download your data
+
+Similarly, you can import previously exported data:
+
+1. Navigate to the Settings tab
+2. Select "Data Manager"
+3. Use the Import function to upload your data file
+
+#### Cloud Sync
+
+Sync your dashboard with cloud storage services to access from multiple devices:
+
+- **Dropbox**: Store your dashboard data in your Dropbox account
+- **Google Drive**: Store your dashboard data in Google Drive
+- **GitHub Gist**: Store your dashboard as a private gist
+
+To set up cloud sync:
+
+1. Navigate to the Settings tab
+2. Select "Cloud Sync"
+3. Choose your preferred provider and follow the authentication steps
+4. Your data will automatically sync when updated
+
+#### Resetting or Starting Fresh
+
+If you want to reset your dashboard or start with a clean slate:
+
+```bash
+./reset-dashboard.sh
+```
+
+This will create a backup of your current data and reset to the initial template.
 
 ## Acknowledgements
 

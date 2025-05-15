@@ -385,20 +385,36 @@ export const DashboardProvider = ({ children }) => {
     refreshData: async () => {
       try {
         setLoading(true);
+        setError(null);
+        
         try {
-          // Try to fetch from API
+          // Clear any cached data in memory
+          localStorage.removeItem('dashboard_data_cache');
+          
+          // Try to fetch fresh data from API
+          console.log('Attempting to fetch fresh dashboard data...');
           const data = await fetchDashboardData();
+          
+          if (!data) {
+            throw new Error('Received empty data from API');
+          }
+          
+          console.log('Successfully loaded dashboard data');
           setDashboardData(data);
-          setError(null);
         } catch (apiErr) {
-          // If API fails, use local data
-          console.warn('API refresh failed, using local data:', apiErr);
-          setDashboardData(dashboardData);
-          setError(null);
+          console.warn('API refresh failed:', apiErr);
+          
+          // Force browser reload as a last resort
+          if (window.confirm('Error refreshing dashboard data. Would you like to reload the page?')) {
+            window.location.reload();
+            return;
+          }
+          
+          setError('Failed to refresh data. Try restarting the server or clearing browser cache.');
         }
       } catch (err) {
-        setError('Failed to refresh dashboard data');
-        console.error(err);
+        console.error('Critical error during refresh:', err);
+        setError('Failed to refresh dashboard data: ' + (err.message || 'Unknown error'));
       } finally {
         setLoading(false);
       }

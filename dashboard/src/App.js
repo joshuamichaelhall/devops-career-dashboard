@@ -1,12 +1,16 @@
 import React from 'react';
 import Dashboard from './Dashboard';
 import { DashboardProvider } from './context/DashboardContext';
+import { DemoModeProvider, DemoWatermark } from './components/DemoMode';
 
 function App() {
   return (
-    <DashboardProvider>
-      <Dashboard />
-    </DashboardProvider>
+    <DemoModeProvider>
+      <DashboardProvider>
+        <Dashboard />
+        <DemoWatermark />
+      </DashboardProvider>
+    </DemoModeProvider>
   );
 }
 

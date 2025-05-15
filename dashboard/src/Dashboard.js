@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, BarChart2, Users, Book, Briefcase, Award, CheckSquare, RefreshCw, Plus } from 'lucide-react';
 import { useDashboard } from './context/DashboardContext';
+import { useDemoMode } from './components/DemoMode';
+import DemoHeader from './components/DemoHeader';
 import TasksTracker from './components/TasksTracker';
 import WeeklyMetricsCard from './components/WeeklyMetricsCard';
 import ProgressUpdater from './components/ProgressUpdater';
@@ -17,6 +19,7 @@ import { fetchNetworkingMetrics, fetchActivities, getUpcomingFollowUps } from '.
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const { dashboardData, loading, error, refreshData } = useDashboard();
+  const { isDemoMode } = useDemoMode();
   
   if (loading) {
     return (
@@ -43,12 +46,12 @@ const Dashboard = () => {
     );
   }
   
-  // Load data from the context
-  const { careerPhases } = dashboardData;
-  const upcomingCertifications = dashboardData.certifications;
-  const weeklyMetrics = dashboardData.weeklyMetrics;
-  const currentProjects = dashboardData.projects;
-  const skills = dashboardData.skills;
+  // Load data from the context with safety checks
+  const careerPhases = dashboardData?.careerPhases || [];
+  const upcomingCertifications = dashboardData?.certifications || [];
+  const weeklyMetrics = dashboardData?.weeklyMetrics || {};
+  const currentProjects = dashboardData?.projects || [];
+  const skills = dashboardData?.skills || [];
   
   // Render the active tab content
   const renderTabContent = () => {
@@ -86,11 +89,13 @@ const Dashboard = () => {
   
   return (
     <div className="min-h-screen bg-gray-100">
+      {isDemoMode && <DemoHeader />}
       <header className="bg-blue-600 text-white p-4 shadow-md">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">DevOps Career Dashboard</h1>
           <div className="text-sm">
-            Current Phase: {dashboardData.overview.currentPhase} (Week {dashboardData.overview.currentWeek})
+            Current Phase: {dashboardData.overview.phase || 'Loading'}
+            {dashboardData.overview.currentWeek && ` (Week ${dashboardData.overview.currentWeek})`}
           </div>
         </div>
       </header>

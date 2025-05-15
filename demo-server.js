@@ -70,6 +70,12 @@ app.post('/api/auth/login', (req, res) => {
 
 // Data routes
 app.get('/api/dashboard/data', (req, res) => {
+  // Force all requests to return demo data with proper structure
+  res.json(DEMO_DATA);
+});
+
+// Also serve demo data from the base API endpoint for compatibility
+app.get('/api/data', (req, res) => {
   res.json(DEMO_DATA);
 });
 

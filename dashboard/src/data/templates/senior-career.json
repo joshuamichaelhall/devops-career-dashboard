@@ -1,0 +1,286 @@
+{
+  "overview": {
+    "phase": "Leadership Phase",
+    "phaseProgress": 75,
+    "totalGoals": 12,
+    "completedGoals": 0,
+    "goalCompletionRate": 0,
+    "nextMilestone": "Platform Engineering Leadership",
+    "lastUpdated": "2025-05-15"
+  },
+  "weeklyMetrics": {
+    "learningHours": 0,
+    "projectHours": 0,
+    "networkingHours": 0,
+    "totalHours": 0,
+    "targetHours": 35,
+    "completionRate": 0,
+    "skillsImproved": 0,
+    "connectionsAdded": 0
+  },
+  "skills": [
+    {
+      "category": "AWS",
+      "skills": ["EC2", "S3", "VPC", "ECS", "Lambda", "CloudFormation", "CloudWatch", "IAM", "ELB", "Security", "Architecture", "FinOps"],
+      "averageLevel": 80,
+      "targetLevel": 90
+    },
+    {
+      "category": "Infrastructure as Code",
+      "skills": ["Terraform", "CloudFormation", "CDK", "Pulumi", "GitOps", "Architecture Patterns"],
+      "averageLevel": 85,
+      "targetLevel": 95
+    },
+    {
+      "category": "Containers",
+      "skills": ["Docker", "Kubernetes", "ECS", "EKS", "Custom Operators", "Service Mesh"],
+      "averageLevel": 80,
+      "targetLevel": 90
+    },
+    {
+      "category": "Platform Engineering",
+      "skills": ["Internal Developer Platforms", "Self-Service", "Automation", "GitOps", "Developer Experience"],
+      "averageLevel": 75,
+      "targetLevel": 90
+    },
+    {
+      "category": "Security",
+      "skills": ["DevSecOps", "Compliance as Code", "SAST/DAST", "Secret Management", "IAM Best Practices"],
+      "averageLevel": 70,
+      "targetLevel": 90
+    },
+    {
+      "category": "Leadership",
+      "skills": ["Mentoring", "Technical Leadership", "Architecture Reviews", "Team Leading"],
+      "averageLevel": 65,
+      "targetLevel": 85
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Security Specialty",
+      "provider": "AWS",
+      "status": "In Progress",
+      "progress": 40,
+      "targetDate": "2025-07-30",
+      "notes": "Advanced security certification"
+    },
+    {
+      "name": "CKS (Certified Kubernetes Security Specialist)",
+      "provider": "CNCF",
+      "status": "Planned",
+      "progress": 10,
+      "targetDate": "2025-09-15",
+      "notes": "Advanced Kubernetes security specialization"
+    },
+    {
+      "name": "AWS Solutions Architect Professional",
+      "provider": "AWS",
+      "status": "Planned",
+      "progress": 15,
+      "targetDate": "2025-11-30",
+      "notes": "Top-level architecture certification"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Internal Developer Platform",
+      "description": "Build a comprehensive platform for developer self-service",
+      "status": "In Progress",
+      "progress": 35,
+      "technologies": ["Kubernetes", "Custom Operators", "CI/CD", "GitOps"],
+      "repository": "",
+      "targetDate": "2025-10-30"
+    },
+    {
+      "name": "FinOps Dashboard",
+      "description": "Create a cost optimization and governance dashboard for cloud resources",
+      "status": "Planned",
+      "progress": 10,
+      "technologies": ["AWS Cost Explorer API", "Grafana", "Terraform"],
+      "repository": "",
+      "targetDate": "2025-08-15"
+    },
+    {
+      "name": "Security Automation Framework",
+      "description": "Implement comprehensive security scanning and enforcement across the CI/CD pipeline",
+      "status": "In Progress",
+      "progress": 25,
+      "technologies": ["SAST/DAST", "Policy as Code", "OPA/Rego", "Compliance Automation"],
+      "repository": "",
+      "targetDate": "2025-07-30"
+    },
+    {
+      "name": "Infrastructure Cost Optimization",
+      "description": "Implement automated cost optimization for AWS infrastructure",
+      "status": "Planned",
+      "progress": 5,
+      "technologies": ["Terraform", "AWS", "Lambda", "CloudWatch"],
+      "repository": "",
+      "targetDate": "2025-09-15"
+    }
+  ],
+  "goals": [
+    {
+      "content": "Complete AWS Security Specialty certification",
+      "category": "certification",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-07-30"
+    },
+    {
+      "content": "Complete CKS certification",
+      "category": "certification",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-09-15"
+    },
+    {
+      "content": "Build internal developer platform",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-10-30"
+    },
+    {
+      "content": "Create FinOps dashboard for cost optimization",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-08-15"
+    },
+    {
+      "content": "Implement security automation framework",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-07-30"
+    },
+    {
+      "content": "Optimize infrastructure costs",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-09-15"
+    },
+    {
+      "content": "Present at DevOps/Cloud conference",
+      "category": "content",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-11-30"
+    },
+    {
+      "content": "Write technical white paper on platform engineering",
+      "category": "content",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-09-30"
+    },
+    {
+      "content": "Mentor 2 junior DevOps engineers",
+      "category": "leadership",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-12-31"
+    },
+    {
+      "content": "Contribute to major open source DevOps project",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-10-31"
+    },
+    {
+      "content": "Learn service mesh implementation (Istio or Linkerd)",
+      "category": "learning",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-08-31"
+    },
+    {
+      "content": "Develop engineering team skills matrix",
+      "category": "leadership",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-07-15"
+    }
+  ],
+  "learningResources": [
+    {
+      "id": "security-1",
+      "name": "AWS Security Specialty - Adrian Cantrill",
+      "type": "course",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 40,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "k8s-security-1",
+      "name": "Kubernetes Security Specialist (CKS)",
+      "type": "course",
+      "priority": "medium",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "August 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "platform-1",
+      "name": "Platform Engineering for DevOps Teams",
+      "type": "course",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 25,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "leadership-1",
+      "name": "Technical Leadership in DevOps",
+      "type": "book",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 30,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "service-mesh-1",
+      "name": "Service Mesh with Istio",
+      "type": "course",
+      "priority": "medium",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "July 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "finops-1",
+      "name": "FinOps for DevOps Engineers",
+      "type": "workshop",
+      "priority": "medium",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "July 2025",
+      "dateAdded": "2025-05-15"
+    }
+  ],
+  "networking": {
+    "totalConnections": 85,
+    "activeConversations": 12,
+    "weeklyOutreach": 0,
+    "followUps": 0,
+    "lastUpdate": "2025-05-15"
+  },
+  "clayMetrics": {
+    "newConnections": 0,
+    "connectionAcceptanceRate": 0,
+    "contentPieces": 0,
+    "engagementRate": 0,
+    "followUpsSent": 0,
+    "responseRate": 0
+  }
+}

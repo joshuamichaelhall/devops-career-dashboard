@@ -31,23 +31,29 @@ export const DemoModeProvider = ({ children }) => {
       const urlDemoMode = urlParams.get('demo') === 'true';
       
       // Check if domain is the demo domain
-      const isDemoDomain = window.location.hostname === 'devops-dashboard.joshuamichaelhall.com' || window.location.hostname === 'devops-dashboard.onrender.com';
+      const demoHostnames = [
+        'devops-dashboard.joshuamichaelhall.com',
+        'devops-dashboard.onrender.com',
+        'joshuamichaelhall.github.io'
+      ];
+      const isDemoDomain = demoHostnames.includes(window.location.hostname);
+      
+      // Force demo mode for certain paths
+      const isDemoPath = window.location.pathname.includes('/dashboard');
       
       // Set demo mode if any condition is true
-      setIsDemoMode(envDemoMode || urlDemoMode || isDemoDomain);
+      const isDemo = envDemoMode || urlDemoMode || isDemoDomain || isDemoPath;
+      console.log('Demo mode enabled:', isDemo, { envDemoMode, urlDemoMode, isDemoDomain, isDemoPath });
+      setIsDemoMode(isDemo);
       
-      // Check for demo user in localStorage
-      const userJson = localStorage.getItem('dashboard_user');
-      if (userJson) {
-        try {
-          const user = JSON.parse(userJson);
-          if (user.isDemoUser) {
-            setDemoUser(user);
-          }
-        } catch (e) {
-          console.error('Error parsing user JSON:', e);
-        }
-      }
+      // Set demo user for authenticated views
+      const demoUser = {
+        id: 'demo-user',
+        username: 'demo',
+        isDemoUser: true
+      };
+      localStorage.setItem('dashboard_user', JSON.stringify(demoUser));
+      setDemoUser(demoUser);
     };
     
     checkDemoMode();

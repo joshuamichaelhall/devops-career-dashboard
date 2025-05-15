@@ -15,6 +15,8 @@ dotenv.config();
 // Import utilities
 const { generateToken, verifyCredentials, requireAuth, requireAdmin } = require('./server/authUtils');
 const { getClayApiKey, setClayApiKey, getClayConnectionStatus, setClayConnectionStatus, migrateFromLegacyConfig } = require('./server/keyManager');
+const { createBackup, importData, exportData, getTemplates, getTemplate, getBackups, restoreBackup } = require('./server/dataManager');
+const { syncData } = require('./server/cloudSync');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -764,6 +766,112 @@ function generateMockFollowUps(limit = 5) {
   
   return followUps.sort((a, b) => new Date(a.date) - new Date(b.date));
 }
+
+// Data management endpoints
+// Export dashboard data
+app.get('/api/data/export', requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const data = await exportData();
+    res.json(data);
+  } catch (error) {
+    console.error('Error exporting data:', error);
+    res.status(500).json({ error: 'Failed to export dashboard data' });
+  }
+});
+
+// Import dashboard data
+app.post('/api/data/import', requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const importResult = await importData(req.body);
+    res.json(importResult);
+  } catch (error) {
+    console.error('Error importing data:', error);
+    res.status(500).json({ error: error.message || 'Failed to import dashboard data' });
+  }
+});
+
+// Get available templates
+app.get('/api/data/templates', requireAuth, async (req, res) => {
+  try {
+    const templates = await getTemplates();
+    res.json(templates);
+  } catch (error) {
+    console.error('Error getting templates:', error);
+    res.status(500).json({ error: 'Failed to get templates' });
+  }
+});
+
+// Get specific template
+app.get('/api/data/templates/:templateId', requireAuth, async (req, res) => {
+  try {
+    const { templateId } = req.params;
+    const template = await getTemplate(templateId);
+    res.json(template);
+  } catch (error) {
+    console.error(`Error getting template ${req.params.templateId}:`, error);
+    res.status(500).json({ error: error.message || 'Failed to get template' });
+  }
+});
+
+// Get backups
+app.get('/api/data/backups', requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const backups = await getBackups();
+    res.json(backups);
+  } catch (error) {
+    console.error('Error getting backups:', error);
+    res.status(500).json({ error: 'Failed to get backups' });
+  }
+});
+
+// Restore from backup
+app.post('/api/data/backups/:backupId/restore', requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const { backupId } = req.params;
+    const restoreResult = await restoreBackup(backupId);
+    res.json(restoreResult);
+  } catch (error) {
+    console.error(`Error restoring backup ${req.params.backupId}:`, error);
+    res.status(500).json({ error: error.message || 'Failed to restore backup' });
+  }
+});
+
+// Create manual backup
+app.post('/api/data/backups', requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const backupPath = await createBackup();
+    res.json({ success: true, message: 'Backup created successfully', backupPath });
+  } catch (error) {
+    console.error('Error creating backup:', error);
+    res.status(500).json({ error: 'Failed to create backup' });
+  }
+});
+
+// Cloud sync endpoint
+app.post('/api/data/sync', requireAuth, requireAdmin, async (req, res) => {
+  try {
+    const { provider, options } = req.body;
+    
+    if (!provider) {
+      return res.status(400).json({ error: 'Provider is required' });
+    }
+    
+    // Get current dashboard data
+    const data = await exportData();
+    
+    // Sync data with the selected provider
+    const syncResult = await syncData(provider, options, data);
+    
+    res.json({
+      success: true,
+      message: `Data synced successfully with ${provider}`,
+      ...syncResult
+    });
+  } catch (error) {
+    console.error('Error syncing data:', error);
+    res.status(500).json({ error: error.message || 'Failed to sync data' });
+  }
+});
 
 // Start the server
 app.listen(PORT, () => {

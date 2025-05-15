@@ -30,11 +30,22 @@ export const fetchDashboardData = async () => {
     return await response.json();
   } catch (error) {
     console.error('Error fetching dashboard data:', error);
-    // In demo mode, don't crash on API errors
-    if (DEMO_MODE) {
-      return require('../data/demo-data.json');
+    
+    // Attempt to load data from appropriate source
+    try {
+      // In demo mode, use demo data
+      if (DEMO_MODE) {
+        console.log('Loading demo data as fallback...');
+        return require('../data/demo-data.json');
+      }
+      
+      // In personal mode, try to load directly from data.json
+      console.log('Loading local data file as fallback...');
+      return require('../data/data.json');
+    } catch (fallbackError) {
+      console.error('Failed to load fallback data:', fallbackError);
+      throw error; // Throw the original error
     }
-    throw error;
   }
 };
 

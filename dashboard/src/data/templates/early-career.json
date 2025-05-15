@@ -1,0 +1,255 @@
+{
+  "overview": {
+    "phase": "Foundation Phase",
+    "phaseProgress": 5,
+    "totalGoals": 10,
+    "completedGoals": 0,
+    "goalCompletionRate": 0,
+    "nextMilestone": "AWS Cloud Practitioner Certification",
+    "lastUpdated": "2025-05-15"
+  },
+  "weeklyMetrics": {
+    "learningHours": 0,
+    "projectHours": 0,
+    "networkingHours": 0,
+    "totalHours": 0,
+    "targetHours": 35,
+    "completionRate": 0,
+    "skillsImproved": 0,
+    "connectionsAdded": 0
+  },
+  "skills": [
+    {
+      "category": "AWS",
+      "skills": ["EC2", "S3", "VPC"],
+      "averageLevel": 10,
+      "targetLevel": 70
+    },
+    {
+      "category": "Linux",
+      "skills": ["Bash Scripting", "System Administration"],
+      "averageLevel": 20,
+      "targetLevel": 70
+    },
+    {
+      "category": "Infrastructure as Code",
+      "skills": ["Terraform Basics"],
+      "averageLevel": 5,
+      "targetLevel": 60
+    },
+    {
+      "category": "Containers",
+      "skills": ["Docker Basics"],
+      "averageLevel": 10,
+      "targetLevel": 60
+    },
+    {
+      "category": "CI/CD",
+      "skills": ["GitHub Actions"],
+      "averageLevel": 10,
+      "targetLevel": 60
+    },
+    {
+      "category": "Scripting",
+      "skills": ["Bash", "Python Basics"],
+      "averageLevel": 20,
+      "targetLevel": 70
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Cloud Practitioner",
+      "provider": "AWS",
+      "status": "In Progress",
+      "progress": 10,
+      "targetDate": "2025-07-30",
+      "notes": "Foundational certification"
+    },
+    {
+      "name": "AWS Solutions Architect Associate",
+      "provider": "AWS",
+      "status": "Planned",
+      "progress": 0,
+      "targetDate": "2025-12-30",
+      "notes": "Next certification after Cloud Practitioner"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Personal Portfolio Website",
+      "description": "Create a personal website to showcase DevOps projects and skills",
+      "status": "In Progress",
+      "progress": 20,
+      "technologies": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+      "repository": "",
+      "targetDate": "2025-06-30"
+    },
+    {
+      "name": "AWS Infrastructure Automation",
+      "description": "Create a terraform module to deploy a basic 3-tier application",
+      "status": "Planned",
+      "progress": 0,
+      "technologies": ["Terraform", "AWS", "GitHub Actions"],
+      "repository": "",
+      "targetDate": "2025-08-15"
+    },
+    {
+      "name": "Dockerized Development Environment",
+      "description": "Create a standardized development environment using Docker",
+      "status": "Planned",
+      "progress": 0,
+      "technologies": ["Docker", "Docker Compose", "VSCode"],
+      "repository": "",
+      "targetDate": "2025-07-15"
+    }
+  ],
+  "goals": [
+    {
+      "content": "Complete AWS Cloud Practitioner certification",
+      "category": "certification",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-07-30"
+    },
+    {
+      "content": "Build personal portfolio website",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-06-30"
+    },
+    {
+      "content": "Complete AWS Solutions Architect Associate course",
+      "category": "learning",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-11-30"
+    },
+    {
+      "content": "Create a Terraform project for AWS infrastructure",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-08-15"
+    },
+    {
+      "content": "Create a Dockerized development environment",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-07-15"
+    },
+    {
+      "content": "Complete Linux Administration course",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-07-30"
+    },
+    {
+      "content": "Complete Python for DevOps course",
+      "category": "learning",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-09-30"
+    },
+    {
+      "content": "Connect with 5 DevOps professionals on LinkedIn",
+      "category": "networking",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-06-30"
+    },
+    {
+      "content": "Join a local DevOps meetup group",
+      "category": "networking",
+      "priority": "low",
+      "completed": false,
+      "due": "2025-07-15"
+    },
+    {
+      "content": "Create 1 blog post about AWS basics",
+      "category": "content",
+      "priority": "low",
+      "completed": false,
+      "due": "2025-08-30"
+    }
+  ],
+  "learningResources": [
+    {
+      "id": "cp-1",
+      "name": "AWS Cloud Practitioner Essentials",
+      "type": "course",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 15,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "linux-1",
+      "name": "Linux Administration Bootcamp",
+      "type": "course",
+      "priority": "high",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "terraform-1",
+      "name": "Terraform Beginner to Advanced",
+      "type": "course",
+      "priority": "medium",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "July 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "docker-1",
+      "name": "Docker for the Absolute Beginner",
+      "type": "course",
+      "priority": "medium",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "python-1",
+      "name": "Python for DevOps Engineers",
+      "type": "course",
+      "priority": "medium",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "August 2025",
+      "dateAdded": "2025-05-15"
+    },
+    {
+      "id": "book-1",
+      "name": "The Phoenix Project",
+      "type": "book",
+      "priority": "low",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "July 2025",
+      "dateAdded": "2025-05-15"
+    }
+  ],
+  "networking": {
+    "totalConnections": 0,
+    "activeConversations": 0,
+    "weeklyOutreach": 0,
+    "followUps": 0,
+    "lastUpdate": "2025-05-15"
+  },
+  "clayMetrics": {
+    "newConnections": 0,
+    "connectionAcceptanceRate": 0,
+    "contentPieces": 0,
+    "engagementRate": 0,
+    "followUpsSent": 0,
+    "responseRate": 0
+  }
+}

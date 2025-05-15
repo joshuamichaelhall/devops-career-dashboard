@@ -1,0 +1,130 @@
+{
+  "overview": {
+    "phase": "Foundation Phase",
+    "phaseProgress": 5,
+    "totalGoals": 3,
+    "completedGoals": 0,
+    "goalCompletionRate": 0,
+    "nextMilestone": "Complete Learning Plan",
+    "lastUpdated": "2025-05-15"
+  },
+  "weeklyMetrics": {
+    "learningHours": 0,
+    "projectHours": 0,
+    "networkingHours": 0,
+    "totalHours": 0,
+    "targetHours": 35,
+    "completionRate": 0,
+    "skillsImproved": 0,
+    "connectionsAdded": 0
+  },
+  "skills": [
+    {
+      "category": "AWS",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 80
+    },
+    {
+      "category": "Infrastructure as Code",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 80
+    },
+    {
+      "category": "Containers",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 80
+    },
+    {
+      "category": "CI/CD",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 80
+    },
+    {
+      "category": "Monitoring",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 80
+    },
+    {
+      "category": "Scripting",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 80
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Cloud Practitioner",
+      "provider": "AWS",
+      "status": "Planned",
+      "progress": 0,
+      "targetDate": "2025-07-30",
+      "notes": "Entry-level certification"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Personal Portfolio Site",
+      "description": "Create a personal website to showcase DevOps projects and skills",
+      "status": "Planned",
+      "progress": 0,
+      "technologies": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+      "repository": "",
+      "targetDate": "2025-06-30"
+    }
+  ],
+  "goals": [
+    {
+      "content": "Complete AWS Cloud Practitioner certification",
+      "category": "certification",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-07-30"
+    },
+    {
+      "content": "Build personal portfolio website",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-06-30"
+    },
+    {
+      "content": "Connect with 5 DevOps professionals on LinkedIn",
+      "category": "networking",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-05-31"
+    }
+  ],
+  "learningResources": [
+    {
+      "id": "initial-1",
+      "name": "AWS Cloud Practitioner Essentials",
+      "type": "course",
+      "priority": "high",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-15"
+    }
+  ],
+  "networking": {
+    "totalConnections": 0,
+    "activeConversations": 0,
+    "weeklyOutreach": 0,
+    "followUps": 0,
+    "lastUpdate": "2025-05-15"
+  },
+  "clayMetrics": {
+    "newConnections": 0,
+    "connectionAcceptanceRate": 0,
+    "contentPieces": 0,
+    "engagementRate": 0,
+    "followUpsSent": 0,
+    "responseRate": 0
+  }
+}
