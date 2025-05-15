@@ -1,44 +1,134 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDashboard } from '../context/DashboardContext';
+import { getScheduleTemplate } from '../data/templates/schedule-template';
 
 const WeeklyScheduleStats = () => {
-  const { dashboardData } = useDashboard();
+  const { dashboardData, updateDashboardSection } = useDashboard();
+  const [scheduleType, setScheduleType] = useState('fullTime');
+  const [weeklyHourTracking, setWeeklyHourTracking] = useState([]);
+  const [targetHours, setTargetHours] = useState({});
+  const [totalByCategory, setTotalByCategory] = useState({});
+  const [isEditMode, setIsEditMode] = useState(false);
   
   if (!dashboardData || !dashboardData.schedule) return null;
   
-  const weeklyHourTracking = [
-    { day: 'Monday', learning: 8, projects: 2.5, networking: 1, content: 1, total: 12.5 },
-    { day: 'Tuesday', learning: 8, projects: 3, networking: 1, content: 0, total: 12 },
-    { day: 'Wednesday', learning: 6.5, projects: 2.5, networking: 1.5, content: 1.5, total: 12 },
-    { day: 'Thursday', learning: 5, projects: 2, networking: 1, content: 0, total: 8 },
-    { day: 'Friday', learning: 5.5, projects: 2.5, networking: 1.5, content: 1.5, total: 11 },
-    { day: 'Saturday', learning: 0, projects: 5.5, networking: 1.5, content: 2, total: 9 },
-    { day: 'Sunday', learning: 0, projects: 0, networking: 0, content: 0, total: 0 },
-  ];
+  // Load schedule data based on selected type
+  useEffect(() => {
+    const scheduleTemplate = getScheduleTemplate(scheduleType);
+    
+    // Default weekly tracking data
+    const defaultWeeklyTracking = [
+      { day: 'Monday', learning: 8, projects: 2.5, networking: 1, content: 1, total: 12.5 },
+      { day: 'Tuesday', learning: 8, projects: 3, networking: 1, content: 0, total: 12 },
+      { day: 'Wednesday', learning: 6.5, projects: 2.5, networking: 1.5, content: 1.5, total: 12 },
+      { day: 'Thursday', learning: 5, projects: 2, networking: 1, content: 0, total: 8 },
+      { day: 'Friday', learning: 5.5, projects: 2.5, networking: 1.5, content: 1.5, total: 11 },
+      { day: 'Saturday', learning: 0, projects: 5.5, networking: 1.5, content: 2, total: 9 },
+      { day: 'Sunday', learning: 0, projects: 0, networking: 0, content: 0, total: 0 },
+    ];
+    
+    // Use schedule data if available, otherwise use defaults
+    setWeeklyHourTracking(dashboardData.weeklyTracking || defaultWeeklyTracking);
+    setTargetHours(scheduleTemplate.timeAllocation);
+    
+    // Calculate totals
+    const newTotalByCategory = (dashboardData.weeklyTracking || defaultWeeklyTracking).reduce(
+      (acc, day) => {
+        acc.learning += day.learning;
+        acc.projects += day.projects;
+        acc.networking += day.networking;
+        acc.content += day.content;
+        acc.total += day.total;
+        return acc;
+      },
+      { learning: 0, projects: 0, networking: 0, content: 0, total: 0 }
+    );
+    
+    setTotalByCategory(newTotalByCategory);
+  }, [scheduleType, dashboardData.weeklyTracking]);
   
-  const totalByCategory = weeklyHourTracking.reduce(
-    (acc, day) => {
-      acc.learning += day.learning;
-      acc.projects += day.projects;
-      acc.networking += day.networking;
-      acc.content += day.content;
-      acc.total += day.total;
-      return acc;
-    },
-    { learning: 0, projects: 0, networking: 0, content: 0, total: 0 }
-  );
+  // Handle schedule type change
+  const handleScheduleTypeChange = async (type) => {
+    setScheduleType(type);
+    const scheduleTemplate = getScheduleTemplate(type);
+    
+    // Update target hours based on schedule type
+    setTargetHours(scheduleTemplate.timeAllocation);
+    
+    try {
+      // Update backend with new schedule type
+      await updateDashboardSection('scheduleType', type);
+    } catch (error) {
+      console.error('Failed to update schedule type:', error);
+    }
+  };
   
-  const targetHours = {
-    learning: 25,
-    projects: 12.5,
-    networking: 7.5,
-    content: 5,
-    total: 50
+  // Handle hour value change in edit mode
+  const handleHourChange = (dayIndex, category, value) => {
+    if (!isEditMode) return;
+    
+    const newValue = parseFloat(value) || 0;
+    const updatedTracking = [...weeklyHourTracking];
+    updatedTracking[dayIndex][category] = newValue;
+    
+    // Recalculate daily total
+    updatedTracking[dayIndex].total = 
+      updatedTracking[dayIndex].learning + 
+      updatedTracking[dayIndex].projects + 
+      updatedTracking[dayIndex].networking + 
+      updatedTracking[dayIndex].content;
+    
+    setWeeklyHourTracking(updatedTracking);
+  };
+  
+  // Save updated weekly schedule
+  const saveWeeklySchedule = async () => {
+    try {
+      // Update backend with new weekly tracking data
+      await updateDashboardSection('weeklyTracking', weeklyHourTracking);
+      setIsEditMode(false);
+    } catch (error) {
+      console.error('Failed to update weekly schedule:', error);
+    }
   };
   
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mt-6">
-      <h3 className="text-lg font-bold mb-4">Weekly Hour Tracking</h3>
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-lg font-bold">Weekly Hour Tracking</h3>
+        
+        <div className="flex space-x-2">
+          <div className="flex items-center space-x-2">
+            <label className="text-sm font-medium">Schedule:</label>
+            <select 
+              value={scheduleType} 
+              onChange={(e) => handleScheduleTypeChange(e.target.value)}
+              className="border rounded px-2 py-1 text-sm"
+              disabled={isEditMode}
+            >
+              <option value="fullTime">Full-Time (50h)</option>
+              <option value="partTime">Part-Time (20h)</option>
+              <option value="weekend">Weekend (20h)</option>
+            </select>
+          </div>
+          
+          {isEditMode ? (
+            <button 
+              onClick={saveWeeklySchedule}
+              className="px-3 py-1 text-sm bg-green-600 text-white rounded hover:bg-green-700"
+            >
+              Save Schedule
+            </button>
+          ) : (
+            <button 
+              onClick={() => setIsEditMode(true)}
+              className="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+            >
+              Edit Schedule
+            </button>
+          )}
+        </div>
+      </div>
       
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
@@ -61,7 +151,20 @@ const WeeklyScheduleStats = () => {
               <td className="py-2 px-3 text-sm font-medium">Learning</td>
               <td className="py-2 px-3 text-sm">{targetHours.learning}</td>
               {weeklyHourTracking.map((day, idx) => (
-                <td key={idx} className="py-2 px-3 text-sm">{day.learning}</td>
+                <td key={idx} className="py-2 px-3 text-sm">
+                  {isEditMode ? (
+                    <input
+                      type="number"
+                      value={day.learning}
+                      onChange={(e) => handleHourChange(idx, 'learning', e.target.value)}
+                      className="w-12 border rounded px-1 py-0.5 text-sm"
+                      step="0.5"
+                      min="0"
+                    />
+                  ) : (
+                    day.learning
+                  )}
+                </td>
               ))}
               <td className="py-2 px-3 text-sm font-bold">{totalByCategory.learning}</td>
             </tr>
@@ -69,7 +172,20 @@ const WeeklyScheduleStats = () => {
               <td className="py-2 px-3 text-sm font-medium">Projects</td>
               <td className="py-2 px-3 text-sm">{targetHours.projects}</td>
               {weeklyHourTracking.map((day, idx) => (
-                <td key={idx} className="py-2 px-3 text-sm">{day.projects}</td>
+                <td key={idx} className="py-2 px-3 text-sm">
+                  {isEditMode ? (
+                    <input
+                      type="number"
+                      value={day.projects}
+                      onChange={(e) => handleHourChange(idx, 'projects', e.target.value)}
+                      className="w-12 border rounded px-1 py-0.5 text-sm"
+                      step="0.5"
+                      min="0"
+                    />
+                  ) : (
+                    day.projects
+                  )}
+                </td>
               ))}
               <td className="py-2 px-3 text-sm font-bold">{totalByCategory.projects}</td>
             </tr>
@@ -77,7 +193,20 @@ const WeeklyScheduleStats = () => {
               <td className="py-2 px-3 text-sm font-medium">Networking</td>
               <td className="py-2 px-3 text-sm">{targetHours.networking}</td>
               {weeklyHourTracking.map((day, idx) => (
-                <td key={idx} className="py-2 px-3 text-sm">{day.networking}</td>
+                <td key={idx} className="py-2 px-3 text-sm">
+                  {isEditMode ? (
+                    <input
+                      type="number"
+                      value={day.networking}
+                      onChange={(e) => handleHourChange(idx, 'networking', e.target.value)}
+                      className="w-12 border rounded px-1 py-0.5 text-sm"
+                      step="0.5"
+                      min="0"
+                    />
+                  ) : (
+                    day.networking
+                  )}
+                </td>
               ))}
               <td className="py-2 px-3 text-sm font-bold">{totalByCategory.networking}</td>
             </tr>
@@ -85,7 +214,20 @@ const WeeklyScheduleStats = () => {
               <td className="py-2 px-3 text-sm font-medium">Content Creation</td>
               <td className="py-2 px-3 text-sm">{targetHours.content}</td>
               {weeklyHourTracking.map((day, idx) => (
-                <td key={idx} className="py-2 px-3 text-sm">{day.content}</td>
+                <td key={idx} className="py-2 px-3 text-sm">
+                  {isEditMode ? (
+                    <input
+                      type="number"
+                      value={day.content}
+                      onChange={(e) => handleHourChange(idx, 'content', e.target.value)}
+                      className="w-12 border rounded px-1 py-0.5 text-sm"
+                      step="0.5"
+                      min="0"
+                    />
+                  ) : (
+                    day.content
+                  )}
+                </td>
               ))}
               <td className="py-2 px-3 text-sm font-bold">{totalByCategory.content}</td>
             </tr>

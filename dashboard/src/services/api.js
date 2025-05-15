@@ -151,7 +151,7 @@ export const updateTaskStatus = async (taskId, completed) => {
       return { success: true, message: 'This is a read-only demo. Data modifications are not saved.' };
     }
     
-    const response = await authFetch(`${API_URL}/tasks/${taskId}`, {
+    const response = await authFetch(`${API_URL}/tasks/${encodeURIComponent(taskId)}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -160,7 +160,8 @@ export const updateTaskStatus = async (taskId, completed) => {
     });
     
     if (!response.ok) {
-      throw new Error(`Failed to update task: ${response.statusText}`);
+      const errorText = await response.text();
+      throw new Error(`Failed to update task: ${response.statusText} - ${errorText}`);
     }
     
     return await response.json();

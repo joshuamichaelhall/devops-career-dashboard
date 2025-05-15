@@ -10,7 +10,7 @@ const TaskItem = ({ task }) => {
       await completeTask(task.content, !task.completed);
     } catch (error) {
       console.error('Failed to update task:', error);
-      // Could add toast notification here
+      alert('Error: Failed to update task. Please try again.');
     }
   };
   
