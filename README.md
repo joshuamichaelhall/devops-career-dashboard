@@ -235,11 +235,15 @@ When setting up your dashboard, consider organizing your goals around these DevO
 
 ### Using Templates for Different Career Stages
 
-The dashboard comes with templates for different career stages that you can select through the Data Manager interface:
+The dashboard comes with three comprehensive career path templates that you can select during setup or through the Data Manager interface:
 
-- **Early Career (0-2 years)**: Focus on foundational certifications and skills like AWS Cloud Practitioner and basic Linux/Docker
-- **Mid-Career (2-5 years)**: Focus on specialization and advanced tools like AWS DevOps Professional, Kubernetes, and CI/CD pipelines
-- **Senior Level (5+ years)**: Focus on architecture, leadership, and mentoring with platform engineering and technical leadership skills
+- **Accelerated Senior DevOps Path**: A fast-track 18-month roadmap for professionals with prior IT experience, leading to a senior DevOps role ($90K-$150K) in financial services. Includes intensive 50-hour weekly schedule, AWS and Terraform certifications, and advanced projects.
+
+- **Entry/Mid-Tier DevOps Path**: A 12-month plan for those with less experience, focused on securing an entry-level or mid-tier DevOps position. Features a manageable 30-hour weekly schedule, starting with AWS Cloud Practitioner certification.
+
+- **Custom Career Path**: A blank template that allows you to build your career development plan from scratch, defining your own skills, certifications, projects, and schedule.
+
+See [TEMPLATES.md](dashboard/docs/TEMPLATES.md) for detailed information about each template and how to use them.
 
 ### Data Management Features
 

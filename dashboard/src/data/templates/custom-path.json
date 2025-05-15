@@ -1,0 +1,186 @@
+{
+  "overview": {
+    "phase": "Foundation Phase",
+    "phaseProgress": 0,
+    "totalGoals": 0,
+    "completedGoals": 0,
+    "goalCompletionRate": 0,
+    "nextMilestone": "Define your first milestone",
+    "lastUpdated": "2025-05-15"
+  },
+  "weeklyMetrics": {
+    "learningHours": 0,
+    "projectHours": 0,
+    "networkingHours": 0,
+    "totalHours": 0,
+    "targetHours": 40,
+    "completionRate": 0,
+    "skillsImproved": 0,
+    "connectionsAdded": 0
+  },
+  "skills": [
+    {
+      "category": "AWS",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 70
+    },
+    {
+      "category": "Infrastructure as Code",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 70
+    },
+    {
+      "category": "Containers",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 70
+    },
+    {
+      "category": "CI/CD",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 70
+    },
+    {
+      "category": "Monitoring",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 70
+    },
+    {
+      "category": "Scripting",
+      "skills": [],
+      "averageLevel": 0,
+      "targetLevel": 70
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Your First Certification",
+      "provider": "Certification Provider",
+      "status": "Planned",
+      "progress": 0,
+      "targetDate": "YYYY-MM-DD",
+      "notes": "Add your certification notes here"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Your First Project",
+      "description": "Add a description of your first project",
+      "status": "Planned",
+      "progress": 0,
+      "technologies": ["Technology 1", "Technology 2"],
+      "repository": "",
+      "targetDate": "YYYY-MM-DD"
+    }
+  ],
+  "goals": [
+    {
+      "content": "Add your first goal",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "due": "YYYY-MM-DD"
+    }
+  ],
+  "learningResources": [
+    {
+      "id": "resource-1",
+      "name": "Your First Learning Resource",
+      "type": "course",
+      "priority": "high",
+      "status": "Planned",
+      "progress": 0,
+      "targetMonth": "Month YYYY",
+      "dateAdded": "YYYY-MM-DD"
+    }
+  ],
+  "networking": {
+    "totalConnections": 0,
+    "activeConversations": 0,
+    "weeklyOutreach": 0,
+    "followUps": 0,
+    "lastUpdate": "2025-05-15"
+  },
+  "clayMetrics": {
+    "newConnections": 0,
+    "connectionAcceptanceRate": 0,
+    "contentPieces": 0,
+    "engagementRate": 0,
+    "followUpsSent": 0,
+    "responseRate": 0
+  },
+  "schedule": {
+    "monday": {
+      "learning": 0,
+      "projects": 0,
+      "networking": 0,
+      "content": 0
+    },
+    "tuesday": {
+      "learning": 0,
+      "projects": 0,
+      "networking": 0,
+      "content": 0
+    },
+    "wednesday": {
+      "learning": 0,
+      "projects": 0,
+      "networking": 0,
+      "content": 0
+    },
+    "thursday": {
+      "learning": 0,
+      "projects": 0,
+      "networking": 0,
+      "content": 0
+    },
+    "friday": {
+      "learning": 0,
+      "projects": 0,
+      "networking": 0,
+      "content": 0
+    },
+    "saturday": {
+      "learning": 0,
+      "projects": 0,
+      "networking": 0,
+      "content": 0
+    },
+    "sunday": {
+      "learning": 0,
+      "projects": 0,
+      "networking": 0,
+      "content": 0
+    }
+  },
+  "weeklyGoals": {
+    "certificationModules": 0,
+    "infrastructureComponents": 0,
+    "architectureDiagrams": 0,
+    "githubContributions": 0,
+    "devopsConnections": 0,
+    "technicalContent": 0,
+    "devopsMeetups": 0,
+    "technicalPracticeHours": 0
+  },
+  "roadmap": {
+    "phasesTotal": 1,
+    "currentPhase": 1,
+    "phases": [
+      {
+        "name": "Your First Phase",
+        "duration": "X months",
+        "startDate": "YYYY-MM-DD",
+        "endDate": "YYYY-MM-DD",
+        "milestones": [
+          "Your First Milestone",
+          "Your Second Milestone"
+        ]
+      }
+    ]
+  }
+}

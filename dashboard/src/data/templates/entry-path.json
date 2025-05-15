@@ -1,0 +1,337 @@
+{
+  "overview": {
+    "phase": "Foundation Phase",
+    "phaseProgress": 10,
+    "totalGoals": 35,
+    "completedGoals": 3,
+    "goalCompletionRate": 8,
+    "nextMilestone": "AWS Cloud Practitioner Certification",
+    "lastUpdated": "2025-05-15"
+  },
+  "weeklyMetrics": {
+    "learningHours": 15,
+    "projectHours": 7,
+    "networkingHours": 5,
+    "totalHours": 30,
+    "targetHours": 30,
+    "completionRate": 100,
+    "skillsImproved": 3,
+    "connectionsAdded": 10
+  },
+  "skills": [
+    {
+      "category": "AWS",
+      "skills": [
+        { "name": "VPC", "level": 20 },
+        { "name": "IAM", "level": 25 },
+        { "name": "EC2", "level": 20 },
+        { "name": "S3", "level": 25 }
+      ],
+      "averageLevel": 22,
+      "targetLevel": 70
+    },
+    {
+      "category": "Infrastructure as Code",
+      "skills": [
+        { "name": "Terraform", "level": 15 }
+      ],
+      "averageLevel": 15,
+      "targetLevel": 70
+    },
+    {
+      "category": "Containers",
+      "skills": [
+        { "name": "Docker", "level": 10 }
+      ],
+      "averageLevel": 10,
+      "targetLevel": 60
+    },
+    {
+      "category": "CI/CD",
+      "skills": [
+        { "name": "GitHub Actions", "level": 15 }
+      ],
+      "averageLevel": 15,
+      "targetLevel": 70
+    },
+    {
+      "category": "Monitoring",
+      "skills": [
+        { "name": "CloudWatch", "level": 15 }
+      ],
+      "averageLevel": 15,
+      "targetLevel": 60
+    },
+    {
+      "category": "Scripting",
+      "skills": [
+        { "name": "Bash", "level": 25 },
+        { "name": "Python", "level": 20 }
+      ],
+      "averageLevel": 22,
+      "targetLevel": 70
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Cloud Practitioner",
+      "provider": "AWS",
+      "status": "In Progress",
+      "progress": 25,
+      "targetDate": "2025-07-30",
+      "notes": "Working through Stephane Maarek's course"
+    },
+    {
+      "name": "AWS Solutions Architect Associate",
+      "provider": "AWS",
+      "status": "Planned",
+      "progress": 0,
+      "targetDate": "2025-12-15",
+      "notes": "Next certification after Cloud Practitioner"
+    },
+    {
+      "name": "HashiCorp Terraform Associate",
+      "provider": "HashiCorp",
+      "status": "Planned",
+      "progress": 0,
+      "targetDate": "2026-03-30",
+      "notes": "Planned after AWS SAA"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Personal Portfolio Website",
+      "description": "Personal website to showcase DevOps skills and projects",
+      "status": "In Progress",
+      "progress": 40,
+      "technologies": ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+      "repository": "https://github.com/JoshuaMichaelHall/portfolio",
+      "targetDate": "2025-06-30"
+    },
+    {
+      "name": "AWS VPC Network Project",
+      "description": "Basic AWS VPC setup with security groups and proper networking",
+      "status": "Planned",
+      "progress": 10,
+      "technologies": ["AWS", "CloudFormation", "VPC", "Security Groups"],
+      "repository": "https://github.com/JoshuaMichaelHall/aws-network-project",
+      "targetDate": "2025-08-15"
+    },
+    {
+      "name": "Simple CI/CD Pipeline",
+      "description": "Basic CI/CD pipeline using GitHub Actions for a web application",
+      "status": "Planned",
+      "progress": 0,
+      "technologies": ["GitHub Actions", "Docker", "JavaScript"],
+      "repository": "",
+      "targetDate": "2025-09-30"
+    }
+  ],
+  "goals": [
+    {
+      "content": "Complete AWS Cloud Practitioner Essentials course",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-06-30"
+    },
+    {
+      "content": "Build personal portfolio website",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-06-30"
+    },
+    {
+      "content": "Connect with 10 DevOps professionals on LinkedIn",
+      "category": "networking",
+      "priority": "medium",
+      "completed": true,
+      "completedDate": "2025-05-10"
+    },
+    {
+      "content": "Set up AWS Free Tier account",
+      "category": "setup",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-05"
+    },
+    {
+      "content": "Configure development environment",
+      "category": "setup",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-03"
+    },
+    {
+      "content": "Learn AWS VPC fundamentals",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-05-25"
+    },
+    {
+      "content": "Create AWS IAM users and roles",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-05-20"
+    },
+    {
+      "content": "Draft first technical blog post",
+      "category": "content",
+      "priority": "low",
+      "completed": false,
+      "due": "2025-06-15"
+    }
+  ],
+  "learningResources": [
+    {
+      "id": "aws-cp-1",
+      "name": "AWS Cloud Practitioner Essentials - Stephane Maarek",
+      "type": "course",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 25,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "aws-basics-1",
+      "name": "AWS Fundamentals: Core Services",
+      "type": "course",
+      "priority": "high",
+      "status": "Planned",
+      "progress": 0,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "linux-basics-1",
+      "name": "Linux Basics for DevOps",
+      "type": "tutorial",
+      "priority": "medium",
+      "status": "In Progress",
+      "progress": 30,
+      "targetMonth": "May 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "git-basics-1",
+      "name": "Git & GitHub Crash Course",
+      "type": "tutorial",
+      "priority": "medium",
+      "status": "Completed",
+      "progress": 100,
+      "targetMonth": "May 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "terraform-basics-1",
+      "name": "Terraform Beginners Guide",
+      "type": "tutorial",
+      "priority": "medium",
+      "status": "Planned",
+      "progress": 0,
+      "targetMonth": "July 2025",
+      "dateAdded": "2025-05-01"
+    }
+  ],
+  "networking": {
+    "totalConnections": 25,
+    "activeConversations": 3,
+    "weeklyOutreach": 10,
+    "followUps": 5,
+    "lastUpdate": "2025-05-15"
+  },
+  "clayMetrics": {
+    "newConnections": 10,
+    "connectionAcceptanceRate": 60,
+    "contentPieces": 0,
+    "engagementRate": 10,
+    "followUpsSent": 5,
+    "responseRate": 30
+  },
+  "schedule": {
+    "monday": {
+      "learning": 4,
+      "projects": 2,
+      "networking": 1,
+      "content": 0
+    },
+    "tuesday": {
+      "learning": 4,
+      "projects": 1,
+      "networking": 1,
+      "content": 0
+    },
+    "wednesday": {
+      "learning": 3,
+      "projects": 1,
+      "networking": 1,
+      "content": 1
+    },
+    "thursday": {
+      "learning": 2,
+      "projects": 1,
+      "networking": 1,
+      "content": 0
+    },
+    "friday": {
+      "learning": 2,
+      "projects": 1,
+      "networking": 1,
+      "content": 1
+    },
+    "saturday": {
+      "learning": 0,
+      "projects": 1,
+      "networking": 0,
+      "content": 0
+    },
+    "sunday": {
+      "learning": 0,
+      "projects": 0,
+      "networking": 0,
+      "content": 0
+    }
+  },
+  "weeklyGoals": {
+    "certificationModules": 3,
+    "infrastructureComponents": 1,
+    "architectureDiagrams": 1,
+    "githubContributions": 3,
+    "devopsConnections": 10,
+    "technicalContent": 0,
+    "devopsMeetups": 0,
+    "technicalPracticeHours": 5
+  },
+  "roadmap": {
+    "phasesTotal": 2,
+    "currentPhase": 1,
+    "phases": [
+      {
+        "name": "AWS Fundamentals",
+        "duration": "6 months",
+        "startDate": "2025-05-01",
+        "endDate": "2025-10-31",
+        "milestones": [
+          "AWS Cloud Practitioner Certification",
+          "Personal Portfolio Website",
+          "Simple VPC Project"
+        ]
+      },
+      {
+        "name": "DevOps Skills Development",
+        "duration": "6 months",
+        "startDate": "2025-11-01",
+        "endDate": "2026-04-30",
+        "milestones": [
+          "AWS Solutions Architect Associate Certification",
+          "Basic CI/CD Pipeline Project",
+          "Secure Junior DevOps Position"
+        ]
+      }
+    ]
+  }
+}
