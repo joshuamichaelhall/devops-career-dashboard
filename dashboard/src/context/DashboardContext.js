@@ -426,6 +426,11 @@ export const DashboardProvider = ({ children }) => {
         setLoading(true);
         setError(null);
         
+        // Check if in demo mode
+        const isDemoMode = process.env.REACT_APP_DEMO_MODE === 'true' || 
+                          new URLSearchParams(window.location.search).get('demo') === 'true' ||
+                          ['devops-dashboard.joshuamichaelhall.com', 'devops-dashboard.onrender.com'].includes(window.location.hostname);
+        
         try {
           // Clear both localStorage and sessionStorage caches
           localStorage.removeItem('dashboard_data_cache');
@@ -452,22 +457,56 @@ export const DashboardProvider = ({ children }) => {
           }
           
           console.log('Successfully loaded dashboard data');
-          setDashboardData(data);
           
-          // Force reload the page to clear any component-level cached state
-          window.location.reload();
+          // Update state with new data
+          setDashboardData(data);
+          setLoading(false);
+          
+          // Demo mode special handling - don't reload the page immediately
+          if (isDemoMode) {
+            console.log('Demo mode detected, applying special refresh handling');
+            
+            // Use a timeout to allow the UI to update before refreshing
+            setTimeout(() => {
+              // In demo mode, don't reload the page, just update the state
+              setLoading(false);
+              alert('Data refreshed successfully!');
+            }, 1000);
+          } else {
+            // For production mode, continue with page reload after a short delay
+            // to ensure state is updated
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          }
         } catch (apiErr) {
           console.warn('API refresh failed:', apiErr);
           
-          // Force browser reload 
-          window.location.reload();
+          setError('Failed to refresh dashboard data. Please try again.');
+          setLoading(false);
+          
+          // In demo mode, handle errors gracefully without page reload
+          if (isDemoMode) {
+            try {
+              // Fallback to demo data if the API call fails
+              const demoData = require('../data/demo-data.json');
+              setDashboardData(demoData);
+              setError(null);
+              alert('Demo data reloaded successfully.');
+            } catch (demoErr) {
+              console.error('Failed to load demo data:', demoErr);
+              setError('Failed to refresh demo data. Please try again or reload the page.');
+            }
+          } else {
+            // In production, reload after a short delay
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          }
         }
       } catch (err) {
         console.error('Critical error during refresh:', err);
         setError('Failed to refresh dashboard data: ' + (err.message || 'Unknown error'));
-        // Still attempt to reload the page
-        window.location.reload();
-      } finally {
         setLoading(false);
       }
     }

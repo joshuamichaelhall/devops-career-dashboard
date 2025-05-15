@@ -84,8 +84,12 @@ const Dashboard = () => {
       case 'tasks':
         return <TasksTracker />;  // Uses the imported component from ./components/TasksTracker
       case 'refresh':
-        // Trigger manual refresh
-        refreshData();
+        // Only trigger refresh in non-demo mode
+        if (!isDemoMode) {
+          refreshData();
+        } else {
+          alert('Refresh functionality is disabled in demo mode.');
+        }
         setActiveTab('overview');
         return renderTabContent();
       default:
@@ -121,7 +125,17 @@ const Dashboard = () => {
             <NavItem icon={<Book size={20} />} label="Learning" id="learning" activeTab={activeTab} setActiveTab={setActiveTab} />
             <NavItem icon={<Calendar size={20} />} label="Weekly Schedule" id="schedule" activeTab={activeTab} setActiveTab={setActiveTab} />
             <NavItem icon={<CheckSquare size={20} />} label="Tasks" id="tasks" activeTab={activeTab} setActiveTab={setActiveTab} />
-            <NavItem icon={<RefreshCw size={20} />} label="Refresh Data" id="refresh" activeTab={activeTab} setActiveTab={setActiveTab} />
+            {isDemoMode ? (
+              <li 
+                className={`flex items-center space-x-2 p-2 rounded cursor-pointer hover:bg-gray-700`}
+                onClick={() => alert('Refresh functionality is disabled in demo mode.')}
+              >
+                <RefreshCw size={20} />
+                <span>Refresh Data</span>
+              </li>
+            ) : (
+              <NavItem icon={<RefreshCw size={20} />} label="Refresh Data" id="refresh" activeTab={activeTab} setActiveTab={setActiveTab} />
+            )}
           </ul>
         </nav>
         
@@ -394,8 +408,11 @@ const SkillsTracker = ({ skills }) => {
             </p>
             {category.skills.length > 0 ? (
               <ul className="space-y-1">
-                {category.skills.map(skill => (
-                  <li key={skill} className="text-sm">• {skill}</li>
+                {category.skills.map((skill, index) => (
+                  <li key={typeof skill === 'object' ? `${category.category}-${index}` : skill} className="text-sm">
+                    • {typeof skill === 'object' ? skill.name : skill}
+                    {typeof skill === 'object' && skill.level && ` (${skill.level}%)`}
+                  </li>
                 ))}
               </ul>
             ) : (
