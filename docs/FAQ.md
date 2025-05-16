@@ -47,87 +47,207 @@ npm run setup-admin
 
 Currently, the dashboard supports a single admin user. If you need multi-user functionality, you would need to modify the authentication system to support multiple users and roles.
 
+## Templates and Career Paths
+
+### What templates are available?
+
+The dashboard includes six pre-configured templates:
+1. **Accelerated Path** - For experienced professionals (50 hours/week)
+2. **Entry Path** - For beginners (30 hours/week)
+3. **Mid-Career** - For current tech professionals (35-40 hours/week)
+4. **Senior Career** - For leadership focus (20-30 hours/week)
+5. **Custom Path** - Build from scratch
+6. **Personal DevOps Finance** - Specialized finance industry focus
+
+### How do I switch between templates?
+
+Use the reset script to choose a different template:
+```bash
+./scripts/reset-dashboard.js
+```
+
+Or specify a template directly:
+```bash
+./scripts/reset-dashboard.js --template entry-path
+```
+
+### Can I create my own template?
+
+Yes! Copy an existing template and modify it:
+```bash
+cd dashboard/src/data/templates
+cp custom-path.json my-template.json
+```
+
+Then edit the JSON file to customize skills, goals, and schedules.
+
+## Schedule Modes
+
+### What schedule modes are available?
+
+Three modes are available:
+- **Full-Time**: 50 hours/week
+- **Part-Time**: 20 hours/week
+- **Weekend**: 20 hours/week (weekend-focused)
+
+### How do I change schedule modes?
+
+1. Navigate to Weekly Schedule in the dashboard
+2. Select schedule type from the dropdown
+3. Changes are saved automatically
+
+### Do schedule changes affect my data?
+
+No, changing schedule modes only affects time allocations and weekly targets. Your progress, skills, and goals remain unchanged.
+
 ## Features and Usage
 
-### How does the dashboard track my skills?
+### How do I backup my data?
 
-You can add skills to your dashboard and update their proficiency levels. The dashboard visualizes your skills by category and shows your progress over time.
+Data is backed up automatically daily. You can also:
+- Use Data Manager to export data manually
+- Copy the `data.json` file directly
+- Use the backup directory at `src/data/backups/`
 
-### Can I track certification progress?
+### Can I import/export my configuration?
 
-Yes, you can add certifications to your learning resources and track your progress toward completion.
+Yes, use the Data Manager feature to:
+- Export your current configuration as JSON
+- Import templates or previous exports
+- Restore from automatic backups
 
-### How do I log my time spent on different activities?
+### How do I track weekly progress?
 
-Use the Time Logging feature to record hours spent on various activities like learning, networking, or project work. The dashboard will visualize your time allocation.
+Update your progress through:
+- Skills Progress Updater (for skill levels)
+- Task Manager (for task completion)
+- Resource Management (for course progress)
+- Time Tracker (for logging hours)
 
-### What is the Clay CRM integration?
+### What is Clay CRM integration?
 
-The dashboard can optionally integrate with Clay CRM to track networking activities. This helps you manage professional connections and follow-ups as part of your career development.
+Clay CRM integration allows you to:
+- Track professional networking activities
+- Manage LinkedIn connections
+- Schedule follow-ups
+- Monitor engagement metrics
 
-### How do I ensure my API keys are stored securely?
+This is optional and requires a Clay API key.
 
-API keys (like the Clay CRM key) are encrypted using AES-256-GCM encryption. The dashboard also supports using environment variables for API keys, which is the most secure method.
+### How do I set up Clay CRM?
 
-## Customization and Extension
+1. Get your Clay API key from clay.com
+2. Navigate to Settings > Clay Configuration
+3. Enter your API key
+4. Test the connection
 
-### Can I customize the dashboard categories?
+## Data and Privacy
 
-Yes, the dashboard is highly customizable. You can modify the data structure in `src/data/data.json` to add or change categories.
+### Where is my data stored?
 
-### How do I add my own metrics or tracking features?
+All data is stored locally in JSON files on your server:
+- Main data: `src/data/data.json`
+- Backups: `src/data/backups/`
+- Templates: `src/data/templates/`
 
-To add new metrics:
-1. Update the data structure in `src/data/data.json`
-2. Add API endpoints in `server.js` to handle the new data
-3. Create React components in `src/components/` for visualization
-4. Update the dashboard layout in `src/Dashboard.js`
+### Is my data secure?
 
-### Can I connect the dashboard to other services?
+Yes, the dashboard includes:
+- JWT authentication for access control
+- Encrypted storage for API keys
+- Automatic backups
+- No external data transmission (except optional Clay CRM)
 
-Yes, you can extend the dashboard to connect to other services:
-1. Create service integration files in `src/services/`
-2. Add API endpoints in `server.js` for the new service
-3. Create UI components for the service integration
-4. Update the dashboard to show the new integration
+### Can I delete all my data?
 
-## Technical Support
+Yes, you can:
+- Use reset scripts to start fresh
+- Manually delete data files
+- Use Data Manager to clear specific sections
 
-### The dashboard won't start. What should I check?
+## Troubleshooting
 
-1. Verify that Node.js is installed correctly (`node -v`)
-2. Check if the required ports (3000, 3005) are available
-3. Ensure all dependencies are installed (`npm install`)
-4. Check your .env file for correct configuration
-5. Look for error messages in the console output
+### The dashboard won't start
 
-### How do I report a bug?
+Check:
+1. Node.js version (14+ required)
+2. Dependencies installed (`npm install`)
+3. Environment variables configured (`.env` file)
+4. Port availability (3000 and 3005)
 
-Please report bugs by creating an issue on the GitHub repository. Include:
-- Detailed description of the problem
-- Steps to reproduce the issue
-- Expected behavior
-- Screenshots if applicable
-- Environment details (OS, browser, Node.js version)
+### I can't log in
 
-### Where can I request new features?
+Try:
+1. Reset your password with `npm run setup-admin`
+2. Clear browser cache
+3. Check `.env` file for correct settings
+4. Verify JWT token expiration settings
 
-Feature requests can be submitted as issues on the GitHub repository. Please label them as "enhancement" and provide a clear description of the requested functionality and why it would be valuable.
+### Data isn't loading
 
-## Data Management
+Solutions:
+1. Clear localStorage in browser
+2. Check browser console for errors
+3. Verify `data.json` file exists
+4. Try running reset script
 
-### How is my data stored?
+### Schedule changes aren't saving
 
-Your data is stored locally in JSON files within the `src/data/` directory. The dashboard creates automatic backups before modifications.
+Ensure:
+1. You're logged in as admin
+2. Server is running correctly
+3. No JavaScript errors in console
+4. Data file has write permissions
 
-### Can I export my data?
+## Deployment
 
-There's no built-in export feature, but since data is stored in JSON format, you can manually copy the files from the `src/data/` directory.
+### Can I deploy to the cloud?
 
-### Is my data synced to the cloud?
+Yes, see the [FREE-HOSTING-GUIDE.md](FREE-HOSTING-GUIDE.md) for:
+- Render deployment
+- Railway deployment
+- Other PaaS options
 
-No, the dashboard stores all data locally by default. If you want cloud synchronization, you would need to modify the dashboard to use a cloud database or storage service.
+### How do I run in production?
 
-### How do I back up my dashboard data?
+Use the production script:
+```bash
+npm run build
+npm run server
+```
 
-The dashboard automatically keeps backups of previous versions in `src/data/backups/`. For manual backups, copy the files from the `src/data/` directory to a secure location.
+Or use environment variables:
+```bash
+NODE_ENV=production npm start
+```
+
+### Can I run this on a Raspberry Pi?
+
+Yes, the dashboard works on ARM processors. Ensure:
+- Node.js is installed for ARM
+- Sufficient RAM (512MB+)
+- Persistent storage for data
+
+## Support
+
+### Where can I get help?
+
+- GitHub Issues: Report bugs and request features
+- Documentation: Check `/docs` folder
+- Community: Join discussions on GitHub
+
+### How can I contribute?
+
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for:
+- Code contribution guidelines
+- Documentation improvements
+- Bug reporting process
+- Feature request process
+
+### Is commercial use allowed?
+
+Yes, the MIT license allows commercial use. You can:
+- Deploy for your team/company
+- Modify for specific needs
+- Integrate with other tools
+- Offer as a service (with attribution)

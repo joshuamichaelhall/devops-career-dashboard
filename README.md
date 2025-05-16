@@ -18,7 +18,7 @@ A live demo of this dashboard is available at [devops-dashboard.joshuamichaelhal
 
 - **Live Demo**: [devops-dashboard.joshuamichaelhall.com](https://devops-dashboard.joshuamichaelhall.com?demo=true)
 - **Project Page**: [joshuamichaelhall.com/dashboard](https://joshuamichaelhall.com/dashboard)
-- **Development Article**: [Strategic Approach to DevOps Skills](https://joshuamichaelhall.com/blog/2025/05/20/strategic-approach-to-devops-skills)
+- **Development Article**: [Strategic Approach to DevOps Skills](https://joshuamichaelhall.com/blog/2025/05/15/strategic-approach-to-devops-skills)
 
 ## About this Project
 
@@ -32,6 +32,9 @@ This dashboard was created to help DevOps professionals and career transitioners
 - **Networking Integration**: Connect with Clay CRM (optional) to track professional networking
 - **Weekly Progress Metrics**: Visualize your productivity and achievements
 - **Personalized Dashboard**: Configure the dashboard to focus on your specific career path
+- **Schedule Modes**: Choose between full-time (50 hours/week), part-time (20 hours/week), or weekend study modes
+- **Career Templates**: Start with pre-configured career paths or build your own from scratch
+- **Data Backup & Restore**: Automatic daily backups with easy restore functionality
 
 ### Why Use This Dashboard
 
@@ -41,6 +44,7 @@ As DevOps roles continue to evolve, it's challenging to keep track of the many s
 - Data-driven insights into your learning patterns
 - Accountability through progress tracking
 - Visualization of your DevOps journey
+- Flexible scheduling options for different life situations
 
 ## Development Process with Claude.ai
 
@@ -84,10 +88,40 @@ devops-career-dashboard/
 │      ├── components/      # React components
 │      ├── context/         # Context API state management
 │      ├── data/            # Data storage
+│      │   ├── templates/   # Career path templates
+│      │   └── backups/     # Automatic backups
 │      └── services/        # API services
 ├── docs/                   # Additional documentation
 └── screenshots/            # Screenshots for documentation
 ```
+
+## Data Templates & Career Paths
+
+The dashboard includes several pre-configured career templates:
+
+- **Entry Path**: For those starting their DevOps journey
+- **Accelerated Path**: For experienced professionals transitioning to DevOps
+- **Custom Path**: A blank slate to build your own program
+- **Personal Templates**: Create and save your own customized career paths
+
+### Schedule Modes
+
+Choose from three schedule options:
+
+1. **Full-Time (50 hours/week)**: Intensive study for career changers
+   - 25 hours learning
+   - 12.5 hours projects
+   - 7.5 hours networking
+   - 5 hours content creation
+
+2. **Part-Time (20 hours/week)**: For working professionals
+   - 10 hours learning
+   - 5 hours projects
+   - 3 hours networking
+   - 2 hours content creation
+
+3. **Weekend (20 hours/week)**: Weekend-focused schedule
+   - Same allocation as part-time but concentrated on weekends
 
 ## Installation & Setup
 
@@ -98,202 +132,137 @@ devops-career-dashboard/
 
 ### Installation Steps
 
-1. Clone the repository:
-   ```
+1. **Clone the Repository**
+   ```bash
    git clone https://github.com/joshuamichaelhall/devops-career-dashboard.git
-   cd devops-career-dashboard/dashboard
+   cd devops-career-dashboard
    ```
 
-2. Install dependencies:
-   ```
+2. **Install Dependencies**
+   ```bash
+   cd dashboard
    npm install
    ```
 
-3. Create environment variables:
-   ```
+3. **Set Up Environment**
+   ```bash
+   # Copy the environment template
    cp .env.example .env
+   
+   # Configure your settings in .env
+   nano .env
    ```
 
-4. Set up security (required for production use):
+4. **Initialize Data**
+   ```bash
+   # Choose a template to start with
+   ./scripts/reset-dashboard.js
    ```
-   npm run secure-setup
-   ```
-   This will:
-   - Generate a secure encryption key for API credentials
-   - Create an admin user for dashboard access
 
-5. Start the dashboard using one of these options:
-
-   **For personal mode** (your own progress data):
-   ```
+5. **Start the Dashboard**
+   ```bash
+   # For personal use
    ./start-personal.sh
-   ```
-
-   **For demo mode** (sample data, changes won't be saved):
-   ```
+   
+   # For demo mode (read-only)
    ./start-demo.sh
    ```
 
-   **For development mode** (with hot reloading):
-   ```
-   cd dashboard
-   npm run dev
-   ```
-   
-   **If you encounter port conflicts**:
-   ```
-   ./emergency-restart.sh
-   ```
-   This will kill all Node.js processes and start the dashboard with the correct port configuration (frontend on port 3000, API on port 3005). Use this script when other methods fail to resolve port conflicts.
+The dashboard will be available at `http://localhost:3000`
 
-6. To reset all dashboard data (start from scratch):
-   ```
-   ./reset-dashboard.sh
-   ```
-   This will create a backup of your current data and reset all progress metrics.
+### Configuration Options
 
-## Security Features
+1. **Admin Setup**: Run `npm run setup-admin` to configure admin access
+2. **API Keys**: Configure Clay CRM integration in the dashboard settings
+3. **Backup Settings**: Automatic backups are enabled by default
 
-- **Authentication**: JWT-based authentication with secure password storage
-- **API Key Protection**: Encrypted storage for sensitive API keys
-- **HTTPS Enforcement**: Option to require HTTPS in production
-- **Rate Limiting**: Protection against brute-force attacks
-- **Input Validation**: Comprehensive validation on all API endpoints
-- **Helmet.js**: HTTP header security
-- **Access Controls**: Role-based permissions (admin/read-only)
+## Career Templates
 
-### Privacy and Data Separation
+### Using Templates
 
-This repository is designed with privacy in mind:
+When starting fresh or resetting your dashboard, you can choose from several templates:
 
-- **Your data stays private**: Personal dashboard data is not included in the repository
-- **Environment variables**: All sensitive configuration is in `.env` files (excluded via `.gitignore`)
-- **Owner-only updates**: Authentication ensures only you can update your own dashboard instance
-- **Clean separation**: Others can fork/clone this repo without getting your personal information
+1. **Entry/Mid-Tier DevOps Path**: 12-month plan for entry-level professionals
+2. **Accelerated Senior Path**: 18-month plan for experienced professionals
+3. **Custom Career Path**: Build your own program from scratch
+4. **Personal Templates**: Import your own career configuration
 
-When someone else uses this repository:
-1. They'll get code without your personal data or API keys
-2. They'll need to run `npm run setup-admin` to create their own admin account
-3. They'll configure their own environment in `.env` file
-4. They'll start with empty dashboard data that they populate themselves
+To reset and choose a new template:
+```bash
+./scripts/reset-dashboard.js
+```
 
-See [PRIVACY.md](docs/PRIVACY.md) for detailed information about data ownership and privacy boundaries.
+## Data Management
+
+### Backup & Restore
+
+- **Automatic Backups**: Daily backups are created automatically
+- **Manual Backup**: Use Data Manager in the dashboard
+- **Restore**: Select from available backups in Data Manager
+- **Export/Import**: Export your data for sharing or backup
+
+### Data Structure
+
+Your dashboard data includes:
+- Career roadmap with phases and milestones
+- Skills tracking across 6 categories
+- Weekly schedule and time allocations
+- Goals, projects, and certifications
+- Learning resources and progress
+- Networking metrics and connections
 
 ## Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to participate in this project.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
+
+## Security Features
+
+- JWT authentication for secure access
+- Encrypted storage for API keys
+- Rate limiting for API protection
+- CORS configuration
+- Security headers via Helmet.js
+
+## Deployment Options
+
+### Local/Personal Use
+- Run on your local machine for personal tracking
+- Data stored locally with automatic backups
+
+### Cloud Deployment
+- See [FREE-HOSTING-GUIDE.md](docs/FREE-HOSTING-GUIDE.md) for hosting options
+- Deploy to Render, Railway, or similar platforms
+
+### Demo Mode
+- Read-only mode for showcasing the dashboard
+- Separate demo data that doesn't affect personal data
+
+## Documentation
+
+- [Installation Guide](docs/INSTALLATION.md)
+- [FAQ](docs/FAQ.md)
+- [Security Information](docs/SECURITY.md)
+- [Privacy Details](docs/PRIVACY.md)
+- [Roadmap Configuration](dashboard/docs/ROADMAP-CONFIGURATION.md)
+- [Templates Guide](dashboard/docs/TEMPLATES.md)
+
+## Author
+
+**Joshua Michael Hall**
+- Website: [joshuamichaelhall.com](https://joshuamichaelhall.com)
+- GitHub: [@joshuamichaelhall](https://github.com/joshuamichaelhall)
+- LinkedIn: [linkedin.com/in/joshuamichaelhall](https://linkedin.com/in/joshuamichaelhall)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Customizing Your Dashboard
+## Acknowledgments
 
-### Personalizing Goals and Tasks
+- Built with assistance from Claude.ai
+- Inspired by the need for better career tracking tools in DevOps
+- Thanks to the open source community for the amazing tools and libraries
 
-The dashboard is designed to be fully customizable to match your specific DevOps career path. Here are several ways to customize your tasks and goals:
+---
 
-#### Through the Dashboard UI
-
-1. **Adding New Tasks**: Navigate to the Tasks tab and use the "+" button to add new tasks with categories, priorities, and due dates.
-
-2. **Updating Skills**: In the Skills tab, use the "Update" button on each skill category to add new skills or update proficiency levels.
-
-3. **Adding Learning Resources**: In the Learning tab, use the "Add Resource" button to track new courses, books, or tutorials.
-
-4. **Logging Time**: Use the Weekly Metrics card to log time spent on different activities.
-
-#### Directly Editing Data Files
-
-For more advanced customization, you can directly edit the data files:
-
-1. **Main Data File**: Located at `dashboard/src/data/data.json`. This contains all your personal dashboard data.
-
-2. **Initial Template**: Located at `dashboard/src/data/initial-data.json`. This is the template used when resetting or initializing a new dashboard.
-
-#### Creating Career-Specific Goals
-
-When setting up your dashboard, consider organizing your goals around these DevOps focus areas:
-
-- **Technical Skills**: AWS/Cloud, Kubernetes, Terraform, Docker, CI/CD pipelines
-- **Learning Goals**: Certifications, courses, books, tutorials
-- **Project Goals**: Personal projects that demonstrate specific DevOps skills
-- **Networking**: Professional connections, community involvement, conferences
-- **Content Creation**: Blog posts, presentations, open source contributions
-
-#### Example Custom Task Structure
-
-```json
-{
-  "content": "Complete AWS DevOps Professional certification",
-  "category": "certification",
-  "priority": "high",
-  "completed": false,
-  "due": "2025-08-30"
-}
-```
-
-### Using Templates for Different Career Stages
-
-The dashboard comes with three comprehensive career path templates that you can select during setup or through the Data Manager interface:
-
-- **Accelerated Senior DevOps Path**: A fast-track 18-month roadmap for professionals with prior IT experience, leading to a senior DevOps role ($90K-$150K) in financial services. Includes intensive 50-hour weekly schedule, AWS and Terraform certifications, and advanced projects.
-
-- **Entry/Mid-Tier DevOps Path**: A 12-month plan for those with less experience, focused on securing an entry-level or mid-tier DevOps position. Features a manageable 30-hour weekly schedule, starting with AWS Cloud Practitioner certification.
-
-- **Custom Career Path**: A blank template that allows you to build your career development plan from scratch, defining your own skills, certifications, projects, and schedule.
-
-See [TEMPLATES.md](dashboard/docs/TEMPLATES.md) for detailed information about each template and how to use them.
-
-### Data Management Features
-
-The dashboard includes several data management features to help you maintain your career data:
-
-#### Importing and Exporting Data
-
-You can export your dashboard data as a JSON file for backup or transfer to another device:
-
-1. Navigate to the Settings tab
-2. Select "Data Manager"
-3. Use the Export function to download your data
-
-Similarly, you can import previously exported data:
-
-1. Navigate to the Settings tab
-2. Select "Data Manager"
-3. Use the Import function to upload your data file
-
-#### Cloud Sync
-
-Sync your dashboard with cloud storage services to access from multiple devices:
-
-- **Dropbox**: Store your dashboard data in your Dropbox account
-- **Google Drive**: Store your dashboard data in Google Drive
-- **GitHub Gist**: Store your dashboard as a private gist
-
-To set up cloud sync:
-
-1. Navigate to the Settings tab
-2. Select "Cloud Sync"
-3. Choose your preferred provider and follow the authentication steps
-4. Your data will automatically sync when updated
-
-#### Resetting or Starting Fresh
-
-If you want to reset your dashboard or start with a clean slate:
-
-```bash
-./reset-dashboard.sh
-```
-
-This will create a backup of your current data and reset to the initial template.
-
-## Acknowledgements
-
-This project was built with assistance from [Claude.ai](https://claude.ai/), Anthropic's AI assistant. Claude helped with:
-- Architecture design decisions
-- Code generation and implementation
-- Security considerations
-- Documentation
-
-Networking functionality optionally integrates with [Clay](https://clay.com/) for CRM capabilities.
+For more information, visit the [project page](https://joshuamichaelhall.com/dashboard) or try the [live demo](https://devops-dashboard.joshuamichaelhall.com?demo=true).

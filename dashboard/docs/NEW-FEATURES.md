@@ -1,180 +1,270 @@
 # DevOps Career Dashboard - New Features Guide
 
-This guide covers the new features added in version 1.1.0 of the DevOps Career Dashboard. These enhancements make it easier to customize your dashboard based on your career stage and technical focus areas.
+This guide covers the new features added in version 1.2.0 of the DevOps Career Dashboard. These enhancements make it easier to customize your dashboard based on your career stage and technical focus areas.
 
 ## Table of Contents
 
-1. [Setup for Forked Repositories](#setup-for-forked-repositories)
-2. [Career Roadmap Configuration](#career-roadmap-configuration)
-3. [Skills Tracker Templates](#skills-tracker-templates)
-4. [Suggested Projects](#suggested-projects)
-5. [Learning Resources Library](#learning-resources-library)
-6. [Weekly Schedule Templates](#weekly-schedule-templates)
-7. [Task Generation](#task-generation)
+1. [Career Templates System](#career-templates-system)
+2. [Schedule Modes](#schedule-modes)
+3. [Real Career Roadmap Data](#real-career-roadmap-data)
+4. [Data Backup & Restore](#data-backup--restore)
+5. [Personal vs Generic Data](#personal-vs-generic-data)
+6. [Weekly Goals Tracking](#weekly-goals-tracking)
+7. [Enhanced Time Tracking](#enhanced-time-tracking)
 
-## Setup for Forked Repositories
+## Career Templates System
 
-When you fork this repository, you now have the option to configure your dashboard with default templates at installation time.
+The dashboard now includes a comprehensive template system with pre-configured career paths.
 
-### New Installation Wizard
+### Available Templates
 
-A setup wizard will guide you through selecting:
+1. **Accelerated Path** - 18-month intensive program for experienced professionals
+2. **Entry Path** - 12-month program for beginners
+3. **Mid-Career** - Balanced program for working professionals
+4. **Senior Career** - Leadership and architecture focus
+5. **Custom Path** - Build your own from scratch
+6. **Personal DevOps Finance** - Specialized finance industry template
 
-1. **Career Stage**: Early-career (0-2 years), Mid-career (2-5 years), or Senior (5+ years)
-2. **Technical Focus Areas**: AWS/Cloud, Kubernetes, Terraform, etc.
-3. **Work Schedule Type**: Full-time learning (50 hours/week) or Part-time (20 hours/week)
+### Using Templates
 
-Based on your selections, the dashboard will be pre-populated with appropriate:
-- Skills to track
-- Projects to build
-- Learning resources
+```bash
+# Select a template during reset
+./scripts/reset-dashboard.js
+
+# Or specify directly
+./scripts/reset-dashboard.js --template entry-path
+```
+
+### Template Features
+
+Each template includes:
+- Complete career roadmap with phases
+- Pre-configured skills and target levels
+- Certification timeline
+- Project suggestions
 - Weekly schedule
-- Tasks and goals
+- Networking targets
 
-### Manual Configuration
+## Schedule Modes
 
-You can also manually configure these options after installation through each component's import functionality.
+Three flexible schedule modes to fit different lifestyles:
 
-## Career Roadmap Configuration
+### Full-Time Mode (50 hours/week)
+- 25 hours learning
+- 12.5 hours projects
+- 7.5 hours networking
+- 5 hours content creation
 
-The Career Roadmap section now supports custom tracks and progression phases.
+### Part-Time Mode (20 hours/week)
+- 10 hours learning
+- 5 hours projects
+- 3 hours networking
+- 2 hours content creation
 
-### Available Career Tracks
+### Weekend Mode (20 hours/week)
+- Same allocation as part-time
+- Optimized for weekend scheduling
 
-- **AWS/Cloud Specialist**: Focus on AWS services, cloud architecture, and infrastructure as code
-- **Kubernetes Specialist**: Focus on container orchestration, microservices, and platform engineering
-- **DevOps Engineer**: Balanced focus across CI/CD, infrastructure, and automation
-- **Custom Track**: Create your own career progression path
+### Switching Modes
 
-### Setup Guide
+Change modes anytime through the Weekly Schedule component:
+1. Navigate to Weekly Schedule
+2. Select schedule type from dropdown
+3. Changes save automatically
 
-1. Navigate to the Overview section
-2. Click "Configure Career Roadmap"
-3. Select a predefined track or create a custom one
-4. Set target completion dates for each phase
-5. Your dashboard will update to reflect the selected roadmap
+## Real Career Roadmap Data
 
-## Skills Tracker Templates
+The dashboard now includes comprehensive career data:
 
-The Skills Tracker now includes templated skill sets based on career focus.
+### 4-Phase Career Journey
+1. **Foundation Phase** (4 months) - AWS & Infrastructure as Code
+2. **Implementation Phase** (2 months) - DevOps practices & job prep
+3. **Employment Phase** (12 months) - On-the-job advancement
+4. **Leadership Phase** (3 months) - Specialization & leadership
 
-### Using Skills Templates
+### Complete Skill Tracking
+- 75+ specific skills across 6 categories
+- AWS Cloud Platform (12 skills)
+- Infrastructure as Code (6 skills)
+- Containerization (6 skills)
+- CI/CD (6 skills)
+- Monitoring & Observability (6 skills)
+- Scripting & Automation (6 skills)
 
-1. Navigate to the Skills tab
-2. Click "Import Skills"
-3. Select from the following options:
-   - **All Skills**: Complete DevOps skillset
-   - **Beginner Skills by Career Stage**: Skills appropriate for your experience level
-   - **Skills by Specialty Track**: Skills specific to your technical focus
+### Real Projects
+- Financial Services AWS Infrastructure
+- Automated CI/CD Pipeline
+- Container Microservices Platform
+- Each with business value and components
 
-### Technical Focus Areas
+## Data Backup & Restore
 
-Each template covers skills in these categories:
-- AWS Cloud Platform
-- Infrastructure as Code (Terraform)
-- Containerization (Docker, Kubernetes)
-- CI/CD Pipelines
-- Monitoring & Observability
-- Scripting & Automation
-- Security & Compliance
-- System Administration
+Enhanced data protection and recovery:
 
-## Suggested Projects
+### Automatic Backups
+- Daily automatic backups
+- 30-day retention policy
+- Stored in `src/data/backups/`
 
-The dashboard now includes suggested projects based on your selected career track.
+### Manual Backup Options
+- Export via Data Manager
+- Direct file copy
+- Version control integration
 
-### Project Templates
+### Restore Features
+- Restore from any backup
+- Import custom configurations
+- Template switching with data preservation
 
-Each technical track includes project templates at three difficulty levels:
-- **Beginner**: Good for getting started with a technology
-- **Intermediate**: Builds more advanced skills
-- **Advanced**: Complex projects demonstrating expertise
+## Personal vs Generic Data
 
-### Importing Projects
+Clear separation between personal and shared data:
 
-1. Navigate to the Projects tab
-2. Click "Import Projects"
-3. Select a technology track
-4. Select difficulty level
-5. Choose the projects you want to add to your dashboard
+### For Repository Users
+- Generic `initial-data.json` with standard DevOps path
+- No personal information shared
+- Professional weekly schedule
+- Customizable templates
 
-Each project includes:
-- Description of what to build
-- Key technologies to use
-- Difficulty rating
-- Estimated completion time
-- Learning outcomes
+### For Personal Use
+- Personal template with your specific schedule
+- Your career roadmap from devops-career-strategy
+- Custom networking targets
+- Industry-specific focus
 
-## Learning Resources Library
+### Demo Mode
+- Separate demo data with fictional progress
+- Clearly marked as demonstration
+- No real personal data exposed
 
-The dashboard now includes a curated library of learning resources for each track.
+## Weekly Goals Tracking
 
-### Resource Categories
+New weekly goals feature with:
 
-Resources are organized by:
-- Type (course, book, documentation, tutorial)
-- Technical focus area
-- Difficulty level
-- Priority
+### Goal Categories
+- Certification modules
+- Infrastructure components
+- Architecture diagrams
+- GitHub contributions
+- DevOps connections
+- Technical content
+- Meetup attendance
+- Practice hours
 
-### Importing Resources
+### Tracking Features
+- Checkbox completion
+- Quantity tracking
+- Weekly reset option
+- Progress visualization
 
-1. Navigate to the Learning tab
-2. Click "Import Resources"
-3. Filter by track or resource type
-4. Select resources to add to your queue
+## Enhanced Time Tracking
 
-Resources include direct links to official documentation, recommended courses, and books.
+Improved time allocation tracking:
 
-## Weekly Schedule Templates
+### Category Breakdown
+- Learning hours
+- Project hours
+- Networking hours
+- Content creation hours
 
-The dashboard now offers predefined weekly schedule templates to help you organize your learning and project time.
+### Visual Analytics
+- Weekly progress bars
+- Category pie charts
+- Trend analysis
+- Target vs actual comparison
 
-### Schedule Types
+### Schedule Integration
+- Syncs with weekly schedule
+- Adjusts targets based on mode
+- Real-time updates
 
-- **Full-Time Schedule (50 hours/week)**: Designed for career changers or those in intensive learning mode
-- **Part-Time Schedule (20 hours/week)**: Balanced schedule for working professionals
-- **Weekend-Focused Schedule**: Concentrated learning on weekends with minimal weekday commitment
+## Quick Start Guide
 
-### Customization Options
+1. **Fork the Repository**
+   ```bash
+   git clone https://github.com/your-username/devops-career-dashboard
+   cd devops-career-dashboard
+   ```
 
-1. Navigate to the Schedule tab
-2. Click "Import Schedule"
-3. Select a schedule template
-4. Customize focus areas for your learning time
-5. The schedule will update with your chosen technical focus areas
+2. **Install Dependencies**
+   ```bash
+   cd dashboard
+   npm install
+   ```
 
-Each schedule includes a recommended time allocation across learning, projects, networking, and content creation.
+3. **Choose Your Template**
+   ```bash
+   ./scripts/reset-dashboard.js
+   # Select from available templates
+   ```
 
-## Task Generation
+4. **Configure Schedule**
+   - Start with full-time if available
+   - Switch to part-time as needed
+   - Use weekend mode for minimal commitment
 
-The dashboard now includes a task generation system to help you create a comprehensive list of tasks based on your career goals.
+5. **Start Tracking**
+   ```bash
+   ./start-personal.sh
+   ```
 
-### Task Templates
+## Migration from Previous Versions
 
-Tasks are organized by:
-- **One-time Tasks**: Specific goals with due dates
-- **Recurring Tasks**: Daily, weekly, and monthly habits
-- **Category**: Learning, projects, networking, etc.
-- **Priority**: High, medium, low
+If upgrading from an earlier version:
 
-### Generating Tasks
+1. **Backup Current Data**
+   ```bash
+   cp src/data/data.json src/data/backups/pre-upgrade.json
+   ```
 
-1. Navigate to the Tasks tab
-2. Click "Import Tasks"
-3. Select tracks you're interested in
-4. Choose whether to include recurring tasks
-5. Select specific tasks to import
-6. Tasks will be added to your dashboard
+2. **Install Updates**
+   ```bash
+   git pull
+   npm install
+   ```
 
-### Recurring Task Categories
+3. **Migrate Data**
+   - Use Data Manager to export old data
+   - Reset with new template
+   - Import relevant sections
 
-- **Daily Tasks**: Short practice sessions, reading, skill building
-- **Weekly Tasks**: Project work, content creation, networking
-- **Monthly Tasks**: Review progress, adjust goals, deeper learning
+## Best Practices
 
-## Additional Resources
+1. **Choose Realistic Templates**
+   - Start with entry-path if new to DevOps
+   - Use part-time mode if working full-time
+   - Adjust targets based on progress
 
-- See [CHANGELOG.md](CHANGELOG.md) for a complete list of changes
-- Refer to the main [README.md](../README.md) for general dashboard documentation
-- Use the in-app help feature for context-specific guidance
+2. **Regular Updates**
+   - Update skills weekly
+   - Track time daily
+   - Review goals monthly
+
+3. **Use Backups**
+   - Let automatic backups run
+   - Export before major changes
+   - Keep personal templates separate
+
+4. **Customize Thoughtfully**
+   - Start with templates
+   - Modify based on experience
+   - Share improvements back
+
+## Troubleshooting
+
+### Template Issues
+- Verify JSON syntax in templates
+- Check file permissions
+- Use reset script for clean slate
+
+### Schedule Problems
+- Clear browser cache
+- Check total hours allocation
+- Verify schedule mode setting
+
+### Data Loss
+- Check backup directory
+- Use Data Manager restore
+- Contact support if needed
+
+For more help, see the [FAQ](../../docs/FAQ.md) or submit an issue on GitHub.
