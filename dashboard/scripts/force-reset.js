@@ -6,17 +6,62 @@
 
 const fs = require('fs-extra');
 const path = require('path');
+const readline = require('readline');
 
 // Define paths
 const initialDataPath = path.join(__dirname, '..', 'src', 'data', 'initial-data.json');
 const dataPath = path.join(__dirname, '..', 'src', 'data', 'data.json');
 const backupPath = path.join(__dirname, '..', 'src', 'data', 'backups');
 const localStoragePath = path.join(__dirname, '..', 'src', 'data', 'localStorage.json');
+const templatesDir = path.join(__dirname, '..', 'src', 'data', 'templates');
+
+// Create readline interface for user interaction
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+/**
+ * Ask user to select a template
+ * @returns {Promise<string>} Selected template path
+ */
+const selectTemplate = () => {
+  return new Promise((resolve) => {
+    console.log('\nSelect a dashboard template for force reset:');
+    console.log('1. Accelerated Senior DevOps Path (18-month plan for senior roles)');
+    console.log('2. Entry/Mid-Tier DevOps Path (12-month plan for entry-level)');
+    console.log('3. Custom Career Path (Build from scratch)');
+    console.log('4. Original Initial Data (Basic template)');
+    
+    rl.question('\nEnter your selection (1-4): ', (answer) => {
+      switch (answer.trim()) {
+        case '1':
+          resolve(path.join(templatesDir, 'accelerated-path.json'));
+          break;
+        case '2':
+          resolve(path.join(templatesDir, 'entry-path.json'));
+          break;
+        case '3':
+          resolve(path.join(templatesDir, 'custom-path.json'));
+          break;
+        case '4':
+          resolve(initialDataPath);
+          break;
+        default:
+          console.log('Invalid selection. Using Original Initial Data as default.');
+          resolve(initialDataPath);
+      }
+    });
+  });
+};
 
 // Main function
 async function forceReset() {
   try {
     console.log("🔄 Starting force reset...");
+    
+    // Let user select template
+    const templatePath = await selectTemplate();
     
     // Ensure backup directory exists
     await fs.ensureDir(backupPath);
@@ -29,26 +74,28 @@ async function forceReset() {
       console.log(`✅ Created backup at ${backupFilePath}`);
     }
     
-    // Check if initial data template exists
-    let initialData;
-    if (await fs.pathExists(initialDataPath)) {
-      console.log("📄 Loading initial data template...");
-      initialData = await fs.readJson(initialDataPath);
+    // Load selected template
+    let templateData;
+    try {
+      console.log(`📄 Loading template from ${templatePath}...`);
+      templateData = await fs.readJson(templatePath);
       
       // Update dates to today
       const today = new Date().toISOString().split('T')[0];
-      initialData.overview.lastUpdated = today;
-      if (initialData.networking) {
-        initialData.networking.lastUpdate = today;
+      templateData.overview.lastUpdated = today;
+      if (templateData.networking) {
+        templateData.networking.lastUpdate = today;
       }
-    } else {
-      console.warn("⚠️ Initial data template not found, using minimal template");
-      initialData = createMinimalTemplate();
+      console.log(`✅ Selected template loaded successfully`);
+    } catch (loadError) {
+      console.warn(`⚠️ Failed to load selected template: ${loadError.message}`);
+      console.log("Falling back to minimal template");
+      templateData = createMinimalTemplate();
     }
     
-    // Write initial data to data.json
+    // Write template data to data.json
     console.log("📝 Writing new data file...");
-    await fs.writeJson(dataPath, initialData, { spaces: 2 });
+    await fs.writeJson(dataPath, templateData, { spaces: 2 });
     
     // Create localStorage clear helper
     console.log("🔑 Creating localStorage reset helper...");
@@ -135,8 +182,10 @@ function createMinimalTemplate() {
 
 // Run the reset function
 forceReset().then(() => {
+  rl.close();
   process.exit(0);
 }).catch(err => {
   console.error("Unhandled error:", err);
+  rl.close();
   process.exit(1);
 });

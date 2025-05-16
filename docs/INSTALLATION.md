@@ -202,11 +202,11 @@ These features ensure that **only you can update your dashboard data** while all
    # Kill the processes
    kill -9 <PID>
    
-   # Or use the emergency restart script
-   ./emergency-restart.sh
+   # Or use the restart script
+   ./restart-dashboard.sh --emergency
    ```
    
-   The emergency restart script will:
+   The emergency restart option will:
    - Kill all Node.js processes
    - Reset environment configurations
    - Create separate port configurations for React (3000) and API (3005)

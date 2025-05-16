@@ -1,135 +1,469 @@
 {
   "overview": {
     "phase": "Foundation Phase",
-    "phaseProgress": 5,
-    "totalGoals": 3,
-    "completedGoals": 0,
-    "goalCompletionRate": 0,
-    "nextMilestone": "Complete Learning Plan",
-    "lastUpdated": "2025-05-15"
+    "phaseProgress": 15,
+    "totalGoals": 45,
+    "completedGoals": 7,
+    "goalCompletionRate": 15,
+    "nextMilestone": "AWS Solutions Architect Associate Certification",
+    "lastUpdated": "2025-05-16"
   },
   "weeklyMetrics": {
-    "learningHours": 0,
-    "projectHours": 0,
-    "networkingHours": 0,
-    "totalHours": 0,
-    "targetHours": 35,
-    "completionRate": 0,
-    "skillsImproved": 0,
-    "connectionsAdded": 0
+    "learningHours": 25,
+    "projectHours": 12.5,
+    "networkingHours": 7.5,
+    "totalHours": 50,
+    "targetHours": 50,
+    "completionRate": 100,
+    "skillsImproved": 5,
+    "connectionsAdded": 25
   },
   "skills": [
     {
       "category": "AWS",
-      "skills": [],
-      "averageLevel": 0,
+      "skills": [
+        {
+          "name": "VPC",
+          "level": 40
+        },
+        {
+          "name": "IAM",
+          "level": 45
+        },
+        {
+          "name": "EC2",
+          "level": 35
+        },
+        {
+          "name": "S3",
+          "level": 40
+        },
+        {
+          "name": "CloudTrail",
+          "level": 30
+        },
+        {
+          "name": "Security Hub",
+          "level": 25
+        }
+      ],
+      "averageLevel": 35,
       "targetLevel": 80
     },
     {
       "category": "Infrastructure as Code",
-      "skills": [],
-      "averageLevel": 0,
-      "targetLevel": 80
+      "skills": [
+        {
+          "name": "Terraform",
+          "level": 30
+        },
+        {
+          "name": "State Management",
+          "level": 25
+        },
+        {
+          "name": "Modules",
+          "level": 20
+        }
+      ],
+      "averageLevel": 25,
+      "targetLevel": 85
     },
     {
       "category": "Containers",
-      "skills": [],
-      "averageLevel": 0,
+      "skills": [
+        {
+          "name": "Docker",
+          "level": 20
+        },
+        {
+          "name": "ECS",
+          "level": 10
+        }
+      ],
+      "averageLevel": 15,
       "targetLevel": 80
     },
     {
       "category": "CI/CD",
-      "skills": [],
-      "averageLevel": 0,
-      "targetLevel": 80
+      "skills": [
+        {
+          "name": "GitHub Actions",
+          "level": 25
+        },
+        {
+          "name": "AWS CodePipeline",
+          "level": 15
+        }
+      ],
+      "averageLevel": 20,
+      "targetLevel": 85
     },
     {
       "category": "Monitoring",
-      "skills": [],
-      "averageLevel": 0,
+      "skills": [
+        {
+          "name": "CloudWatch",
+          "level": 30
+        },
+        {
+          "name": "Prometheus",
+          "level": 10
+        }
+      ],
+      "averageLevel": 20,
       "targetLevel": 80
     },
     {
       "category": "Scripting",
-      "skills": [],
-      "averageLevel": 0,
+      "skills": [
+        {
+          "name": "Bash",
+          "level": 40
+        },
+        {
+          "name": "Python",
+          "level": 35
+        },
+        {
+          "name": "Ruby",
+          "level": 25
+        }
+      ],
+      "averageLevel": 33,
       "targetLevel": 80
     }
   ],
   "certifications": [
     {
-      "name": "AWS Cloud Practitioner",
+      "name": "AWS Solutions Architect Associate",
+      "provider": "AWS",
+      "status": "In Progress",
+      "progress": 35,
+      "targetDate": "2025-07-30",
+      "notes": "Working through Adrian Cantrill's course"
+    },
+    {
+      "name": "HashiCorp Terraform Associate",
+      "provider": "HashiCorp",
+      "status": "Planned",
+      "progress": 10,
+      "targetDate": "2025-09-20",
+      "notes": "Initial research complete"
+    },
+    {
+      "name": "AWS DevOps Professional",
       "provider": "AWS",
       "status": "Planned",
       "progress": 0,
-      "targetDate": "2025-07-30",
-      "notes": "Entry-level certification"
+      "targetDate": "2026-01-30",
+      "notes": "Scheduled after AWS SAA"
     }
   ],
   "projects": [
     {
-      "name": "Personal Portfolio Site",
-      "description": "Create a personal website to showcase DevOps projects and skills",
+      "name": "Secure Financial Infrastructure as Code with AWS & Terraform",
+      "description": "Production-grade AWS infrastructure for financial services with security, compliance, and automation using Terraform",
+      "status": "In Progress",
+      "progress": 25,
+      "technologies": [
+        "AWS",
+        "Terraform",
+        "CloudTrail",
+        "Security Hub",
+        "CloudWatch",
+        "GitHub Actions"
+      ],
+      "repository": "https://github.com/JoshuaMichaelHall-Tech/project-aws-infrastructure",
+      "targetDate": "2025-07-30"
+    },
+    {
+      "name": "Automated DevOps Pipeline for Financial Applications",
+      "description": "Robust CI/CD pipeline for financial services applications with security scanning, compliance validation, and automated deployment",
+      "status": "Planned",
+      "progress": 5,
+      "technologies": [
+        "GitHub Actions",
+        "AWS CodePipeline",
+        "SonarQube",
+        "Terraform",
+        "CloudFormation Guard"
+      ],
+      "repository": "https://github.com/JoshuaMichaelHall-Tech/project-devops-pipeline-financial",
+      "targetDate": "2025-09-15"
+    },
+    {
+      "name": "Secure Container Platform for Financial Services",
+      "description": "Container security platform for financial services with secure image management, runtime protection, and compliance monitoring",
       "status": "Planned",
       "progress": 0,
       "technologies": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "GitHub Pages"
+        "Docker",
+        "AWS ECS",
+        "ECR",
+        "Trivy",
+        "OPA",
+        "Prometheus",
+        "Grafana"
       ],
-      "repository": "",
-      "targetDate": "2025-06-30"
+      "repository": "https://github.com/JoshuaMichaelHall-Tech/project-container-security-finance",
+      "targetDate": "2025-11-30"
     }
   ],
   "goals": [
     {
-      "content": "Complete AWS Cloud Practitioner certification",
-      "category": "certification",
+      "content": "Complete AWS Core Services modules in Adrian Cantrill's course",
+      "category": "learning",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-10"
+    },
+    {
+      "content": "Set up AWS CLI with profiles for different environments",
+      "category": "setup",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-05"
+    },
+    {
+      "content": "Configure terminal environment with zsh, tmux, and neovim",
+      "category": "setup",
+      "priority": "medium",
+      "completed": true,
+      "completedDate": "2025-05-01"
+    },
+    {
+      "content": "Create GitHub repository structure for AWS Infrastructure project",
+      "category": "project",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-07"
+    },
+    {
+      "content": "Create initial VPC architecture in AWS",
+      "category": "project",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-12"
+    },
+    {
+      "content": "Document security architecture and decisions",
+      "category": "documentation",
+      "priority": "medium",
+      "completed": true,
+      "completedDate": "2025-05-14"
+    },
+    {
+      "content": "Set up Clay CRM account and import LinkedIn connections",
+      "category": "networking",
+      "priority": "medium",
+      "completed": true,
+      "completedDate": "2025-05-08"
+    },
+    {
+      "content": "Complete AWS Security & IAM modules",
+      "category": "learning",
       "priority": "high",
       "completed": false,
-      "due": "2025-07-30"
+      "due": "2025-05-25"
     },
     {
-      "content": "Build personal portfolio website",
+      "content": "Implement IAM roles and policies with least privilege",
       "category": "project",
-      "priority": "medium",
+      "priority": "high",
       "completed": false,
-      "due": "2025-06-30"
+      "due": "2025-05-30"
     },
     {
-      "content": "Connect with 5 DevOps professionals on LinkedIn",
+      "content": "Set up AWS CloudTrail with secure logging",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-06-05"
+    },
+    {
+      "content": "Connect with 25-30 AWS/DevOps professionals in financial services",
       "category": "networking",
       "priority": "medium",
       "completed": false,
-      "due": "2025-05-31"
+      "due": "2025-05-20"
+    },
+    {
+      "content": "Draft outline for 'AWS Network Security for Financial Services' article",
+      "category": "content",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-05-25"
     }
   ],
   "learningResources": [
     {
-      "id": "initial-1",
-      "name": "AWS Cloud Practitioner Essentials",
+      "id": "aws-saa-1",
+      "name": "AWS Solutions Architect Associate - Adrian Cantrill",
       "type": "course",
       "priority": "high",
-      "status": "Scheduled",
+      "status": "In Progress",
+      "progress": 35,
+      "targetMonth": "July 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "aws-well-arch-1",
+      "name": "AWS Well-Architected Framework Whitepaper",
+      "type": "documentation",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 40,
+      "targetMonth": "May 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "terraform-book-1",
+      "name": "Terraform: Up & Running, 3rd Edition",
+      "type": "book",
+      "priority": "high",
+      "status": "Planned",
       "progress": 0,
       "targetMonth": "June 2025",
-      "dateAdded": "2025-05-15"
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "aws-security-1",
+      "name": "AWS Security Documentation",
+      "type": "documentation",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 25,
+      "targetMonth": "May 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "hashicorp-learn-1",
+      "name": "HashiCorp Learn Terraform Track",
+      "type": "tutorial",
+      "priority": "high",
+      "status": "Planned",
+      "progress": 0,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "linux-cli-1",
+      "name": "Linux Command Line - Essential Commands",
+      "type": "tutorial",
+      "priority": "medium",
+      "status": "In Progress",
+      "progress": 50,
+      "targetMonth": "May 2025",
+      "dateAdded": "2025-05-01"
     }
   ],
   "networking": {
-    "totalConnections": 0,
-    "activeConversations": 0,
-    "weeklyOutreach": 0,
-    "followUps": 0,
-    "lastUpdate": "2025-05-15"
+    "totalConnections": 75,
+    "activeConversations": 5,
+    "weeklyOutreach": 25,
+    "followUps": 8,
+    "lastUpdate": "2025-05-16"
   },
   "clayMetrics": {
-    "newConnections": 0,
-    "connectionAcceptanceRate": 0,
-    "contentPieces": 0,
-    "engagementRate": 0,
-    "followUpsSent": 0,
-    "responseRate": 0
+    "newConnections": 25,
+    "connectionAcceptanceRate": 65,
+    "contentPieces": 1,
+    "engagementRate": 15,
+    "followUpsSent": 8,
+    "responseRate": 35
+  },
+  "schedule": {
+    "monday": {
+      "learning": 8,
+      "projects": 2.5,
+      "networking": 1,
+      "content": 1
+    },
+    "tuesday": {
+      "learning": 8,
+      "projects": 3,
+      "networking": 1,
+      "content": 0
+    },
+    "wednesday": {
+      "learning": 6.5,
+      "projects": 2.5,
+      "networking": 1.5,
+      "content": 1.5
+    },
+    "thursday": {
+      "learning": 5,
+      "projects": 2,
+      "networking": 1,
+      "content": 0
+    },
+    "friday": {
+      "learning": 5.5,
+      "projects": 2.5,
+      "networking": 1.5,
+      "content": 1.5
+    },
+    "saturday": {
+      "learning": 0,
+      "projects": 5.5,
+      "networking": 1.5,
+      "content": 2
+    },
+    "sunday": {
+      "learning": 0,
+      "projects": 0,
+      "networking": 0,
+      "content": 0
+    }
+  },
+  "weeklyGoals": {
+    "certificationModules": 5,
+    "infrastructureComponents": 3,
+    "architectureDiagrams": 2,
+    "githubContributions": 6,
+    "devopsConnections": 25,
+    "technicalContent": 1,
+    "devopsMeetups": 1,
+    "technicalPracticeHours": 10
+  },
+  "roadmap": {
+    "phasesTotal": 3,
+    "currentPhase": 1,
+    "phases": [
+      {
+        "name": "Core AWS & IaC Foundation",
+        "duration": "4 months",
+        "startDate": "2025-05-01",
+        "endDate": "2025-08-31",
+        "milestones": [
+          "AWS Solutions Architect Associate Certification",
+          "Terraform Associate Certification",
+          "Complete AWS Infrastructure Project"
+        ]
+      },
+      {
+        "name": "DevOps Implementation & Job Preparation",
+        "duration": "2 months",
+        "startDate": "2025-09-01",
+        "endDate": "2025-10-31",
+        "milestones": [
+          "Complete CI/CD Pipeline Project",
+          "Complete Container Security Project",
+          "Build Comprehensive Portfolio"
+        ]
+      },
+      {
+        "name": "Employment & Advanced Specialization",
+        "duration": "12 months",
+        "startDate": "2025-11-01",
+        "endDate": "2026-10-31",
+        "milestones": [
+          "Secure Mid-Level DevOps Position",
+          "AWS DevOps Professional Certification",
+          "Technical Leadership Positioning"
+        ]
+      }
+    ]
   }
 }

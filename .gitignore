@@ -40,9 +40,12 @@ Thumbs.db
 /src/data/secure-config.enc
 /src/data/data.json
 /src/data/clay-config.json
+/dashboard/src/data/data.json
+/dashboard/src/data/clay-config.json
 
 # Backups of personal data
 /src/data/backups/*.json
+/dashboard/src/data/backups/*.json
 
 # Dashboard configuration with personal settings
 /dashboard/settings.json

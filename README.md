@@ -223,6 +223,38 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to th
 - CORS configuration
 - Security headers via Helmet.js
 
+## Personal Data Management
+
+### Option 1: Local Storage (Default)
+Your dashboard data is stored locally in `dashboard/src/data/data.json` and is automatically gitignored to prevent accidental commits.
+
+### Option 2: Private Git Repository (Recommended for Multi-Device)
+Sync your personal data across devices using a separate private git repository:
+
+1. **Initial Setup**
+   ```bash
+   cd personal-data-repo
+   git init
+   git remote add origin git@github.com:YOUR-USERNAME/devops-dashboard-personal-data.git
+   git push -u origin main
+   ```
+
+2. **Sync Your Data**
+   ```bash
+   ./sync-personal-data.sh
+   ```
+
+3. **Restore on Another Device**
+   ```bash
+   git clone git@github.com:YOUR-USERNAME/devops-dashboard-personal-data.git personal-data-repo
+   ./restore-personal-data.sh
+   ```
+
+See [personal-data-repo/README.md](personal-data-repo/README.md) for detailed instructions.
+
+### Option 3: Cloud Sync
+Use the built-in cloud sync feature (requires configuration).
+
 ## Deployment Options
 
 ### Local/Personal Use

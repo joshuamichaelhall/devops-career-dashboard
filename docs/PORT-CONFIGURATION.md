@@ -61,9 +61,9 @@ If you experience port conflicts:
    kill -9 $(lsof -ti:3000,3005)
    ```
 
-3. **Use the clean restart script**:
+3. **Use the restart script**:
    ```bash
-   ./restart-clean.sh
+   ./restart-dashboard.sh --clean
    ```
    This script will automatically kill any conflicting processes and set up the correct port configuration.
 
@@ -75,7 +75,7 @@ If you change ports, you might need to update references in these files:
 - `/dashboard/server.js`
 - `/dashboard/src/services/api.js`
 - `/dashboard/start-dashboard.sh`
-- `/restart-clean.sh`
+- `/restart-dashboard.sh`
 
 ## Production Deployment
 
