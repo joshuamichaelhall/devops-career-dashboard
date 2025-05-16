@@ -635,7 +635,7 @@ const NetworkingTracker = () => {
               <span className="font-medium">
                 {connected && clayMetrics ? 
                   `${clayMetrics.newConnections}/25-30` : 
-                  `${dashboardData.weeklyMetrics.newConnections}/25-30`}
+                  dashboardData.clayMetrics ? `${dashboardData.clayMetrics.newConnections}/25-30` : '0/25-30'}
               </span>
             </div>
             <div className="flex justify-between">
@@ -643,7 +643,7 @@ const NetworkingTracker = () => {
               <span className="font-medium">
                 {connected && clayMetrics ? 
                   `${clayMetrics.connectionAcceptanceRate}%` : 
-                  '0%'}
+                  dashboardData.clayMetrics ? `${dashboardData.clayMetrics.connectionAcceptanceRate}%` : '0%'}
               </span>
             </div>
             <div className="flex justify-between">
@@ -651,7 +651,7 @@ const NetworkingTracker = () => {
               <span className="font-medium">
                 {connected && clayMetrics ? 
                   `${clayMetrics.contentPieces}/1-2` : 
-                  '0/1-2'}
+                  dashboardData.clayMetrics ? `${dashboardData.clayMetrics.contentPieces}/1-2` : '0/1-2'}
               </span>
             </div>
             <div className="flex justify-between">
@@ -659,7 +659,7 @@ const NetworkingTracker = () => {
               <span className="font-medium">
                 {connected && clayMetrics ? 
                   `${clayMetrics.engagementRate}%` : 
-                  '0%'}
+                  dashboardData.clayMetrics ? `${dashboardData.clayMetrics.engagementRate}%` : '0%'}
               </span>
             </div>
             <div className="flex justify-between">
@@ -667,7 +667,7 @@ const NetworkingTracker = () => {
               <span className="font-medium">
                 {connected && clayMetrics ? 
                   clayMetrics.followUpsSent : 
-                  '0'}
+                  dashboardData.clayMetrics ? dashboardData.clayMetrics.followUpsSent : '0'}
               </span>
             </div>
           </div>

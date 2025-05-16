@@ -193,7 +193,7 @@ export const authFetch = async (url, options = {}) => {
     console.log('Demo mode: API call would be:', options.method, url);
     
     // For dashboard data fetch, return demo data
-    if (url.includes('/dashboard/data')) {
+    if (url.includes('/data')) {
       return {
         ok: true,
         json: async () => require('../data/demo-data.json')

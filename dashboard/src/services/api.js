@@ -25,7 +25,7 @@ export const fetchDashboardData = async (options = {}) => {
   try {
     // Add cache-busting parameter if nocache is provided
     const nocacheParam = options.nocache ? `?nocache=${options.nocache}` : '';
-    const url = `${API_URL}/dashboard/data${nocacheParam}`;
+    const url = `${API_URL}/data${nocacheParam}`;
     
     const response = await authFetch(url, {
       headers: {
