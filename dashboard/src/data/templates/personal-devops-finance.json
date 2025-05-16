@@ -1,0 +1,680 @@
+{
+  "overview": {
+    "phase": "Core AWS & IaC Foundation",
+    "phaseProgress": 0,
+    "totalGoals": 8,
+    "completedGoals": 0,
+    "goalCompletionRate": 0,
+    "nextMilestone": "Set up AWS Lab Environment",
+    "lastUpdated": "2025-05-15",
+    "careerRoadmap": {
+      "currentPhase": 1,
+      "totalPhases": 4,
+      "phaseDetails": {
+        "1": {
+          "name": "Core AWS & IaC Foundation",
+          "duration": "4 months",
+          "status": "In Progress",
+          "expectedCompletion": "2025-09-15"
+        },
+        "2": {
+          "name": "DevOps Implementation & Job Preparation",
+          "duration": "2 months",
+          "status": "Planned",
+          "expectedCompletion": "2025-11-15"
+        },
+        "3": {
+          "name": "Initial Employment & Advancement",
+          "duration": "12 months",
+          "status": "Planned",
+          "expectedCompletion": "2026-11-15"
+        },
+        "4": {
+          "name": "Leadership & Specialization",
+          "duration": "3 months",
+          "status": "Planned",
+          "expectedCompletion": "2027-02-15"
+        }
+      }
+    }
+  },
+  "scheduleSettings": {
+    "scheduleType": "fullTime",
+    "weeklyHours": 50,
+    "availableModes": {
+      "fullTime": {
+        "hours": 50,
+        "description": "Full-time study (50 hours/week)",
+        "allocation": {
+          "learning": 25,
+          "projects": 12.5,
+          "networking": 7.5,
+          "content": 5
+        }
+      },
+      "partTime": {
+        "hours": 20,
+        "description": "Part-time study (20 hours/week)",
+        "allocation": {
+          "learning": 10,
+          "projects": 5,
+          "networking": 3,
+          "content": 2
+        }
+      },
+      "weekend": {
+        "hours": 20,
+        "description": "Weekend study (20 hours/week)",
+        "allocation": {
+          "learning": 10,
+          "projects": 5,
+          "networking": 3,
+          "content": 2
+        }
+      }
+    }
+  },
+  "weeklyMetrics": {
+    "learningHours": 0,
+    "projectHours": 0,
+    "networkingHours": 0,
+    "contentHours": 0,
+    "totalHours": 0,
+    "targetHours": 50,
+    "completionRate": 0,
+    "skillsImproved": 0,
+    "connectionsAdded": 0
+  },
+  "weeklySchedule": {
+    "Monday": [
+      { "time": "6:00 AM - 9:00 AM", "activity": "Learning", "category": "Learning", "hours": 3 },
+      { "time": "10:00 AM - 12:00 PM", "activity": "Projects", "category": "Projects", "hours": 2 },
+      { "time": "1:00 PM - 4:00 PM", "activity": "Learning", "category": "Learning", "hours": 3 },
+      { "time": "4:00 PM - 5:00 PM", "activity": "Networking", "category": "Networking", "hours": 1 },
+      { "time": "6:00 PM - 7:00 PM", "activity": "Content Creation", "category": "Content", "hours": 1 },
+      { "time": "7:00 PM - 9:00 PM", "activity": "Technical Environment Practice", "category": "Learning", "hours": 2 }
+    ],
+    "Tuesday": [
+      { "time": "6:00 AM - 9:00 AM", "activity": "Learning", "category": "Learning", "hours": 3 },
+      { "time": "10:00 AM - 12:30 PM", "activity": "Projects", "category": "Projects", "hours": 2.5 },
+      { "time": "1:30 PM - 4:30 PM", "activity": "Learning", "category": "Learning", "hours": 3 },
+      { "time": "4:30 PM - 5:30 PM", "activity": "Networking: Engage with DevOps community", "category": "Networking", "hours": 1 },
+      { "time": "6:30 PM - 8:30 PM", "activity": "Learning", "category": "Learning", "hours": 2 },
+      { "time": "8:30 PM - 9:00 PM", "activity": "Daily review and planning", "category": "Projects", "hours": 0.5 }
+    ],
+    "Wednesday": [
+      { "time": "6:00 AM - 9:00 AM", "activity": "Learning", "category": "Learning", "hours": 3 },
+      { "time": "10:00 AM - 12:30 PM", "activity": "Projects", "category": "Projects", "hours": 2.5 },
+      { "time": "1:30 PM - 4:00 PM", "activity": "Learning", "category": "Learning", "hours": 2.5 },
+      { "time": "4:00 PM - 5:30 PM", "activity": "Networking", "category": "Networking", "hours": 1.5 },
+      { "time": "6:30 PM - 8:00 PM", "activity": "Content Creation", "category": "Content", "hours": 1.5 },
+      { "time": "8:00 PM - 9:00 PM", "activity": "Technical Environment Practice", "category": "Learning", "hours": 1 }
+    ],
+    "Thursday": [
+      { "time": "6:00 AM - 9:00 AM", "activity": "Learning", "category": "Learning", "hours": 3 },
+      { "time": "10:00 AM - 12:00 PM", "activity": "Projects", "category": "Projects", "hours": 2 },
+      { "time": "1:00 PM - 3:00 PM", "activity": "Learning", "category": "Learning", "hours": 2 },
+      { "time": "3:00 PM - 4:00 PM", "activity": "Networking", "category": "Networking", "hours": 1 }
+    ],
+    "Friday": [
+      { "time": "6:00 AM - 9:00 AM", "activity": "Learning", "category": "Learning", "hours": 3 },
+      { "time": "10:00 AM - 12:30 PM", "activity": "Projects", "category": "Projects", "hours": 2.5 },
+      { "time": "1:30 PM - 4:00 PM", "activity": "Learning", "category": "Learning", "hours": 2.5 },
+      { "time": "6:00 PM - 7:30 PM", "activity": "Networking: Engage with technical communities", "category": "Networking", "hours": 1.5 },
+      { "time": "7:30 PM - 9:00 PM", "activity": "Content Creation", "category": "Content", "hours": 1.5 }
+    ],
+    "Saturday": [
+      { "time": "6:00 AM - 7:30 AM", "activity": "Networking: Professional networking & contact management", "category": "Networking", "hours": 1.5 },
+      { "time": "7:30 AM - 9:30 AM", "activity": "Content Creation: Technical article", "category": "Content", "hours": 2 },
+      { "time": "10:30 AM - 1:00 PM", "activity": "Projects: Current portfolio project", "category": "Projects", "hours": 2.5 },
+      { "time": "2:00 PM - 5:00 PM", "activity": "Projects", "category": "Projects", "hours": 3 }
+    ],
+    "Sunday": [
+      { "time": "Rest Day", "activity": "Family Time / Personal Time", "category": "Personal", "hours": 0 }
+    ]
+  },
+  "weeklyGoals": [
+    {
+      "id": "wg-1",
+      "title": "Complete certification modules/chapters",
+      "description": "Study and complete planned certification modules for the week",
+      "quantity": "___ modules",
+      "completed": false
+    },
+    {
+      "id": "wg-2",
+      "title": "Implement infrastructure components",
+      "description": "Build and deploy infrastructure components for portfolio projects",
+      "quantity": "___ components",
+      "completed": false
+    },
+    {
+      "id": "wg-3",
+      "title": "Create architecture diagrams",
+      "description": "Document infrastructure with professional architecture diagrams",
+      "quantity": "___ diagrams",
+      "completed": false
+    },
+    {
+      "id": "wg-4",
+      "title": "Make GitHub contributions",
+      "description": "Maintain daily GitHub streak (Mon-Sat)",
+      "quantity": "___ contributions",
+      "completed": false
+    },
+    {
+      "id": "wg-5",
+      "title": "Connect with DevOps professionals",
+      "description": "Target: 25-30 new connections weekly",
+      "quantity": "___ connections",
+      "completed": false
+    },
+    {
+      "id": "wg-6",
+      "title": "Draft/publish technical articles",
+      "description": "Create technical content or documentation",
+      "quantity": "___ articles",
+      "completed": false
+    },
+    {
+      "id": "wg-7",
+      "title": "Attend DevOps meetups",
+      "description": "Virtual or in-person DevOps community events",
+      "quantity": "___ meetups",
+      "completed": false
+    },
+    {
+      "id": "wg-8",
+      "title": "Complete hands-on technical practice",
+      "description": "Dedicated practice time for technical skills",
+      "quantity": "___ hours",
+      "completed": false
+    }
+  ],
+  "skills": [
+    {
+      "category": "AWS Cloud Platform",
+      "skills": [
+        { "name": "EC2 (Elastic Compute Cloud)", "level": 0, "targetLevel": 90 },
+        { "name": "VPC (Virtual Private Cloud)", "level": 0, "targetLevel": 90 },
+        { "name": "S3 (Simple Storage Service)", "level": 0, "targetLevel": 90 },
+        { "name": "IAM (Identity and Access Management)", "level": 0, "targetLevel": 95 },
+        { "name": "CloudFormation", "level": 0, "targetLevel": 85 },
+        { "name": "RDS (Relational Database Service)", "level": 0, "targetLevel": 85 },
+        { "name": "Lambda (Serverless Functions)", "level": 0, "targetLevel": 80 },
+        { "name": "CloudWatch (Monitoring)", "level": 0, "targetLevel": 90 },
+        { "name": "ECS (Elastic Container Service)", "level": 0, "targetLevel": 80 },
+        { "name": "EKS (Elastic Kubernetes Service)", "level": 0, "targetLevel": 75 },
+        { "name": "Route 53 (DNS)", "level": 0, "targetLevel": 85 },
+        { "name": "CloudFront (CDN)", "level": 0, "targetLevel": 80 }
+      ],
+      "averageLevel": 0,
+      "targetLevel": 85
+    },
+    {
+      "category": "Infrastructure as Code",
+      "skills": [
+        { "name": "Terraform", "level": 0, "targetLevel": 90 },
+        { "name": "Terraform Modules", "level": 0, "targetLevel": 85 },
+        { "name": "Terraform State Management", "level": 0, "targetLevel": 85 },
+        { "name": "CloudFormation", "level": 0, "targetLevel": 80 },
+        { "name": "Infrastructure Testing", "level": 0, "targetLevel": 80 },
+        { "name": "GitOps", "level": 0, "targetLevel": 75 }
+      ],
+      "averageLevel": 0,
+      "targetLevel": 85
+    },
+    {
+      "category": "Containerization",
+      "skills": [
+        { "name": "Docker", "level": 0, "targetLevel": 90 },
+        { "name": "Docker Compose", "level": 0, "targetLevel": 85 },
+        { "name": "Container Security", "level": 0, "targetLevel": 85 },
+        { "name": "Docker Registry", "level": 0, "targetLevel": 80 },
+        { "name": "Kubernetes", "level": 0, "targetLevel": 85 },
+        { "name": "Container Orchestration", "level": 0, "targetLevel": 80 }
+      ],
+      "averageLevel": 0,
+      "targetLevel": 85
+    },
+    {
+      "category": "CI/CD",
+      "skills": [
+        { "name": "GitHub Actions", "level": 0, "targetLevel": 90 },
+        { "name": "Jenkins", "level": 0, "targetLevel": 75 },
+        { "name": "CircleCI", "level": 0, "targetLevel": 75 },
+        { "name": "GitLab CI", "level": 0, "targetLevel": 75 },
+        { "name": "ArgoCD", "level": 0, "targetLevel": 70 },
+        { "name": "Pipeline Security", "level": 0, "targetLevel": 85 }
+      ],
+      "averageLevel": 0,
+      "targetLevel": 80
+    },
+    {
+      "category": "Monitoring & Observability",
+      "skills": [
+        { "name": "CloudWatch", "level": 0, "targetLevel": 90 },
+        { "name": "Prometheus", "level": 0, "targetLevel": 80 },
+        { "name": "Grafana", "level": 0, "targetLevel": 80 },
+        { "name": "ELK Stack", "level": 0, "targetLevel": 75 },
+        { "name": "APM Tools", "level": 0, "targetLevel": 75 },
+        { "name": "Log Analysis", "level": 0, "targetLevel": 85 }
+      ],
+      "averageLevel": 0,
+      "targetLevel": 80
+    },
+    {
+      "category": "Scripting & Automation",
+      "skills": [
+        { "name": "Bash/Shell", "level": 0, "targetLevel": 90 },
+        { "name": "Python", "level": 0, "targetLevel": 80 },
+        { "name": "Ruby", "level": 0, "targetLevel": 75 },
+        { "name": "PowerShell", "level": 0, "targetLevel": 70 },
+        { "name": "Git", "level": 0, "targetLevel": 90 },
+        { "name": "API Automation", "level": 0, "targetLevel": 80 }
+      ],
+      "averageLevel": 0,
+      "targetLevel": 80
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Solutions Architect Associate",
+      "provider": "AWS",
+      "status": "Planned",
+      "progress": 0,
+      "targetDate": "2025-08-15",
+      "notes": "Priority 1 - Foundation certification for AWS expertise",
+      "cost": "$150",
+      "studyHours": 120
+    },
+    {
+      "name": "Terraform Associate",
+      "provider": "HashiCorp",
+      "status": "Planned",
+      "progress": 0,
+      "targetDate": "2025-11-15",
+      "notes": "Priority 1 - Essential for Infrastructure as Code",
+      "cost": "$70-150",
+      "studyHours": 80
+    },
+    {
+      "name": "AWS DevOps Professional",
+      "provider": "AWS",
+      "status": "Planned",
+      "progress": 0,
+      "targetDate": "2026-03-15",
+      "notes": "Priority 2 - Advanced certification after employment",
+      "cost": "$300",
+      "studyHours": 150
+    }
+  ],
+  "projects": [
+    {
+      "name": "Financial Services AWS Infrastructure",
+      "description": "Build a secure, compliant AWS infrastructure for financial services with Terraform",
+      "status": "Planned",
+      "progress": 0,
+      "technologies": ["AWS", "Terraform", "IAM", "CloudWatch", "Security"],
+      "repository": "",
+      "targetDate": "2025-09-15",
+      "businessValue": "Demonstrates ability to build secure, compliant infrastructure for regulated industries",
+      "components": [
+        "Multi-tier VPC architecture",
+        "IAM roles and security policies",
+        "S3 compliance controls",
+        "CloudWatch monitoring and alerts",
+        "Cost optimization strategies"
+      ]
+    },
+    {
+      "name": "Automated CI/CD Pipeline",
+      "description": "Create a production-ready CI/CD pipeline with security scanning and automated deployments",
+      "status": "Planned",
+      "progress": 0,
+      "technologies": ["GitHub Actions", "Docker", "AWS ECS", "Security"],
+      "repository": "",
+      "targetDate": "2025-10-15",
+      "businessValue": "Shows ability to implement modern DevOps practices with security focus",
+      "components": [
+        "Automated testing",
+        "Security vulnerability scanning",
+        "Container builds and registry",
+        "Blue-green deployments",
+        "Pipeline monitoring"
+      ]
+    },
+    {
+      "name": "Container Microservices Platform",
+      "description": "Deploy a microservices architecture using containers on AWS with monitoring",
+      "status": "Planned",
+      "progress": 0,
+      "technologies": ["Docker", "AWS ECS", "Service Mesh", "Monitoring"],
+      "repository": "",
+      "targetDate": "2025-11-15",
+      "businessValue": "Demonstrates container orchestration and microservices expertise",
+      "components": [
+        "Microservices architecture",
+        "Container orchestration",
+        "Service discovery",
+        "Distributed tracing",
+        "Auto-scaling policies"
+      ]
+    }
+  ],
+  "goals": [
+    {
+      "id": "goal-1",
+      "content": "Set up AWS learning environment and sandbox account",
+      "category": "setup",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-05-31",
+      "phase": "Foundation"
+    },
+    {
+      "id": "goal-2",
+      "content": "Complete AWS Cloud Practitioner course (foundational knowledge)",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-06-15",
+      "phase": "Foundation"
+    },
+    {
+      "id": "goal-3",
+      "content": "Pass AWS Solutions Architect Associate certification",
+      "category": "certification",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-08-15",
+      "phase": "Foundation"
+    },
+    {
+      "id": "goal-4",
+      "content": "Build and deploy Financial Services AWS Infrastructure project",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-09-15",
+      "phase": "Foundation"
+    },
+    {
+      "id": "goal-5",
+      "content": "Complete Terraform fundamentals and build 3 IaC modules",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-07-31",
+      "phase": "Foundation"
+    },
+    {
+      "id": "goal-6",
+      "content": "Pass Terraform Associate certification",
+      "category": "certification",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-11-15",
+      "phase": "DevOps Implementation"
+    },
+    {
+      "id": "goal-7",
+      "content": "Connect with 50 DevOps professionals on LinkedIn",
+      "category": "networking",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-08-31",
+      "recurringInterval": "monthly",
+      "phase": "Foundation"
+    },
+    {
+      "id": "goal-8",
+      "content": "Publish 4 technical blog posts on DevOps topics",
+      "category": "content",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-07-31",
+      "recurringInterval": "monthly",
+      "phase": "Foundation"
+    },
+    {
+      "id": "goal-9",
+      "content": "Complete Docker and container orchestration fundamentals",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-09-30",
+      "phase": "DevOps Implementation"
+    },
+    {
+      "id": "goal-10",
+      "content": "Build CI/CD Pipeline project with security scanning",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-10-15",
+      "phase": "DevOps Implementation"
+    },
+    {
+      "id": "goal-11",
+      "content": "Prepare resume and portfolio for job search",
+      "category": "career",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-09-30",
+      "phase": "DevOps Implementation"
+    },
+    {
+      "id": "goal-12",
+      "content": "Apply to 20 DevOps engineer positions",
+      "category": "career",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-11-30",
+      "phase": "DevOps Implementation"
+    }
+  ],
+  "learningResources": [
+    {
+      "id": "resource-1",
+      "name": "Adrian Cantrill AWS Solutions Architect Associate Course",
+      "type": "course",
+      "priority": "high",
+      "status": "Active",
+      "progress": 0,
+      "targetMonth": "August 2025",
+      "dateAdded": "2025-05-15",
+      "cost": "$50",
+      "url": "https://learn.cantrill.io/",
+      "skills": ["AWS", "Cloud Architecture", "Security"],
+      "notes": "Primary resource for AWS SAA certification prep"
+    },
+    {
+      "id": "resource-2",
+      "name": "HashiCorp Learn Terraform Track",
+      "type": "tutorial",
+      "priority": "high",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "July 2025",
+      "dateAdded": "2025-05-15",
+      "cost": "Free",
+      "url": "https://learn.hashicorp.com/terraform",
+      "skills": ["Terraform", "IaC", "AWS"],
+      "notes": "Official Terraform tutorials and best practices"
+    },
+    {
+      "id": "resource-3",
+      "name": "The Linux Command Line by William Shotts",
+      "type": "book",
+      "priority": "medium",
+      "status": "Active",
+      "progress": 0,
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-15",
+      "cost": "Free",
+      "url": "https://linuxcommand.org/tlcl.php",
+      "skills": ["Linux", "Shell Scripting", "System Administration"],
+      "notes": "Foundation for Linux system administration"
+    },
+    {
+      "id": "resource-4",
+      "name": "Docker Mastery by Bret Fisher",
+      "type": "course",
+      "priority": "high",
+      "status": "Scheduled",
+      "progress": 0,
+      "targetMonth": "September 2025",
+      "dateAdded": "2025-05-15",
+      "cost": "$10-15",
+      "url": "https://www.udemy.com/course/docker-mastery/",
+      "skills": ["Docker", "Containers", "Microservices"],
+      "notes": "Comprehensive Docker and container orchestration"
+    },
+    {
+      "id": "resource-5",
+      "name": "GitHub Actions Documentation",
+      "type": "documentation",
+      "priority": "medium",
+      "status": "Active",
+      "progress": 0,
+      "targetMonth": "October 2025",
+      "dateAdded": "2025-05-15",
+      "cost": "Free",
+      "url": "https://docs.github.com/en/actions",
+      "skills": ["CI/CD", "GitHub Actions", "Automation"],
+      "notes": "Official documentation for CI/CD implementation"
+    },
+    {
+      "id": "resource-6",
+      "name": "AWS Documentation and Tutorials",
+      "type": "documentation",
+      "priority": "high",
+      "status": "Active",
+      "progress": 0,
+      "targetMonth": "Ongoing",
+      "dateAdded": "2025-05-15",
+      "cost": "Free",
+      "url": "https://docs.aws.amazon.com/",
+      "skills": ["AWS", "Cloud Services", "Best Practices"],
+      "notes": "Official AWS documentation for reference"
+    }
+  ],
+  "networking": {
+    "totalConnections": 0,
+    "activeConversations": 0,
+    "weeklyOutreach": 0,
+    "followUps": 0,
+    "lastUpdate": "2025-05-15",
+    "targetConnections": 250,
+    "monthlyTarget": 100,
+    "weeklyTarget": "25-30",
+    "strategy": {
+      "primary": "DevOps engineers in financial services (70%)",
+      "secondary": "Technical recruiters and community leaders (20%)",
+      "tertiary": "Content creators and educators (10%)"
+    }
+  },
+  "clayMetrics": {
+    "newConnections": 0,
+    "connectionAcceptanceRate": 0,
+    "contentPieces": 0,
+    "engagementRate": 0,
+    "followUpsSent": 0,
+    "responseRate": 0,
+    "lastSync": null
+  },
+  "tasks": [
+    {
+      "id": "task-daily-1",
+      "title": "LinkedIn Engagement (15-20 minutes)",
+      "description": "Post comments, connect with professionals, respond to messages",
+      "category": "networking",
+      "priority": "medium",
+      "completed": false,
+      "recurring": "daily",
+      "timeEstimate": "20 minutes",
+      "skillAreas": ["Networking", "Personal Brand"]
+    },
+    {
+      "id": "task-daily-2",
+      "title": "Code Practice & Learning",
+      "description": "Work through tutorials, practice problems, or build projects",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "recurring": "daily",
+      "timeEstimate": "2-3 hours",
+      "skillAreas": ["Technical Skills", "Problem Solving"]
+    },
+    {
+      "id": "task-weekly-1",
+      "title": "Publish Technical Content",
+      "description": "Write and publish a blog post or technical article",
+      "category": "content",
+      "priority": "medium",
+      "completed": false,
+      "recurring": "weekly",
+      "timeEstimate": "2-3 hours",
+      "skillAreas": ["Technical Writing", "Personal Brand"]
+    },
+    {
+      "id": "task-weekly-2",
+      "title": "Portfolio Project Progress",
+      "description": "Dedicate focused time to current portfolio project",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "recurring": "weekly",
+      "timeEstimate": "8-10 hours",
+      "skillAreas": ["Project Management", "Technical Skills"]
+    },
+    {
+      "id": "task-weekly-3",
+      "title": "Clay CRM Update",
+      "description": "Update networking contacts and schedule follow-ups",
+      "category": "networking",
+      "priority": "medium",
+      "completed": false,
+      "recurring": "weekly",
+      "timeEstimate": "30 minutes",
+      "skillAreas": ["Networking", "Relationship Management"]
+    },
+    {
+      "id": "task-monthly-1",
+      "title": "Portfolio Review & Update",
+      "description": "Update GitHub portfolio and personal website",
+      "category": "career",
+      "priority": "medium",
+      "completed": false,
+      "recurring": "monthly",
+      "timeEstimate": "2-3 hours",
+      "skillAreas": ["Personal Brand", "Portfolio Development"]
+    },
+    {
+      "id": "task-monthly-2",
+      "title": "Learning Plan Review",
+      "description": "Review progress and adjust learning priorities",
+      "category": "planning",
+      "priority": "high",
+      "completed": false,
+      "recurring": "monthly",
+      "timeEstimate": "1 hour",
+      "skillAreas": ["Planning", "Self-Assessment"]
+    }
+  ],
+  "backupConfig": {
+    "enableAutoBackup": true,
+    "backupFrequency": "daily",
+    "retentionDays": 30,
+    "lastBackup": null
+  },
+  "dashboardConfig": {
+    "theme": "light",
+    "showWelcomeMessage": true,
+    "defaultView": "overview",
+    "enableNotifications": true,
+    "dataResetEnabled": true,
+    "importExportEnabled": true
+  }
+}

@@ -8,12 +8,49 @@
     "nextMilestone": "Define your first milestone",
     "lastUpdated": "2025-05-15"
   },
+  "scheduleSettings": {
+    "scheduleType": "fullTime",
+    "weeklyHours": 50,
+    "availableModes": {
+      "fullTime": {
+        "hours": 50,
+        "description": "Full-time study (50 hours/week)",
+        "allocation": {
+          "learning": 25,
+          "projects": 12.5,
+          "networking": 7.5,
+          "content": 5
+        }
+      },
+      "partTime": {
+        "hours": 20,
+        "description": "Part-time study (20 hours/week)",
+        "allocation": {
+          "learning": 10,
+          "projects": 5,
+          "networking": 3,
+          "content": 2
+        }
+      },
+      "weekend": {
+        "hours": 20,
+        "description": "Weekend study (20 hours/week)",
+        "allocation": {
+          "learning": 10,
+          "projects": 5,
+          "networking": 3,
+          "content": 2
+        }
+      }
+    }
+  },
   "weeklyMetrics": {
     "learningHours": 0,
     "projectHours": 0,
     "networkingHours": 0,
+    "contentHours": 0,
     "totalHours": 0,
-    "targetHours": 40,
+    "targetHours": 50,
     "completionRate": 0,
     "skillsImproved": 0,
     "connectionsAdded": 0
@@ -56,54 +93,23 @@
       "targetLevel": 70
     }
   ],
-  "certifications": [
-    {
-      "name": "Your First Certification",
-      "provider": "Certification Provider",
-      "status": "Planned",
-      "progress": 0,
-      "targetDate": "YYYY-MM-DD",
-      "notes": "Add your certification notes here"
-    }
-  ],
-  "projects": [
-    {
-      "name": "Your First Project",
-      "description": "Add a description of your first project",
-      "status": "Planned",
-      "progress": 0,
-      "technologies": ["Technology 1", "Technology 2"],
-      "repository": "",
-      "targetDate": "YYYY-MM-DD"
-    }
-  ],
-  "goals": [
-    {
-      "content": "Add your first goal",
-      "category": "learning",
-      "priority": "high",
-      "completed": false,
-      "due": "YYYY-MM-DD"
-    }
-  ],
-  "learningResources": [
-    {
-      "id": "resource-1",
-      "name": "Your First Learning Resource",
-      "type": "course",
-      "priority": "high",
-      "status": "Planned",
-      "progress": 0,
-      "targetMonth": "Month YYYY",
-      "dateAdded": "YYYY-MM-DD"
-    }
-  ],
+  "certifications": [],
+  "projects": [],
+  "goals": [],
+  "learningResources": [],
   "networking": {
     "totalConnections": 0,
     "activeConversations": 0,
     "weeklyOutreach": 0,
     "followUps": 0,
-    "lastUpdate": "2025-05-15"
+    "lastUpdate": "2025-05-15",
+    "targetConnections": 0,
+    "monthlyTarget": 0,
+    "strategy": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": ""
+    }
   },
   "clayMetrics": {
     "newConnections": 0,
@@ -111,76 +117,31 @@
     "contentPieces": 0,
     "engagementRate": 0,
     "followUpsSent": 0,
-    "responseRate": 0
+    "responseRate": 0,
+    "lastSync": null
   },
-  "schedule": {
-    "monday": {
-      "learning": 0,
-      "projects": 0,
-      "networking": 0,
-      "content": 0
-    },
-    "tuesday": {
-      "learning": 0,
-      "projects": 0,
-      "networking": 0,
-      "content": 0
-    },
-    "wednesday": {
-      "learning": 0,
-      "projects": 0,
-      "networking": 0,
-      "content": 0
-    },
-    "thursday": {
-      "learning": 0,
-      "projects": 0,
-      "networking": 0,
-      "content": 0
-    },
-    "friday": {
-      "learning": 0,
-      "projects": 0,
-      "networking": 0,
-      "content": 0
-    },
-    "saturday": {
-      "learning": 0,
-      "projects": 0,
-      "networking": 0,
-      "content": 0
-    },
-    "sunday": {
-      "learning": 0,
-      "projects": 0,
-      "networking": 0,
-      "content": 0
-    }
+  "tasks": [],
+  "weeklySchedule": {
+    "Monday": [],
+    "Tuesday": [],
+    "Wednesday": [],
+    "Thursday": [],
+    "Friday": [],
+    "Saturday": [],
+    "Sunday": []
   },
-  "weeklyGoals": {
-    "certificationModules": 0,
-    "infrastructureComponents": 0,
-    "architectureDiagrams": 0,
-    "githubContributions": 0,
-    "devopsConnections": 0,
-    "technicalContent": 0,
-    "devopsMeetups": 0,
-    "technicalPracticeHours": 0
+  "backupConfig": {
+    "enableAutoBackup": true,
+    "backupFrequency": "daily",
+    "retentionDays": 30,
+    "lastBackup": null
   },
-  "roadmap": {
-    "phasesTotal": 1,
-    "currentPhase": 1,
-    "phases": [
-      {
-        "name": "Your First Phase",
-        "duration": "X months",
-        "startDate": "YYYY-MM-DD",
-        "endDate": "YYYY-MM-DD",
-        "milestones": [
-          "Your First Milestone",
-          "Your Second Milestone"
-        ]
-      }
-    ]
+  "dashboardConfig": {
+    "theme": "light",
+    "showWelcomeMessage": true,
+    "defaultView": "overview",
+    "enableNotifications": true,
+    "dataResetEnabled": true,
+    "importExportEnabled": true
   }
 }

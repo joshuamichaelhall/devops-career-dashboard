@@ -1,22 +1,129 @@
 {
   "overview": {
     "phase": "Foundation Phase",
-    "phaseProgress": 5,
+    "phaseProgress": 0,
     "totalGoals": 3,
     "completedGoals": 0,
     "goalCompletionRate": 0,
-    "nextMilestone": "Complete Learning Plan",
-    "lastUpdated": "2025-05-15"
+    "nextMilestone": "Complete Initial Assessment",
+    "lastUpdated": "2025-05-15",
+    "careerRoadmap": {
+      "currentPhase": 1,
+      "totalPhases": 4,
+      "phaseDetails": {
+        "1": {
+          "name": "Foundation Phase",
+          "duration": "3-4 months",
+          "status": "In Progress",
+          "expectedCompletion": "TBD"
+        },
+        "2": {
+          "name": "Intermediate Phase",
+          "duration": "4-6 months",
+          "status": "Planned",
+          "expectedCompletion": "TBD"
+        },
+        "3": {
+          "name": "Advanced Phase",
+          "duration": "6-12 months",
+          "status": "Planned",
+          "expectedCompletion": "TBD"
+        },
+        "4": {
+          "name": "Expert Phase",
+          "duration": "Ongoing",
+          "status": "Planned",
+          "expectedCompletion": "TBD"
+        }
+      }
+    }
+  },
+  "scheduleSettings": {
+    "scheduleType": "fullTime",
+    "weeklyHours": 50,
+    "availableModes": {
+      "fullTime": {
+        "hours": 50,
+        "description": "Full-time study (50 hours/week)",
+        "allocation": {
+          "learning": 25,
+          "projects": 12.5,
+          "networking": 7.5,
+          "content": 5
+        }
+      },
+      "partTime": {
+        "hours": 20,
+        "description": "Part-time study (20 hours/week)",
+        "allocation": {
+          "learning": 10,
+          "projects": 5,
+          "networking": 3,
+          "content": 2
+        }
+      },
+      "weekend": {
+        "hours": 20,
+        "description": "Weekend study (20 hours/week)",
+        "allocation": {
+          "learning": 10,
+          "projects": 5,
+          "networking": 3,
+          "content": 2
+        }
+      }
+    }
   },
   "weeklyMetrics": {
     "learningHours": 0,
     "projectHours": 0,
     "networkingHours": 0,
+    "contentHours": 0,
     "totalHours": 0,
-    "targetHours": 35,
+    "targetHours": 50,
     "completionRate": 0,
     "skillsImproved": 0,
     "connectionsAdded": 0
+  },
+  "weeklySchedule": {
+    "Monday": [
+      { "time": "8:00 AM - 10:00 AM", "activity": "AWS Certification Study", "category": "Learning", "hours": 2 },
+      { "time": "10:30 AM - 12:30 PM", "activity": "Infrastructure Project Work", "category": "Projects", "hours": 2 },
+      { "time": "1:30 PM - 3:30 PM", "activity": "Container Orchestration Study", "category": "Learning", "hours": 2 },
+      { "time": "4:00 PM - 5:00 PM", "activity": "LinkedIn Networking", "category": "Networking", "hours": 1 }
+    ],
+    "Tuesday": [
+      { "time": "8:00 AM - 10:00 AM", "activity": "Terraform Study", "category": "Learning", "hours": 2 },
+      { "time": "10:30 AM - 12:30 PM", "activity": "CI/CD Pipeline Project", "category": "Projects", "hours": 2 },
+      { "time": "1:30 PM - 3:30 PM", "activity": "Linux Administration", "category": "Learning", "hours": 2 },
+      { "time": "4:00 PM - 5:00 PM", "activity": "Review & Planning", "category": "Learning", "hours": 1 }
+    ],
+    "Wednesday": [
+      { "time": "8:00 AM - 10:00 AM", "activity": "AWS Certification Study", "category": "Learning", "hours": 2 },
+      { "time": "10:30 AM - 12:30 PM", "activity": "Infrastructure Project Work", "category": "Projects", "hours": 2 },
+      { "time": "1:30 PM - 3:30 PM", "activity": "Monitoring & Observability", "category": "Learning", "hours": 2 },
+      { "time": "4:00 PM - 5:00 PM", "activity": "Tech Community Engagement", "category": "Networking", "hours": 1 }
+    ],
+    "Thursday": [
+      { "time": "8:00 AM - 10:00 AM", "activity": "Kubernetes Study", "category": "Learning", "hours": 2 },
+      { "time": "10:30 AM - 12:30 PM", "activity": "CI/CD Pipeline Project", "category": "Projects", "hours": 2 },
+      { "time": "1:30 PM - 3:30 PM", "activity": "Cloud Security", "category": "Learning", "hours": 2 },
+      { "time": "4:00 PM - 5:00 PM", "activity": "Technical Blog Writing", "category": "Content", "hours": 1 }
+    ],
+    "Friday": [
+      { "time": "8:00 AM - 10:00 AM", "activity": "AWS Certification Study", "category": "Learning", "hours": 2 },
+      { "time": "10:30 AM - 12:30 PM", "activity": "Infrastructure Project Work", "category": "Projects", "hours": 2 },
+      { "time": "1:30 PM - 3:30 PM", "activity": "Scripting & Automation", "category": "Learning", "hours": 2 },
+      { "time": "4:00 PM - 5:00 PM", "activity": "Weekly Review", "category": "Learning", "hours": 1 }
+    ],
+    "Saturday": [
+      { "time": "9:00 AM - 11:00 AM", "activity": "Technical Blog Writing", "category": "Content", "hours": 2 },
+      { "time": "1:00 PM - 3:00 PM", "activity": "Open Source Contribution", "category": "Projects", "hours": 2 }
+    ],
+    "Sunday": [
+      { "time": "2:00 PM - 4:00 PM", "activity": "Weekly Planning", "category": "Learning", "hours": 2 },
+      { "time": "4:00 PM - 5:00 PM", "activity": "LinkedIn Networking", "category": "Networking", "hours": 1 }
+    ]
   },
   "skills": [
     {
@@ -63,7 +170,7 @@
       "status": "Planned",
       "progress": 0,
       "targetDate": "2025-07-30",
-      "notes": "Entry-level certification"
+      "notes": "Entry-level AWS certification"
     }
   ],
   "projects": [
@@ -79,25 +186,28 @@
   ],
   "goals": [
     {
-      "content": "Complete AWS Cloud Practitioner certification",
-      "category": "certification",
+      "id": "goal-1",
+      "content": "Complete initial skills assessment",
+      "category": "planning",
       "priority": "high",
       "completed": false,
-      "due": "2025-07-30"
+      "due": "2025-05-31"
     },
     {
-      "content": "Build personal portfolio website",
-      "category": "project",
-      "priority": "medium",
-      "completed": false,
-      "due": "2025-06-30"
-    },
-    {
-      "content": "Connect with 5 DevOps professionals on LinkedIn",
-      "category": "networking",
-      "priority": "medium",
+      "id": "goal-2",
+      "content": "Set up development environment",
+      "category": "setup",
+      "priority": "high",
       "completed": false,
       "due": "2025-05-31"
+    },
+    {
+      "id": "goal-3",
+      "content": "Create learning roadmap",
+      "category": "planning",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-06-15"
     }
   ],
   "learningResources": [
@@ -117,7 +227,14 @@
     "activeConversations": 0,
     "weeklyOutreach": 0,
     "followUps": 0,
-    "lastUpdate": "2025-05-15"
+    "lastUpdate": "2025-05-15",
+    "targetConnections": 100,
+    "monthlyTarget": 20,
+    "strategy": {
+      "primary": "",
+      "secondary": "",
+      "tertiary": ""
+    }
   },
   "clayMetrics": {
     "newConnections": 0,
@@ -125,6 +242,22 @@
     "contentPieces": 0,
     "engagementRate": 0,
     "followUpsSent": 0,
-    "responseRate": 0
+    "responseRate": 0,
+    "lastSync": null
+  },
+  "tasks": [],
+  "backupConfig": {
+    "enableAutoBackup": true,
+    "backupFrequency": "daily",
+    "retentionDays": 30,
+    "lastBackup": null
+  },
+  "dashboardConfig": {
+    "theme": "light",
+    "showWelcomeMessage": true,
+    "defaultView": "overview",
+    "enableNotifications": true,
+    "dataResetEnabled": true,
+    "importExportEnabled": true
   }
 }

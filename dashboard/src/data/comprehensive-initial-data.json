@@ -1,0 +1,716 @@
+{
+  "overview": {
+    "phase": "Core AWS & IaC Foundation",
+    "phaseProgress": 15,
+    "totalGoals": 45,
+    "completedGoals": 7,
+    "goalCompletionRate": 15,
+    "nextMilestone": "AWS Solutions Architect Associate Certification",
+    "lastUpdated": "2025-05-15"
+  },
+  "weeklyMetrics": {
+    "learningHours": 0,
+    "projectHours": 0,
+    "networkingHours": 0,
+    "totalHours": 0,
+    "targetHours": 50,
+    "completionRate": 0,
+    "skillsImproved": 0,
+    "connectionsAdded": 0
+  },
+  "skills": [
+    {
+      "category": "AWS Cloud Platform",
+      "skills": [
+        { "name": "EC2", "level": 20 },
+        { "name": "VPC Networking", "level": 25 },
+        { "name": "S3", "level": 25 },
+        { "name": "IAM & Security", "level": 30 },
+        { "name": "RDS", "level": 15 },
+        { "name": "CloudFormation", "level": 10 },
+        { "name": "CloudWatch", "level": 15 },
+        { "name": "Route 53", "level": 10 },
+        { "name": "ELB/ALB/NLB", "level": 10 },
+        { "name": "Lambda", "level": 5 },
+        { "name": "CloudFront", "level": 5 },
+        { "name": "ElastiCache", "level": 0 },
+        { "name": "ECS", "level": 5 },
+        { "name": "EKS", "level": 0 },
+        { "name": "API Gateway", "level": 5 },
+        { "name": "SQS/SNS", "level": 5 },
+        { "name": "DynamoDB", "level": 5 },
+        { "name": "AWS Config", "level": 10 },
+        { "name": "AWS Security Hub", "level": 15 },
+        { "name": "AWS Organizations", "level": 5 },
+        { "name": "Secrets Manager", "level": 10 },
+        { "name": "Cost Management", "level": 10 }
+      ],
+      "averageLevel": 10,
+      "targetLevel": 80
+    },
+    {
+      "category": "Infrastructure as Code",
+      "skills": [
+        { "name": "Terraform Basic Syntax", "level": 20 },
+        { "name": "Terraform State Management", "level": 15 },
+        { "name": "Terraform Modules", "level": 10 },
+        { "name": "Terraform with AWS", "level": 15 },
+        { "name": "Terraform CI/CD Integration", "level": 5 },
+        { "name": "Terraform Testing", "level": 0 },
+        { "name": "Terraform for Multiple Environments", "level": 5 },
+        { "name": "Terraform Security Practices", "level": 10 }
+      ],
+      "averageLevel": 10,
+      "targetLevel": 80
+    },
+    {
+      "category": "Containerization",
+      "skills": [
+        { "name": "Docker Fundamentals", "level": 10 },
+        { "name": "Dockerfile Optimization", "level": 5 },
+        { "name": "Docker Compose", "level": 5 },
+        { "name": "Docker Networking", "level": 0 },
+        { "name": "Docker Security", "level": 5 },
+        { "name": "Container Registry Management", "level": 5 },
+        { "name": "Multi-stage Builds", "level": 0 },
+        { "name": "Kubernetes Architecture", "level": 0 },
+        { "name": "Pod Management", "level": 0 },
+        { "name": "Deployments, StatefulSets, DaemonSets", "level": 0 },
+        { "name": "Services & Ingress", "level": 0 },
+        { "name": "ConfigMaps & Secrets", "level": 0 },
+        { "name": "RBAC & Security", "level": 0 },
+        { "name": "Storage Management", "level": 0 },
+        { "name": "Helm", "level": 0 }
+      ],
+      "averageLevel": 5,
+      "targetLevel": 80
+    },
+    {
+      "category": "CI/CD",
+      "skills": [
+        { "name": "GitHub Actions Workflow Syntax", "level": 20 },
+        { "name": "GitHub Actions Runners", "level": 10 },
+        { "name": "GitHub Actions Secrets Management", "level": 15 },
+        { "name": "GitHub Actions Matrix Builds", "level": 5 },
+        { "name": "GitHub Actions CI Pipelines", "level": 15 },
+        { "name": "GitHub Actions CD Pipelines", "level": 10 },
+        { "name": "Pipeline Design Patterns", "level": 5 },
+        { "name": "Trunk-based Development", "level": 10 },
+        { "name": "Artifact Management", "level": 5 },
+        { "name": "Infrastructure Deployment", "level": 10 },
+        { "name": "Blue/Green Deployment", "level": 0 },
+        { "name": "Canary Deployment", "level": 0 }
+      ],
+      "averageLevel": 10,
+      "targetLevel": 80
+    },
+    {
+      "category": "Monitoring & Observability",
+      "skills": [
+        { "name": "Metrics Fundamentals", "level": 15 },
+        { "name": "Prometheus", "level": 5 },
+        { "name": "PromQL", "level": 0 },
+        { "name": "Grafana Dashboards", "level": 5 },
+        { "name": "CloudWatch Metrics", "level": 20 },
+        { "name": "SLIs/SLOs Design", "level": 0 },
+        { "name": "Centralized Logging Concepts", "level": 10 },
+        { "name": "CloudWatch Logs", "level": 15 },
+        { "name": "Log Query Languages", "level": 5 }
+      ],
+      "averageLevel": 10,
+      "targetLevel": 80
+    },
+    {
+      "category": "Scripting",
+      "skills": [
+        { "name": "Bash Fundamentals", "level": 35 },
+        { "name": "Shell Script Structure", "level": 30 },
+        { "name": "Variables & Data Types", "level": 30 },
+        { "name": "Control Flow", "level": 25 },
+        { "name": "Functions", "level": 20 },
+        { "name": "Error Handling", "level": 15 },
+        { "name": "Ruby for AWS Automation", "level": 10 },
+        { "name": "Python Fundamentals", "level": 20 },
+        { "name": "AWS SDK (Boto3)", "level": 10 }
+      ],
+      "averageLevel": 25,
+      "targetLevel": 80
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Solutions Architect Associate",
+      "provider": "AWS",
+      "status": "In Progress",
+      "progress": 35,
+      "targetDate": "2025-07-30",
+      "notes": "Working through Adrian Cantrill's course - Core services completed"
+    },
+    {
+      "name": "HashiCorp Terraform Associate",
+      "provider": "HashiCorp",
+      "status": "Planned",
+      "progress": 10,
+      "targetDate": "2025-09-15",
+      "notes": "Initial research complete"
+    },
+    {
+      "name": "AWS DevOps Professional",
+      "provider": "AWS",
+      "status": "Planned",
+      "progress": 0,
+      "targetDate": "2026-01-30",
+      "notes": "Scheduled after AWS SAA and gaining work experience"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Secure Financial Infrastructure as Code with AWS & Terraform",
+      "description": "Production-grade AWS infrastructure for financial services with security, compliance, and automation using Terraform. Focus on multi-environment deployment, least privilege access, and automated compliance checking.",
+      "status": "In Progress",
+      "progress": 25,
+      "technologies": ["AWS", "Terraform", "CloudTrail", "Security Hub", "CloudWatch", "GitHub Actions"],
+      "repository": "https://github.com/joshuamichaelhall/aws-financial-infrastructure",
+      "targetDate": "2025-07-30"
+    },
+    {
+      "name": "Automated DevOps Pipeline for Financial Applications",
+      "description": "Robust CI/CD pipeline for financial services applications with security scanning, compliance validation, and automated deployment across multiple environments.",
+      "status": "Planned",
+      "progress": 5,
+      "technologies": ["GitHub Actions", "AWS CodePipeline", "SonarQube", "Terraform", "CloudFormation Guard"],
+      "repository": "https://github.com/joshuamichaelhall/devops-pipeline-financial",
+      "targetDate": "2025-09-15"
+    },
+    {
+      "name": "Container Security Platform for Financial Services",
+      "description": "Container security platform for financial services with secure image management, runtime protection, and compliance monitoring using AWS ECS and ECR.",
+      "status": "Planned",
+      "progress": 0,
+      "technologies": ["Docker", "AWS ECS", "ECR", "Trivy", "OPA", "Prometheus", "Grafana"],
+      "repository": "https://github.com/joshuamichaelhall/container-security-finance",
+      "targetDate": "2025-11-30"
+    }
+  ],
+  "goals": [
+    {
+      "content": "Complete AWS Core Services modules in Adrian Cantrill's course",
+      "category": "learning",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-10"
+    },
+    {
+      "content": "Set up AWS CLI with profiles for different environments",
+      "category": "setup",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-05"
+    },
+    {
+      "content": "Configure terminal environment with zsh, tmux, and neovim",
+      "category": "setup",
+      "priority": "medium",
+      "completed": true,
+      "completedDate": "2025-05-01"
+    },
+    {
+      "content": "Create GitHub repository structure for AWS Infrastructure project",
+      "category": "project",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-07"
+    },
+    {
+      "content": "Create initial VPC architecture in AWS",
+      "category": "project",
+      "priority": "high",
+      "completed": true,
+      "completedDate": "2025-05-12"
+    },
+    {
+      "content": "Document security architecture and decisions",
+      "category": "documentation",
+      "priority": "medium",
+      "completed": true,
+      "completedDate": "2025-05-14"
+    },
+    {
+      "content": "Set up Clay CRM account and import LinkedIn connections",
+      "category": "networking",
+      "priority": "medium",
+      "completed": true,
+      "completedDate": "2025-05-08"
+    },
+    {
+      "content": "Complete AWS Security & IAM modules in SAA course",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-05-25"
+    },
+    {
+      "content": "Implement IAM roles and policies with least privilege",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-05-30"
+    },
+    {
+      "content": "Set up AWS CloudTrail with secure logging",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-06-05"
+    },
+    {
+      "content": "Complete Terraform: Up & Running chapters 1-5",
+      "category": "learning",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-06-15"
+    },
+    {
+      "content": "Convert existing AWS infrastructure to Terraform",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-06-30"
+    },
+    {
+      "content": "Create reusable Terraform modules for financial services",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-07-15"
+    },
+    {
+      "content": "Set up automated compliance checking with AWS Config",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-07-30"
+    },
+    {
+      "content": "Schedule and take AWS SAA certification exam",
+      "category": "certification",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-08-15"
+    },
+    {
+      "content": "Connect with 50 AWS/DevOps professionals on LinkedIn",
+      "category": "networking",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-06-30"
+    },
+    {
+      "content": "Publish article on 'AWS Network Security for Financial Services'",
+      "category": "content",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-07-15"
+    },
+    {
+      "content": "Create DevOps Career Dashboard for progress tracking",
+      "category": "project",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-05-20"
+    },
+    {
+      "content": "Attend AWS or DevOps virtual meetup",
+      "category": "networking",
+      "priority": "medium",
+      "completed": false,
+      "due": "2025-06-30"
+    },
+    {
+      "content": "Complete CI/CD pipeline project with security scanning",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "due": "2025-09-15"
+    }
+  ],
+  "learningResources": [
+    {
+      "id": "res-aws-saa-1",
+      "name": "AWS Solutions Architect Associate - Adrian Cantrill",
+      "type": "course",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 35,
+      "url": "https://cantrill.io/",
+      "provider": "Adrian Cantrill",
+      "description": "Comprehensive course for the AWS SAA certification with deep technical focus",
+      "targetMonth": "July 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "res-terraform-1",
+      "name": "Terraform: Up & Running, 3rd Edition",
+      "type": "book",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 20,
+      "url": "https://www.terraformupandrunning.com/",
+      "provider": "Yevgeniy Brikman",
+      "description": "Comprehensive guide to Terraform best practices",
+      "targetMonth": "June 2025",
+      "dateAdded": "2025-05-05"
+    },
+    {
+      "id": "res-aws-well-arch-1",
+      "name": "AWS Well-Architected Framework",
+      "type": "documentation",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 40,
+      "url": "https://aws.amazon.com/architecture/well-architected/",
+      "provider": "AWS",
+      "description": "Best practices for building applications in the cloud",
+      "targetMonth": "May 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "res-aws-security-1",
+      "name": "AWS Security Best Practices",
+      "type": "whitepaper",
+      "priority": "high",
+      "status": "In Progress",
+      "progress": 25,
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-security-best-practices/",
+      "provider": "AWS",
+      "description": "Security principles and best practices for AWS",
+      "targetMonth": "May 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "res-github-actions-1",
+      "name": "GitHub Actions Documentation",
+      "type": "documentation",
+      "priority": "medium",
+      "status": "Scheduled",
+      "progress": 0,
+      "url": "https://docs.github.com/en/actions",
+      "provider": "GitHub",
+      "description": "Setting up CI/CD pipelines with GitHub Actions",
+      "targetMonth": "August 2025",
+      "dateAdded": "2025-05-01"
+    },
+    {
+      "id": "res-devops-handbook-1",
+      "name": "The DevOps Handbook",
+      "type": "book",
+      "priority": "medium",
+      "status": "Scheduled",
+      "progress": 0,
+      "url": "https://itrevolution.com/book/the-devops-handbook/",
+      "provider": "Gene Kim et al.",
+      "description": "Guide to implementing DevOps principles",
+      "targetMonth": "September 2025",
+      "dateAdded": "2025-05-01"
+    }
+  ],
+  "networking": {
+    "totalConnections": 75,
+    "activeConversations": 5,
+    "weeklyOutreach": 0,
+    "followUps": 0,
+    "lastUpdate": "2025-05-15"
+  },
+  "clayMetrics": {
+    "newConnections": 25,
+    "connectionAcceptanceRate": 65,
+    "contentPieces": 1,
+    "engagementRate": 15,
+    "followUpsSent": 8,
+    "responseRate": 35
+  },
+  "schedule": {
+    "type": "fullTime",
+    "hoursPerWeek": 50,
+    "timeAllocation": {
+      "learning": 25,
+      "projects": 12.5,
+      "networking": 7.5,
+      "content": 5,
+      "total": 50
+    },
+    "dailySchedule": {
+      "Monday": [
+        { "time": "8:00 AM - 10:00 AM", "activity": "AWS SAA Course - Security Modules", "category": "Learning" },
+        { "time": "10:30 AM - 12:30 PM", "activity": "AWS Infrastructure Project - IAM Implementation", "category": "Projects" },
+        { "time": "1:30 PM - 3:30 PM", "activity": "Terraform Study - Modules and State Management", "category": "Learning" },
+        { "time": "4:00 PM - 5:00 PM", "activity": "LinkedIn Networking - DevOps Professionals", "category": "Networking" }
+      ],
+      "Tuesday": [
+        { "time": "8:00 AM - 10:00 AM", "activity": "AWS SAA Course - Networking Modules", "category": "Learning" },
+        { "time": "10:30 AM - 12:30 PM", "activity": "AWS Infrastructure Project - VPC Enhancement", "category": "Projects" },
+        { "time": "1:30 PM - 3:30 PM", "activity": "Linux Administration Practice", "category": "Learning" },
+        { "time": "4:00 PM - 5:00 PM", "activity": "Review & Planning", "category": "Learning" }
+      ],
+      "Wednesday": [
+        { "time": "8:00 AM - 10:00 AM", "activity": "AWS SAA Course - Database Modules", "category": "Learning" },
+        { "time": "10:30 AM - 12:30 PM", "activity": "Terraform Conversion Work", "category": "Projects" },
+        { "time": "1:30 PM - 3:30 PM", "activity": "AWS Well-Architected Framework Study", "category": "Learning" },
+        { "time": "4:00 PM - 5:00 PM", "activity": "Tech Community Engagement", "category": "Networking" }
+      ],
+      "Thursday": [
+        { "time": "8:00 AM - 10:00 AM", "activity": "Terraform: Up & Running Book", "category": "Learning" },
+        { "time": "10:30 AM - 12:30 PM", "activity": "CI/CD Pipeline Implementation", "category": "Projects" },
+        { "time": "1:30 PM - 3:30 PM", "activity": "AWS Security Documentation Review", "category": "Learning" },
+        { "time": "4:00 PM - 5:00 PM", "activity": "Technical Blog Writing", "category": "Content" }
+      ],
+      "Friday": [
+        { "time": "8:00 AM - 10:00 AM", "activity": "AWS SAA Practice Exams", "category": "Learning" },
+        { "time": "10:30 AM - 12:30 PM", "activity": "Infrastructure Project Refinement", "category": "Projects" },
+        { "time": "1:30 PM - 3:30 PM", "activity": "Scripting & Automation Practice", "category": "Learning" },
+        { "time": "4:00 PM - 5:00 PM", "activity": "Weekly Review & Planning", "category": "Learning" }
+      ],
+      "Saturday": [
+        { "time": "9:00 AM - 11:00 AM", "activity": "Technical Blog Writing & Content Creation", "category": "Content" },
+        { "time": "1:00 PM - 3:00 PM", "activity": "Open Source Contribution - Infrastructure Projects", "category": "Projects" }
+      ],
+      "Sunday": [
+        { "time": "2:00 PM - 4:00 PM", "activity": "Weekly Planning & Goal Review", "category": "Learning" },
+        { "time": "4:00 PM - 5:00 PM", "activity": "LinkedIn Networking & Follow-ups", "category": "Networking" }
+      ]
+    }
+  },
+  "tasks": {
+    "onetime": [
+      {
+        "id": "task-1",
+        "content": "Schedule AWS SAA certification exam",
+        "category": "certification",
+        "priority": "high",
+        "completed": false,
+        "due": "2025-06-15"
+      },
+      {
+        "id": "task-2",
+        "content": "Create portfolio website for DevOps projects",
+        "category": "project",
+        "priority": "medium",
+        "completed": false,
+        "due": "2025-06-30"
+      },
+      {
+        "id": "task-3",
+        "content": "Join AWS and DevOps community forums",
+        "category": "networking",
+        "priority": "medium",
+        "completed": false,
+        "due": "2025-05-30"
+      },
+      {
+        "id": "task-4",
+        "content": "Set up monitoring dashboard for personal projects",
+        "category": "project",
+        "priority": "medium",
+        "completed": false,
+        "due": "2025-07-15"
+      },
+      {
+        "id": "task-5",
+        "content": "Complete Terraform: Up & Running exercises",
+        "category": "learning",
+        "priority": "high",
+        "completed": false,
+        "due": "2025-06-30"
+      }
+    ],
+    "recurring": {
+      "daily": [
+        {
+          "id": "task-daily-1",
+          "content": "Review AWS flashcards for 15 minutes",
+          "category": "learning",
+          "priority": "medium",
+          "completed": false
+        },
+        {
+          "id": "task-daily-2",
+          "content": "Practice Linux command line skills",
+          "category": "skill",
+          "priority": "medium",
+          "completed": false
+        },
+        {
+          "id": "task-daily-3",
+          "content": "Update daily progress log",
+          "category": "career",
+          "priority": "medium",
+          "completed": false
+        }
+      ],
+      "weekly": [
+        {
+          "id": "task-weekly-1",
+          "content": "Complete one AWS hands-on lab",
+          "category": "learning",
+          "priority": "high",
+          "completed": false
+        },
+        {
+          "id": "task-weekly-2",
+          "content": "Update LinkedIn profile and activity",
+          "category": "networking",
+          "priority": "medium",
+          "completed": false
+        },
+        {
+          "id": "task-weekly-3",
+          "content": "Connect with 5 DevOps professionals on LinkedIn",
+          "category": "networking",
+          "priority": "medium",
+          "completed": false
+        },
+        {
+          "id": "task-weekly-4",
+          "content": "Update infrastructure project documentation",
+          "category": "project",
+          "priority": "medium",
+          "completed": false
+        },
+        {
+          "id": "task-weekly-5",
+          "content": "Complete weekly reflection and review",
+          "category": "career",
+          "priority": "high",
+          "completed": false
+        }
+      ],
+      "monthly": [
+        {
+          "id": "task-monthly-1",
+          "content": "Take AWS practice exam",
+          "category": "certification",
+          "priority": "high",
+          "completed": false
+        },
+        {
+          "id": "task-monthly-2",
+          "content": "Publish technical blog post",
+          "category": "content",
+          "priority": "medium",
+          "completed": false
+        },
+        {
+          "id": "task-monthly-3",
+          "content": "Attend DevOps virtual meetup",
+          "category": "networking",
+          "priority": "medium",
+          "completed": false
+        },
+        {
+          "id": "task-monthly-4",
+          "content": "Review and update career roadmap",
+          "category": "career",
+          "priority": "high",
+          "completed": false
+        },
+        {
+          "id": "task-monthly-5",
+          "content": "Research new DevOps tools and trends",
+          "category": "learning",
+          "priority": "medium",
+          "completed": false
+        }
+      ]
+    }
+  },
+  "roadmap": {
+    "title": "DevOps Engineer Roadmap - Financial Services Specialization",
+    "description": "Comprehensive 18-month roadmap to become a top DevOps engineer specializing in financial services",
+    "phases": [
+      {
+        "id": "phase-1",
+        "name": "Core AWS & IaC Foundation",
+        "description": "Build foundational AWS knowledge and infrastructure as code skills with financial services focus",
+        "duration": "4 months",
+        "startDate": "2025-05-01",
+        "endDate": "2025-08-31",
+        "progress": 15,
+        "milestones": [
+          "AWS Solutions Architect Associate Certification",
+          "Complete secure AWS infrastructure project",
+          "Master Terraform fundamentals",
+          "Build compliance-focused infrastructure modules"
+        ],
+        "status": "In Progress"
+      },
+      {
+        "id": "phase-2",
+        "name": "DevOps Implementation & Job Preparation",
+        "description": "Master CI/CD, container basics, and prepare for employment",
+        "duration": "2 months",
+        "startDate": "2025-09-01",
+        "endDate": "2025-10-31",
+        "progress": 0,
+        "milestones": [
+          "Build comprehensive CI/CD pipeline project",
+          "HashiCorp Terraform Associate Certification",
+          "Create container security platform",
+          "Deploy portfolio and prepare job materials"
+        ],
+        "status": "Planned"
+      },
+      {
+        "id": "phase-3",
+        "name": "Initial Employment & Specialization",
+        "description": "Excel in first DevOps role while continuing certification path",
+        "duration": "6 months",
+        "startDate": "2025-11-01",
+        "endDate": "2026-04-30",
+        "progress": 0,
+        "milestones": [
+          "Secure mid-level DevOps position",
+          "AWS DevOps Professional Certification",
+          "Lead infrastructure automation initiatives",
+          "Develop Kubernetes expertise"
+        ],
+        "status": "Future"
+      },
+      {
+        "id": "phase-4",
+        "name": "Advanced Specialization & Leadership",
+        "description": "Pursue advanced certifications and position for senior roles",
+        "duration": "6 months",
+        "startDate": "2026-05-01",
+        "endDate": "2026-10-31",
+        "progress": 0,
+        "milestones": [
+          "AWS Security Specialty or CKA certification",
+          "Lead cross-team DevOps initiatives",
+          "Mentor junior team members",
+          "Position for senior DevOps role"
+        ],
+        "status": "Future"
+      }
+    ]
+  },
+  "backupConfig": {
+    "enabled": true,
+    "frequency": "daily",
+    "retention": 30,
+    "lastBackup": "2025-05-15T14:00:00Z"
+  },
+  "scheduleMode": {
+    "current": "fullTime",
+    "options": ["fullTime", "partTime", "weekend"],
+    "partTimeConfig": {
+      "hoursPerWeek": 20,
+      "timeAllocation": {
+        "learning": 10,
+        "projects": 5,
+        "networking": 3,
+        "content": 2,
+        "total": 20
+      }
+    }
+  }
+}
