@@ -18,8 +18,8 @@ const SALT_LENGTH = 64;
 const TAG_LENGTH = 16;
 const ENCODING = 'hex';
 
-// Config file path for fallback storage
-const CONFIG_DIR = path.join(__dirname, '..', 'src', 'data');
+// Config file path for fallback storage - use a directory outside src to avoid reload issues
+const CONFIG_DIR = path.join(__dirname, '..', '.secure');
 const ENCRYPTED_CONFIG_PATH = path.join(CONFIG_DIR, 'secure-config.enc');
 
 // Ensure config directory exists

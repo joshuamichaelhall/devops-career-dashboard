@@ -2,14 +2,14 @@
 # Restore Personal Dashboard Data
 # This script restores your personal dashboard data from a private git repository
 
-PERSONAL_REPO_DIR="personal-data-repo"
+PERSONAL_REPO_DIR="devops-dashboard-personal-data"
 DATA_DIR="dashboard/src/data"
 
 # Check if personal repo exists
 if [ ! -d "$PERSONAL_REPO_DIR" ]; then
     echo "❌ Personal data repository not found at $PERSONAL_REPO_DIR"
     echo "You may need to clone it first:"
-    echo "git clone git@github.com:YOUR-USERNAME/devops-dashboard-personal-data.git personal-data-repo"
+    echo "git clone git@github.com:YOUR-USERNAME/devops-dashboard-personal-data.git devops-dashboard-personal-data"
     exit 1
 fi
 

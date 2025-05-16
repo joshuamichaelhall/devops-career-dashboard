@@ -42,6 +42,8 @@ Thumbs.db
 /src/data/clay-config.json
 /dashboard/src/data/data.json
 /dashboard/src/data/clay-config.json
+/dashboard/.secure
+**/.secure
 
 # Backups of personal data
 /src/data/backups/*.json
@@ -55,4 +57,4 @@ Thumbs.db
 .temp
 
 # Personal data repository (nested git repo)
-/personal-data-repo
+/devops-dashboard-personal-data

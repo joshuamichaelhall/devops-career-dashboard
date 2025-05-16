@@ -31,9 +31,20 @@ echo "   - Using incognito/private mode"
 echo "   - Running ./force-reset.sh"
 echo ""
 
-# Create .env.development file to ensure React uses port 3000
+# Move to dashboard directory and set up environment
 cd dashboard
-echo "Creating .env.development file for React..."
+
+# Create .env file with all necessary configurations
+echo "Creating environment configuration..."
+cat > .env << EOF
+NODE_ENV=development
+REACT_APP_API_URL=http://localhost:3005/api
+PORT=3005
+REQUIRE_HTTPS=false
+ENABLE_RATE_LIMITING=false
+EOF
+
+# Create .env.development to ensure React uses port 3000
 cat > .env.development << EOF
 PORT=3000
 EOF
@@ -44,9 +55,9 @@ echo "   - Frontend will be available at: http://localhost:3000"
 echo "   - API server will be available at: http://localhost:3005"
 echo ""
 
-# Set PORT=3005 for the API server but let React use its own PORT=3000
-export PORT=3005
-./start-dashboard.sh
+# Run dev command directly to avoid port configuration conflicts
+# Disable file watching optimization that may cause reload loops
+WATCHPACK_POLLING=true CHOKIDAR_USEPOLLING=true npm run dev
 
 echo ""
 echo "====================================================="

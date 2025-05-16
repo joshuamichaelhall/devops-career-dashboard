@@ -2,14 +2,14 @@
 # Sync Personal Dashboard Data
 # This script syncs your personal dashboard data to a private git repository
 
-PERSONAL_REPO_DIR="personal-data-repo"
+PERSONAL_REPO_DIR="devops-dashboard-personal-data"
 DATA_DIR="dashboard/src/data"
 
 # Check if personal repo exists
 if [ ! -d "$PERSONAL_REPO_DIR" ]; then
     echo "❌ Personal data repository not found at $PERSONAL_REPO_DIR"
     echo "Please set up your personal data repository first."
-    echo "See personal-data-repo/README.md for instructions."
+    echo "See devops-dashboard-personal-data/README.md for instructions."
     exit 1
 fi
 

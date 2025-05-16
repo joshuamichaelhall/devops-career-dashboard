@@ -233,7 +233,7 @@ Sync your personal data across devices using a separate private git repository:
 
 1. **Initial Setup**
    ```bash
-   cd personal-data-repo
+   cd devops-dashboard-personal-data
    git init
    git remote add origin git@github.com:YOUR-USERNAME/devops-dashboard-personal-data.git
    git push -u origin main
@@ -246,11 +246,11 @@ Sync your personal data across devices using a separate private git repository:
 
 3. **Restore on Another Device**
    ```bash
-   git clone git@github.com:YOUR-USERNAME/devops-dashboard-personal-data.git personal-data-repo
+   git clone git@github.com:YOUR-USERNAME/devops-dashboard-personal-data.git devops-dashboard-personal-data
    ./restore-personal-data.sh
    ```
 
-See [personal-data-repo/README.md](personal-data-repo/README.md) for detailed instructions.
+See [devops-dashboard-personal-data/README.md](devops-dashboard-personal-data/README.md) for detailed instructions.
 
 ### Option 3: Cloud Sync
 Use the built-in cloud sync feature (requires configuration).
